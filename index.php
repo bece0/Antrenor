@@ -2,11 +2,16 @@
 
     include 'head.php';
     include 'nav.php';
+    include 'database/database.php';
    // var_dump($_SESSION);
     if(!$kullanici_giris_yapti_mi){
         header('Location: login.php'); 
    }
 
+   $sporcu_listesi = array();
+   $antrenor_id=  $_SESSION["kullanici_id"];
+   $sporcu_listesi= SporculariGetir($antrenor_id);
+  //var_dump( $sporcu_listesi);
 ?>
 
 <link rel="stylesheet" href="assets/index.css">
@@ -34,36 +39,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
 
-                        <td><a href="sporcu_sayfasi.php"><img src="files/images/logo.jpg"
-                                    style="margin-bottom:5px;border-radius:1000px;width:20%"></a> </td>
-                        <td>Begüm ÇELEBİ</td>
-                        <td>Klasik Yay</td>
-                        <td>Yıldızlar</td>
-                        <!-- <td class="text-right"><button class="btn btn-sm btn-info"><i class="fa fa-pencil"></i> </button> </td> -->
-                    </tr>
-                    <tr>
-
-                        <td><a href="sporcu_sayfasi.php"><img src="files/images/logo.jpg"
-                                    style="margin-bottom:5px;border-radius:1000px;width:20%"></a> </td>
-                        <td>Begüm ÇELEBİ</td>
-                        <td>Makaralı Yay</td>
-
-                        <td>Büyük</td>
-                        <!-- <td class="text-right"><button class="btn btn-sm btn-info"><i class="fa fa-pencil"></i> </button> </td> -->
-                    </tr>
-                    <tr>
-
-                        <td><a href="sporcu_sayfasi.php"><img src="files/images/logo.jpg"
-                                    style="margin-bottom:5px;border-radius:1000px;width:20%"></a> </td>
-                        <td>Begüm ÇELEBİ</td>
-                        <td>Klasik Yay</td>
-
-                        <td>Genç</td>
-                        <!-- <td class="text-right"><button class="btn btn-sm btn-info"><i class="fa fa-pencil"></i> </button> </td> -->
-                    </tr>
-
+                <?php 
+                    $sporcu_sayisi=count($sporcu_listesi);
+ 
+                    for($i=0 ; $i < $sporcu_sayisi; $i++){ ?>
+                        <tr>                       
+                            <td><a href="sporcu_sayfasi.php"><img src="files/images/logo.jpg"
+                                        style="margin-bottom:5px;border-radius:1000px;width:20%"></a> </td>
+                            <td><?php echo $sporcu_listesi[$i]['ad']." ".$sporcu_listesi[$i]['soyad']  ?></td>
+                            <td><?php echo $sporcu_listesi[$i]['kategori'] ?></td>
+                            <td><?php echo $sporcu_listesi[$i]['yas_grubu'] ?></td>
+                            <!-- <td class="text-right"><button class="btn btn-sm btn-info"><i class="fa fa-pencil"></i> </button> </td> -->
+                        </tr>
+                    <?php } ?>
 
                 </tbody>
             </table>
