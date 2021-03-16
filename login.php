@@ -1,3 +1,10 @@
+<?php 
+     $kullanici_giris_yapti_mi = isset($_SESSION["kullanici_id"]);
+    if($kullanici_giris_yapti_mi){
+        header('Location: index.php'); 
+   }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -35,11 +42,11 @@
                 <form action="action/login_action.php" method="post">
                     <div class="form-group">
                         <label>E-mail Adresi</label>
-                        <input type="text" class="form-control" placeholder="E-mail">
+                        <input type="text" class="form-control" name="email" placeholder="E-mail" required>
                     </div>
                     <div class="form-group">
                         <label>Parola</label>
-                        <input type="password" class="form-control" placeholder="Parola">
+                        <input type="password" class="form-control" name="pwd" placeholder="Parola" required>
                     </div>
                     <button type="submit" class="btn btn-black">Giriş</button>
 

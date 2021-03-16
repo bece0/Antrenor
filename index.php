@@ -1,6 +1,11 @@
 <?php 
+
     include 'head.php';
     include 'nav.php';
+   // var_dump($_SESSION);
+    if(!$kullanici_giris_yapti_mi){
+        header('Location: login.php'); 
+   }
 
 ?>
 
