@@ -10,4 +10,11 @@
 
     }
 
+    function SporcuBilgileriGetir($sporcu_no){
+    $sql = "SELECT  * FROM sporcu WHERE sporcu_no= '$sporcu_no'" ;
+        return SQLTekliKayitGetir($sql);
+
+    }
+
+
 ?>

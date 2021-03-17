@@ -13,8 +13,8 @@
         
         //$password = password_hash($password, PASSWORD_BCRYPT);
 
-        $sql = "INSERT INTO antrenor (kodu, adi, soyadi, email, parola, salt, kayit_tarihi, admin)
-        VALUES ('$kodu', '$name', '$surname', '$email', '$password', '$salt', CURDATE(), '$kullaniciTip' )";
+        $sql = "INSERT INTO antrenor (id, adi, soyadi, email, parola)
+        VALUES ('$kodu', '$name', '$surname', '$email', '$password' )";
 
         $con = BAGLANTI_GETIR();
 

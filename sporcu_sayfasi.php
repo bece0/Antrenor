@@ -1,19 +1,14 @@
 <?php 
     include 'head.php';
     include 'nav.php';
+    include 'database/database.php';
+
+    $sporcu_no = $_GET["sporcu"]; //var_dump(  $sporcu_no);
+    $sporcu_bilgileri = SporcuBilgileriGetir($sporcu_no); var_dump($sporcu_bilgileri);
 
 ?>
 
 <div class="container">
-
-
-    <meta name="viewport" content="width = device-width, initial-scale = 1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
-    </script>
-
     <br>
 
     <div class="row">
@@ -178,20 +173,20 @@
         <div id="puan" class="col s12">
             <br>
             <div class="card row mx-2 mb-3">
-            <br>
+                <br>
                 <h4>Puan Durumu</h4>
             </div>
         </div>
         <div id="yarisma" class="col s12">
             <br>
             <div class="card row mx-2 mb-3">
-            <br>
+                <br>
                 <h4>Yarışma Dereceleri </h4>
             </div>
             <div id="antrenman" class="col s12">
                 <br>
                 <div class="card row mx-2 mb-3">
-                <br>
+                    <br>
                     <h4> Antrenman Programı </h4>
                 </div>
             </div>

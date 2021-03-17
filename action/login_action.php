@@ -28,7 +28,8 @@
                 echo "kullanıcı parolası yanlış";
                 header('Location: ../login.php');             
                 $_SESSION["_error"] = "Giriş bilgileri geçersiz!";
-      
+               
+              
             }
         }
     
