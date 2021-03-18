@@ -10,10 +10,17 @@
 
     }
 
-    function SporcuBilgileriGetir($sporcu_no){
-        $sql = "SELECT  * FROM sporcu WHERE sporcu_no= '$sporcu_no'" ; 
-        return SQLTekliKayitGetir($sql); 
-        
+    
+function SporcuBilgileriGetir($sporcu_no){
+    $sql = "SELECT  * FROM sporcu WHERE sporcu_no= '$sporcu_no'" ; 
+    
+    $con = BAGLANTI_GETIR();
+    $result = $con->query($sql); 
+
+    if ($result != NULL && $result->num_rows > 0) 
+        return mysqli_fetch_assoc($result);
+    else
+        return NULL;
 }
 
 

@@ -18,7 +18,7 @@
 <section class="jumbotron text-center">
     <div class="container">
         <center>
-            <h3 class="jumbotron-heading">SPORCU LİSTESİ</h3>
+            <h4 class="jumbotron-heading">SPORCU LİSTESİ</h4>
         </center>
     </div>
 </section>

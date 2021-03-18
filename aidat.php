@@ -10,7 +10,7 @@
     <section class="jumbotron text-center">
         <div class="container">
             <center>
-                <h3 class="jumbotron-heading"> 2021 AİDAT TABLOSU</h3>
+                <h4 class="jumbotron-heading"> 2021 AİDAT TABLOSU</h4>
             </center>
         </div>
     </section>
