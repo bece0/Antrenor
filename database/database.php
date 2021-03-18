@@ -154,14 +154,13 @@
 
     function SQLTekliKayitGetir($sql_sorgusu){
         $con = BAGLANTI_GETIR();
-        $result = $con->query($sql_sorgusu);
+        $result = $con->query($sql_sorgusu);  var_dump($result);
         
         if ($result != NULL && $result->num_rows > 0) 
             return mysqli_fetch_assoc($result);
         else
             return NULL;
     }
-
 
     include 'antrenor_repo.php';
     include 'sporcu_repo.php';

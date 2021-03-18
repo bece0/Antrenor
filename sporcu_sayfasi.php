@@ -4,7 +4,7 @@
     include 'database/database.php';
 
     $sporcu_no = $_GET["sporcu"]; //var_dump(  $sporcu_no);
-    $sporcu_bilgileri = SporcuBilgileriGetir($sporcu_no); var_dump($sporcu_bilgileri);
+    $sporcu_bilgileri = SporcuBilgileriGetir($sporcu_no); //var_dump($sporcu_bilgileri);
 
 ?>
 
@@ -28,36 +28,46 @@
 
                 <div class="card-body">
                     <br>
-                    <h4>Kişisel Bilgiler</h4>
+                    <h5> Kişisel Bilgiler</h5>
                     <table>
                         <thead>
                             <tr>
                                 <th data-field="1"></th>
                                 <th data-field="2"></th>
                                 <th data-field="3"></th>
+               
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
-                                <td>Ad Soyad :</td>
-                                <td>Begüm Çelebi</td>
-                                <td>Edit</td>
+                             
+                                <td><i class="material-icons">account_circle</i></td>
+                                <td> Ad Soyad :</td>
+                                <td><?php $sporcu_bilgileri["ad"]." ".$sporcu_bilgileri["soyad"] ?></td>
+                                <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
-                                <td>Doğum Tarihi :</td>
-                                <td>14.07.1996</td>
-                                <td>Edit</td>
+                              
+                                <td><i class="material-icons">wc</i></td>
+                                <td> Cinsiyet :</td>
+                                <td><?php $sporcu_bilgileri["cinsiyet"] ?></td>
+                                <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
-                                <td>Cinsiyet :</td>
-                                <td>Kadın</td>
-                                <td>Edit</td>
+                              
+                                <td><i class="material-icons">cake</i></td>
+                                <td> Doğum Tarihi :</td>
+                                <td><?php $sporcu_bilgileri["dogum_tarihi"] ?></td>
+                                <!-- <td>Edit</td> -->
                             </tr>
+
                             <tr>
-                                <td>Tel No :</td>
-                                <td>+9779861106179</td>
-                                <td>Edit</td>
+                              
+                                <td><i class="material-icons">phone</i></td>
+                                <td> Tel No :</td>
+                                <td><?php $sporcu_bilgileri["tel_no"] ?></td>
+                                <!-- <td>Edit</td> -->
                             </tr>
 
                         </tbody>
@@ -65,109 +75,123 @@
 
 
                     <br>
-                    <h4>Teknik Bilgiler</h4>
+
                     <table>
                         <thead>
+                            <h5> Teknik Bilgiler </h5>
                             <tr>
                                 <th data-field="1"></th>
                                 <th data-field="2"></th>
                                 <th data-field="3"></th>
+                        
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
-                                <td>Kategori:</td>
-                                <td>Klasik Yay</td>
-                                <td>Edit</td>
+                                <td ><i class="material-icons" > dns </i></td>
+                                <td> Kategori:</td>
+                                <td><?php $sporcu_bilgileri["kategori"] ?></td>
+                                <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
-                                <td>Yay Bilgisi:</td>
-                                <td>Hoyt bilmem ne :d</td>
-                                <td>Edit</td>
+                             
+                                <td><i class="material-icons"> looks </i></td>
+                                <td> Yay Bilgisi:</td>
+                                <td><?php $sporcu_bilgileri["yay"] ?></td>
+                                <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
-                                <td>Ok Bilgisi:</td>
-                                <td>x10 - 800</td>
-                                <td>Edit</td>
+                               
+                                <td><i class="material-icons"> looks </i></td>
+                                <td> Yay Sertliği:</td>
+                                <td><?php $sporcu_bilgileri["yay_sertligi"] ?></td>
+                                <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
-                                <td>Kol Boyu:</td>
-                                <td>35 cm</td>
-                                <td>Edit</td>
+                            
+                                <td><i class="material-icons"> swap_horiz </i></td>
+                                <td> Ok Bilgisi:</td>
+                                <td><?php $sporcu_bilgileri["ok"] ?></td>
+                                <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
-                                <td>Yay Sertliği:</td>
-                                <td>28"</td>
-                                <td>Edit</td>
+                          
+                                <td><i class="material-icons"> straighten </i></td>
+                                <td> Kol Boyu:</td>
+                                <td><?php $sporcu_bilgileri["kol_boyu"] ?></td>
+                                <!-- <td>Edit</td> -->
                             </tr>
+
                             <tr>
-                                <td>AtışMesafesi:</td>
-                                <td>70 m</td>
-                                <td>Edit</td>
+                          
+                                <td><i class="material-icons"> track_changes </i> </td>
+                                <td>Atış Mesafesi:</td>
+                                <td><?php $sporcu_bilgileri["atis_mesafesi"] ?></td>
+                                <!-- <td>Edit</td> -->
                             </tr>
 
                         </tbody>
                     </table>
-
+                    <br>
+                    <center>
+                        <div class="col-sm-12 col-md-2 ">
+                            <a class=" waves-light btn cyan darken-4" id="bilgi_duzenle_buton">Düzenle</a>
+                        </div>
+                    </center>
+                    <br>
                     <!-- 
-                    <ul class="collection">
-                        <li class="collection-header">
-                            <h4>Kişisel Bilgiler</h4>
-                        </li>
+                    <ul class=" collection">
+                            <li class="collection-header">
+                                <h4>Kişisel Bilgiler</h4>
+                            </li>
 
-                        <li class="collection-item"><i class="mdi mdi-account icon-sm "></i>
-                            <span class="collection-item-name">Ad Soyad :</span>
-                            <span class="collection-item-detail">Begüm ÇELEBİ</span>
-                            <a href="" class="collection-item-edit">Edit</a></li>
-                        <li class="collection-item"><i class="mdi mdi-cake icon-sm "></i>
-                            <span class="collection-item-name">Doğum Tarihi :</span>
-                            <span class="collection-item-detail">14.07.1996</span>
-                            <a href="" class="collection-item-edit">Edit</a></li>
-                        <li class="collection-item"><i class="mdi mdi-account icon-sm "></i>
-                            <span class="collection-item-name">Cinsiyet:</span><span
-                                class="collection-item-detail">Kadın</span>
-                            <a href="" class="collection-item-edit">Edit</a></li>
-                        <li class="collection-item"><i class="mdi mdi-phone icon-sm "></i>
-                            <span class="collection-item-name">Tel No :</span><span
-                                class="collection-item-detail">+9779861106179</span>
-                            <a href="" class="collection-item-edit">Edit</a></li></span>
+                            <li class="collection-item"><i class="mdi mdi-account icon-sm "></i>
+                                <span class="collection-item-name">Ad Soyad :</span>
+                                <span class="collection-item-detail">Begüm ÇELEBİ</span>
+                                <a href="" class="collection-item-edit">Edit</a></li>
+                            <li class="collection-item"><i class="mdi mdi-cake icon-sm "></i>
+                                <span class="collection-item-name">Doğum Tarihi :</span>
+                                <span class="collection-item-detail">14.07.1996</span>
+                                <a href="" class="collection-item-edit">Edit</a></li>
+                            <li class="collection-item"><i class="mdi mdi-account icon-sm "></i>
+                                <span class="collection-item-name">Cinsiyet:</span><span
+                                    class="collection-item-detail">Kadın</span>
+                                <a href="" class="collection-item-edit">Edit</a></li>
+                            <li class="collection-item"><i class="mdi mdi-phone icon-sm "></i>
+                                <span class="collection-item-name">Tel No :</span><span
+                                    class="collection-item-detail">+9779861106179</span>
+                                <a href="" class="collection-item-edit">Edit</a></li></span>
 
-                        <li class="collection-header">
-                            <h4>Teknik Bilgiler</h4>
-                        </li>
+                            <li class="collection-header">
+                                <h4>Teknik Bilgiler</h4>
+                            </li>
 
-                        <li class="collection-items"><i class="mdi mdi-looks "></i>
-                            <span class="collection-item-name"> Yay Bilgisi:</span>
-                            <span class="collection-item-detail">Hoyt bilmem ne :d</span>
-                            <a href="" class="collection-item-edit">Edit</a></li>
-                        <li class="collection-items"><i class="mdi mdi-chevron-double-right "></i>
-                            <span class="collection-item-name"> Ok Bilgisi:</span>
-                            <span class="collection-item-detail"> x10 - 800 </span>
-                            <a href="" class="collection-item-edit">Edit</a></li>
-                        <li class="collection-items"><i class="mdi mdi-ruler "></i>
-                            <span class="collection-item-name">Kol Boyu:</span>
-                            <span class="collection-item-detail"> 35 cm</span>
-                            <a href="" class="-collectionut-item-edit">Edit</a></li>
-                        <li class="collection-items"><i class="mdi mdi-weight-kilogram "></i>
-                            <span class="collection-item-name">Yay Sertliği</span>
-                            <span class="collection-item-detail">28"</span>
-                            <a href="" class="collection-item-edit">Edit</a></li>
-                        <li class="collection-items"><i class="mdi mdi-bullseye"></i>
-                            <span class="collection-item-name">AtışMesafesi:</span>
-                            <span class="collection-item-detail">70 m</span>
-                            <a href="" class="collection-item-edit">Edit</a></li>
+                            <li class="collection-items"><i class="mdi mdi-looks "></i>
+                                <span class="collection-item-name"> Yay Bilgisi:</span>
+                                <span class="collection-item-detail">Hoyt bilmem ne :d</span>
+                                <a href="" class="collection-item-edit">Edit</a></li>
+                            <li class="collection-items"><i class="mdi mdi-chevron-double-right "></i>
+                                <span class="collection-item-name"> Ok Bilgisi:</span>
+                                <span class="collection-item-detail"> x10 - 800 </span>
+                                <a href="" class="collection-item-edit">Edit</a></li>
+                            <li class="collection-items"><i class="mdi mdi-ruler "></i>
+                                <span class="collection-item-name">Kol Boyu:</span>
+                                <span class="collection-item-detail"> 35 cm</span>
+                                <a href="" class="-collectionut-item-edit">Edit</a></li>
+                            <li class="collection-items"><i class="mdi mdi-weight-kilogram "></i>
+                                <span class="collection-item-name">Yay Sertliği</span>
+                                <span class="collection-item-detail">28"</span>
+                                <a href="" class="collection-item-edit">Edit</a></li>
+                            <li class="collection-items"><i class="mdi mdi-bullseye"></i>
+                                <span class="collection-item-name">AtışMesafesi:</span>
+                                <span class="collection-item-detail">70 m</span>
+                                <a href="" class="collection-item-edit">Edit</a></li>
 
-                    </ul> -->
+                            </ul> -->
 
                 </div>
             </div>
-
-
-
-
-
-
 
         </div>
         <div id="puan" class="col s12">
@@ -194,3 +218,16 @@
     </div>
 
 </div>
+
+<script>
+$(function() {
+
+    $('#bilgi_duzenle_buton').on("click", function() {
+
+        alert("heyy!");
+
+    })
+
+
+})
+</script>
