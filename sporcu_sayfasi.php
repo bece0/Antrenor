@@ -204,6 +204,7 @@
             <div class="card row mx-2 mb-3">
                 <br>
                 <h5 style= "text-align:center">Puan Durumu</h5>
+                
                 <br>
             </div>
         </div>
@@ -212,7 +213,49 @@
             <div class="card row mx-2 mb-3">
                 <br>
                 <h5 style= "text-align:center"> Yarışma Dereceleri  </h5>
-                <br>
+                <table class="table table-striped  table-hover highlight ">
+                <thead>
+                    <tr>
+
+                        <th scope="col"> Yarışma Adı </th>
+                        <th scope="col"> Tarih </th>
+                        <th scope="col"> Sıralama </th>
+                        <th scope="col">Madalya</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+       
+                     
+                        <tr>                     
+                            <td>2020 Açık Hava Türkiye Şampiyonası</td>
+                            <td>14/10/2020</td>
+                            <td>17</td>
+                            <td>-</td>
+                           
+                          
+                        </tr>
+                        <tr>                     
+                            <td>18 Mart Şehitler Türkiye Şampiyonası</td>
+                            <td>18/03/2017</td>
+                            <td>45</td>
+                            <td>-</td>
+                           
+                          
+                        </tr>
+                     
+               
+
+                </tbody>
+            </table>
+            <br>
+                    <center>
+                        <div class="col-sm-12 col-md-2 ">
+                            <a class=" waves-light btn green" id="bilgi_duzenle_buton" href="yarisma_sonucu.php?sporcu=<?php echo $sporcu_no ?>">Ekle</a>
+                        </div>
+                    </center>
+                    <br>
+                
             </div>
             <div id="antrenman" class="col s12">
                 <br>
