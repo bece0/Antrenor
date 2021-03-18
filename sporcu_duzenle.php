@@ -49,30 +49,31 @@
                             <tr >
                                 <td style= "text-align:center"><i class="material-icons">account_circle</i></td>
                                 <td > Ad Soyad :</td>
-                                <td><?php echo $sporcu_bilgileri["ad"]." ".$sporcu_bilgileri["soyad"] ?></td>
-                                <!-- <td>Edit</td> -->
+                                <td> <input value="<?php echo $sporcu_bilgileri["ad"]." ".$sporcu_bilgileri["soyad"] ?>" id="adsoyad" type="text" class="validate"> </td>
+
                             </tr>
                             <tr>
                               
                                 <td style= "text-align:center"><i class="material-icons">wc</i></td>
                                 <td> Cinsiyet :</td>
-                                <td><?php echo $sporcu_bilgileri["cinsiyet"] ?></td>
-                                <!-- <td>Edit</td> -->
+                                <td> <input value="<?php echo $sporcu_bilgileri["cinsiyet"] ?>" id="cinsiyet" type="text" class="validate"> </td>
+
                             </tr>
                             <tr>
                               
                                 <td style= "text-align:center"><i class="material-icons">cake</i></td>
                                 <td> Doğum Tarihi :</td>
-                                <td><?php echo $sporcu_bilgileri["dogum_tarihi"] ?></td>
-                                <!-- <td>Edit</td> -->
+                              
+                                <td> <input value="<?php echo $sporcu_bilgileri["dogum_tarihi"] ?>" id="dogum_tarihi" type="text" class="validate"> </td>
+
                             </tr>
 
                             <tr>
                               
                                 <td style= "text-align:center"><i class="material-icons">phone</i></td>
                                 <td> Tel No :</td>
-                                <td><?php echo $sporcu_bilgileri["tel_no"] ?></td>
-                                <!-- <td>Edit</td> -->
+                                <td> <input value="<?php echo $sporcu_bilgileri["tel_no"] ?>" id="tel_no" type="text" class="validate"> </td>
+                       
                             </tr>
 
                         </tbody>
@@ -96,44 +97,39 @@
                             <tr>
                                 <td style= "text-align:center"><i class="material-icons" > dns </i></td>
                                 <td> Kategori:</td>
-                                <td><?php echo $sporcu_bilgileri["kategori"] ?></td>
-                                <!-- <td>Edit</td> -->
+                                <td> <input value="<?php echo $sporcu_bilgileri["kategori"] ?>" id="kategori" type="text" class="validate"> </td>
+                       
                             </tr>
                             <tr>
                              
                                 <td style= "text-align:center"><i class="material-icons"> looks </i></td>
                                 <td> Yay Bilgisi:</td>
-                                <td><?php echo $sporcu_bilgileri["yay"] ?></td>
-                                <!-- <td>Edit</td> -->
+                                <td> <input value="<?php echo $sporcu_bilgileri["yay"] ?>" id="yay" type="text" class="validate"> </td>
                             </tr>
                             <tr>
                                
                                 <td style= "text-align:center"><i class="material-icons"> looks </i></td>
                                 <td> Yay Sertliği:</td>
-                                <td><?php echo $sporcu_bilgileri["yay_sertligi"] ?></td>
-                                <!-- <td>Edit</td> -->
+                                <td> <input value="<?php echo $sporcu_bilgileri["yay_sertligi"] ?>" id="yay_sertligi" type="text" class="validate"> </td>
                             </tr>
                             <tr>
                             
                                 <td style= "text-align:center"><i class="material-icons"> swap_horiz </i></td>
                                 <td> Ok Bilgisi:</td>
-                                <td><?php echo $sporcu_bilgileri["ok"] ?></td>
-                                <!-- <td>Edit</td> -->
+                                <td> <input value="<?php echo $sporcu_bilgileri["ok"] ?>" id="ok" type="text" class="validate"> </td>
                             </tr>
                             <tr>
                           
                                 <td style= "text-align:center"><i class="material-icons"> straighten </i></td>
                                 <td> Kol Boyu:</td>
-                                <td><?php echo $sporcu_bilgileri["kol_boyu"] ?></td>
-                                <!-- <td>Edit</td> -->
+                                <td> <input value="<?php echo $sporcu_bilgileri["kol_boyu"] ?>" id="kategori" type="text" class="validate"> </td>
                             </tr>
 
                             <tr>
                           
                                 <td style= "text-align:center"><i class="material-icons"> track_changes </i> </td>
                                 <td>Atış Mesafesi:</td>
-                                <td><?php echo $sporcu_bilgileri["atis_mesafesi"] ?></td>
-                                <!-- <td>Edit</td> -->
+                                <td> <input value="<?php echo $sporcu_bilgileri["atis_mesafesi"] ?>" id="atis_mesafesi" type="text" class="validate"> </td>
                             </tr>
 
                         </tbody>
@@ -141,7 +137,7 @@
                     <br>
                     <center>
                         <div class="col-sm-12 col-md-2 ">
-                            <a class=" waves-light btn cyan darken-4" id="bilgi_duzenle_buton" href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
+                            <a class=" waves-light btn cyan darken-4" id="bilgi_duzenle_buton">TAMAMLA</a>
                         </div>
                     </center>
                     <br>
@@ -230,6 +226,11 @@
 <script>
 $(function() {
 
+    $('#bilgi_duzenle_buton').on("click", function() {
+
+        alert("heyy!");
+
+    })
 
 
 })
