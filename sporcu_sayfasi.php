@@ -3,9 +3,14 @@
     include 'nav.php';
     include 'database/database.php';
 
-    $sporcu_bilgileri = array();
+    if(!$kullanici_giris_yapti_mi){
+       header('Location: login.php'); 
+      
+   }
+
+    $sporcu_bilgileri = array(); 
     $sporcu_no =  $_GET["sporcu"]; //var_dump($sporcu_no);
-    $sporcu_bilgileri= SporcuBilgileriGetir($sporcu_no); var_dump($sporcu_bilgileri);
+    $sporcu_bilgileri= SporcuBilgileriGetir($sporcu_no); //var_dump($sporcu_bilgileri);
 
 ?>
 
@@ -44,21 +49,21 @@
                             <tr >
                                 <td style= "text-align:center"><i class="material-icons">account_circle</i></td>
                                 <td > Ad Soyad :</td>
-                                <td><?php $sporcu_bilgileri["ad"]." ".$sporcu_bilgileri["soyad"] ?></td>
+                                <td><?php echo $sporcu_bilgileri["ad"]." ".$sporcu_bilgileri["soyad"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
                               
                                 <td style= "text-align:center"><i class="material-icons">wc</i></td>
                                 <td> Cinsiyet :</td>
-                                <td><?php $sporcu_bilgileri["cinsiyet"] ?></td>
+                                <td><?php echo $sporcu_bilgileri["cinsiyet"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
                               
                                 <td style= "text-align:center"><i class="material-icons">cake</i></td>
                                 <td> Doğum Tarihi :</td>
-                                <td><?php $sporcu_bilgileri["dogum_tarihi"] ?></td>
+                                <td><?php echo $sporcu_bilgileri["dogum_tarihi"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
 
@@ -66,7 +71,7 @@
                               
                                 <td style= "text-align:center"><i class="material-icons">phone</i></td>
                                 <td> Tel No :</td>
-                                <td><?php $sporcu_bilgileri["tel_no"] ?></td>
+                                <td><?php echo $sporcu_bilgileri["tel_no"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
 
@@ -91,35 +96,35 @@
                             <tr>
                                 <td style= "text-align:center"><i class="material-icons" > dns </i></td>
                                 <td> Kategori:</td>
-                                <td><?php $sporcu_bilgileri["kategori"] ?></td>
+                                <td><?php echo $sporcu_bilgileri["kategori"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
                              
                                 <td style= "text-align:center"><i class="material-icons"> looks </i></td>
                                 <td> Yay Bilgisi:</td>
-                                <td><?php $sporcu_bilgileri["yay"] ?></td>
+                                <td><?php echo $sporcu_bilgileri["yay"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
                                
                                 <td style= "text-align:center"><i class="material-icons"> looks </i></td>
                                 <td> Yay Sertliği:</td>
-                                <td><?php $sporcu_bilgileri["yay_sertligi"] ?></td>
+                                <td><?php echo $sporcu_bilgileri["yay_sertligi"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
                             
                                 <td style= "text-align:center"><i class="material-icons"> swap_horiz </i></td>
                                 <td> Ok Bilgisi:</td>
-                                <td><?php $sporcu_bilgileri["ok"] ?></td>
+                                <td><?php echo $sporcu_bilgileri["ok"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
                           
                                 <td style= "text-align:center"><i class="material-icons"> straighten </i></td>
                                 <td> Kol Boyu:</td>
-                                <td><?php $sporcu_bilgileri["kol_boyu"] ?></td>
+                                <td><?php echo $sporcu_bilgileri["kol_boyu"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
 
@@ -127,7 +132,7 @@
                           
                                 <td style= "text-align:center"><i class="material-icons"> track_changes </i> </td>
                                 <td>Atış Mesafesi:</td>
-                                <td><?php $sporcu_bilgileri["atis_mesafesi"] ?></td>
+                                <td><?php echo $sporcu_bilgileri["atis_mesafesi"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
 

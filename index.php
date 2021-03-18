@@ -50,14 +50,14 @@
                         $ad_soyad=  $sporcu['ad']." ".$sporcu['soyad'];
                         $kategori= $sporcu['kategori'];
                         $yas_grubu= $sporcu['yas_grubu'];
-                        $sporcu_no= $sporcu['sporcu_no'];
+                        $sporcu_no= $sporcu['sporcu_no']; 
                         
                         ?>
                      
                         <tr>                     
-                            <td><a href="sporcu_sayfasi.php?sporcu='<?php echo $sporcu_no ?>'">
+                            <td><a href="sporcu_sayfasi.php?sporcu=<?php echo $sporcu_no ?>">
                                   <img src="files/images/logo.jpg" style="margin-bottom:5px;border-radius:1000px;width:20%"></a></td>
-                            <td><?php echo  $ad_soyad  ?></td>
+                            <td><?php echo $ad_soyad  ?></td>
                             <td><?php echo $kategori ?></td>
                             <td><?php echo $yas_grubu ?></td>
                             <!-- <td class="text-right"><button class="btn btn-sm btn-info"><i class="fa fa-pencil"></i> </button> </td> -->
@@ -75,7 +75,7 @@
             <div class="row">
 
                 <div class="col-sm-12 col-md-2 ">
-                <a class=" waves-light btn cyan darken-4" id= "sporcu_kayit_buton"  ">Sporcu Kayıt</a>
+                <a class=" waves-light btn cyan darken-4" id= "sporcu_kayit_buton"  >Sporcu Kayıt</a>
                 </div>
             </div>
         </div>
