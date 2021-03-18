@@ -73,7 +73,7 @@
                     <br>
                     <center>
                         <div class="col-sm-12 col-md-2 ">
-                            <a class=" waves-light btn cyan darken-4" id="kayit_buton">TAMAMLA</a>
+                            <a class=" waves-light btn green" id="kayit_buton">TAMAMLA</a>
                         </div>
                     </center>
                     <br>

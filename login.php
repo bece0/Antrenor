@@ -48,7 +48,7 @@
                         <label>Parola</label>
                         <input type="password" class="form-control" name="pwd" placeholder="Parola" required>
                     </div>
-                    <button type="submit" class="btn btn-black" id="giris_buton">Giriş</button>
+                    <button type="submit" class="btn btn-success" id="giris_buton">Giriş</button>
 
                 </form>
             </div>

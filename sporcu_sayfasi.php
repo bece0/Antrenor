@@ -141,7 +141,7 @@
                     <br>
                     <center>
                         <div class="col-sm-12 col-md-2 ">
-                            <a class=" waves-light btn cyan darken-4" id="bilgi_duzenle_buton" href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
+                            <a class=" waves-light btn green" id="bilgi_duzenle_buton" href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
                         </div>
                     </center>
                     <br>
