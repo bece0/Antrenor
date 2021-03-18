@@ -75,7 +75,7 @@
             <div class="row">
 
                 <div class="col-sm-12 col-md-2 ">
-                <a class=" waves-light btn cyan darken-4" id= "sporcu_kayit_buton"  >Sporcu Kayıt</a>
+                <a class=" waves-light btn cyan darken-4" id= "sporcu_kayit_buton" href="sporcu_kayit.php">Sporcu Kayıt</a>
                 </div>
             </div>
         </div>
@@ -92,13 +92,7 @@
 
 $(function() {
     
-        $('#sporcu_kayit_buton').on("click",function() {
-    
-            alert("heyy!");
-
-    })
-
-
+  
 })
 
 
