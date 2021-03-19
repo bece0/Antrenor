@@ -7,7 +7,7 @@
 
 <div class="navbar-fixed">
 <nav>
-    <div class="nav-wrapper orange darken-1 ">
+    <div class="nav-wrapper orange darken-3 ">
         <a href="index.php" class="brand-logo "> <img src="files/images/logo.png"  style="margin-left:10px;border-radius:1000px;width:60px"> </a>  
 
         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -17,7 +17,7 @@
             <li><a href="aidat.php">Aidat Tablosu</a></li>
 
             <?php if($kullanici_giris_yapti_mi ){ ?>
-            <li><a class="waves-effect waves-light btn  deep-orange darken-1" href="login.php">Çıkış</a></li>
+            <li><a class="waves-effect waves-light btn  orange" href="login.php">Çıkış</a></li>
             <?php } ?>
 
         </ul>
