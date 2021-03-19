@@ -72,12 +72,12 @@
                         </tbody>
                     </table>
 
-
                     <br>
 
+                    <h5 style= "text-align:center"> Teknik Bilgiler </h5>
                     <table>
                         <thead>
-                            <h5 style= "text-align:center"> Teknik Bilgiler </h5>
+                        
                             <tr>
                                 <th data-field="1"></th>
                                 <th data-field="2"></th>
@@ -138,7 +138,7 @@
                 </div>
             </div>
 
-        </div>
+        </div>  <!-- bilgiler -->
 
 
       

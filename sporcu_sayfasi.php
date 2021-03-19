@@ -199,7 +199,8 @@
                 </div>
             </div>
 
-        </div>
+        </div> <!-- bilgiler -->
+
         <div id="puan" class="col s12">
             <br>
             <div class="card row mx-2 mb-3">
@@ -208,7 +209,7 @@
                 <table class="table table-striped  table-hover highlight ">
                     <thead>
                         <tr>
-
+                            <th scope="col"> Antrenman No </th>
                             <th scope="col"> Tarih </th>
                             <th scope="col"> Toplam Puan </th>
 
@@ -218,11 +219,13 @@
 
 
                         <tr>
+                            <td>1</td>
                             <td>19.03.2021</td>
                             <td>250</td>
 
                         </tr>
                         <tr>
+                            <td>2</td>
                             <td>20.03.2021</td>
                             <td>260</td>
 
@@ -243,7 +246,8 @@
 
                 <br>
             </div>
-        </div>
+        </div> <!-- puan -->
+
         <div id="yarisma" class="col s12">
             <br>
             <div class="card row mx-2 mb-3">
@@ -295,7 +299,8 @@
 
             </div>
          
-        </div>
+        </div>  <!-- yarisma -->
+
         <div id="antrenman" class="col s12">
                 <br>
                 <div class="card row mx-2 mb-3">
@@ -303,7 +308,7 @@
                     <h5 style="text-align:center"> Antrenman Programı </h5>
                     <br>
                 </div>
-            </div>
+        </div> <!-- antrenman -->
     </div>
 
 </div>
