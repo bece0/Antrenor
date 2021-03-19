@@ -34,42 +34,42 @@
 
                 <div class="card-body">
                     <br>
-                    <h5 style= "text-align:center"> Kişisel Bilgiler</h5>
+                    <h5 style="text-align:center"> Kişisel Bilgiler</h5>
                     <table>
                         <thead>
                             <tr>
                                 <th data-field="1"></th>
                                 <th data-field="2"></th>
                                 <th data-field="3"></th>
-               
+
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr >
-                                <td style= "text-align:center"><i class="material-icons">account_circle</i></td>
-                                <td > Ad Soyad :</td>
+                            <tr>
+                                <td style="text-align:center"><i class="material-icons">account_circle</i></td>
+                                <td> Ad Soyad :</td>
                                 <td><?php echo $sporcu_bilgileri["ad"]." ".$sporcu_bilgileri["soyad"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
-                              
-                                <td style= "text-align:center"><i class="material-icons">wc</i></td>
+
+                                <td style="text-align:center"><i class="material-icons">wc</i></td>
                                 <td> Cinsiyet :</td>
                                 <td><?php echo $sporcu_bilgileri["cinsiyet"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
-                              
-                                <td style= "text-align:center"><i class="material-icons">cake</i></td>
+
+                                <td style="text-align:center"><i class="material-icons">cake</i></td>
                                 <td> Doğum Tarihi :</td>
                                 <td><?php echo $sporcu_bilgileri["dogum_tarihi"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
 
                             <tr>
-                              
-                                <td style= "text-align:center"><i class="material-icons">phone</i></td>
+
+                                <td style="text-align:center"><i class="material-icons">phone</i></td>
                                 <td> Tel No :</td>
                                 <td><?php echo $sporcu_bilgileri["tel_no"] ?></td>
                                 <!-- <td>Edit</td> -->
@@ -83,54 +83,54 @@
 
                     <table>
                         <thead>
-                            <h5 style= "text-align:center"> Teknik Bilgiler </h5>
+                            <h5 style="text-align:center"> Teknik Bilgiler </h5>
                             <tr>
                                 <th data-field="1"></th>
                                 <th data-field="2"></th>
                                 <th data-field="3"></th>
-                        
+
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
-                                <td style= "text-align:center"><i class="material-icons" > dns </i></td>
+                                <td style="text-align:center"><i class="material-icons"> dns </i></td>
                                 <td> Kategori:</td>
                                 <td><?php echo $sporcu_bilgileri["kategori"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
-                             
-                                <td style= "text-align:center"><i class="material-icons"> looks </i></td>
+
+                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
                                 <td> Yay Bilgisi:</td>
                                 <td><?php echo $sporcu_bilgileri["yay"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
-                               
-                                <td style= "text-align:center"><i class="material-icons"> looks </i></td>
+
+                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
                                 <td> Yay Sertliği:</td>
                                 <td><?php echo $sporcu_bilgileri["yay_sertligi"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
-                            
-                                <td style= "text-align:center"><i class="material-icons"> swap_horiz </i></td>
+
+                                <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
                                 <td> Ok Bilgisi:</td>
                                 <td><?php echo $sporcu_bilgileri["ok"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
-                          
-                                <td style= "text-align:center"><i class="material-icons"> straighten </i></td>
+
+                                <td style="text-align:center"><i class="material-icons"> straighten </i></td>
                                 <td> Kol Boyu:</td>
                                 <td><?php echo $sporcu_bilgileri["kol_boyu"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
 
                             <tr>
-                          
-                                <td style= "text-align:center"><i class="material-icons"> track_changes </i> </td>
+
+                                <td style="text-align:center"><i class="material-icons"> track_changes </i> </td>
                                 <td>Atış Mesafesi:</td>
                                 <td><?php echo $sporcu_bilgileri["atis_mesafesi"] ?></td>
                                 <!-- <td>Edit</td> -->
@@ -141,7 +141,8 @@
                     <br>
                     <center>
                         <div class="col-sm-12 col-md-2 ">
-                            <a class=" waves-light btn green" id="bilgi_duzenle_buton" href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
+                            <a class=" waves-light btn green" id="bilgi_duzenle_buton"
+                                href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
                         </div>
                     </center>
                     <br>
@@ -203,8 +204,43 @@
             <br>
             <div class="card row mx-2 mb-3">
                 <br>
-                <h5 style= "text-align:center">Puan Durumu</h5>
-                
+                <h5 style="text-align:center">Puan Durumu</h5>
+                <table class="table table-striped  table-hover highlight ">
+                    <thead>
+                        <tr>
+
+                            <th scope="col"> Tarih </th>
+                            <th scope="col"> Toplam Puan </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        <tr>
+                            <td>19.03.2021</td>
+                            <td>250</td>
+
+                        </tr>
+                        <tr>
+                            <td>20.03.2021</td>
+                            <td>260</td>
+
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+                <br>
+                <center>
+                    <div class="col-sm-12 col-md-2 ">
+                        <a class=" waves-light btn green" id="bilgi_duzenle_buton"
+                            href="yarisma_sonucu.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
+                    </div>
+                </center>
+                <br>
+
                 <br>
             </div>
         </div>
@@ -212,56 +248,57 @@
             <br>
             <div class="card row mx-2 mb-3">
                 <br>
-                <h5 style= "text-align:center"> Yarışma Dereceleri  </h5>
+                <h5 style="text-align:center"> Yarışma Dereceleri </h5>
                 <table class="table table-striped  table-hover highlight ">
-                <thead>
-                    <tr>
+                    <thead>
+                        <tr>
 
-                        <th scope="col"> Yarışma Adı </th>
-                        <th scope="col"> Tarih </th>
-                        <th scope="col"> Sıralama </th>
-                        <th scope="col">Madalya</th>
+                            <th scope="col"> Yarışma Adı </th>
+                            <th scope="col"> Tarih </th>
+                            <th scope="col"> Sıralama </th>
+                            <th scope="col">Madalya</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-       
-                     
-                        <tr>                     
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        <tr>
                             <td>2020 Açık Hava Türkiye Şampiyonası</td>
                             <td>14/10/2020</td>
                             <td>17</td>
                             <td>-</td>
-                           
-                          
+
+
                         </tr>
-                        <tr>                     
+                        <tr>
                             <td>18 Mart Şehitler Türkiye Şampiyonası</td>
                             <td>18/03/2017</td>
                             <td>45</td>
                             <td>-</td>
-                           
-                          
-                        </tr>
-                     
-               
 
-                </tbody>
-            </table>
-            <br>
-                    <center>
-                        <div class="col-sm-12 col-md-2 ">
-                            <a class=" waves-light btn green" id="bilgi_duzenle_buton" href="yarisma_sonucu.php?sporcu=<?php echo $sporcu_no ?>">Ekle</a>
-                        </div>
-                    </center>
-                    <br>
-                
+
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+                <br>
+                <center>
+                    <div class="col-sm-12 col-md-2 ">
+                        <a class=" waves-light btn green" id="bilgi_duzenle_buton"
+                            href="yarisma_sonucu.php?sporcu=<?php echo $sporcu_no ?>">Ekle</a>
+                    </div>
+                </center>
+                <br>
+
             </div>
             <div id="antrenman" class="col s12">
                 <br>
                 <div class="card row mx-2 mb-3">
                     <br>
-                    <h5 style= "text-align:center"> Antrenman Programı </h5>
+                    <h5 style="text-align:center"> Antrenman Programı </h5>
                     <br>
                 </div>
             </div>
