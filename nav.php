@@ -1,17 +1,22 @@
 <?php 
     include 'head.php';
+    include 'database/database.php';
+
    
-    $kullanici_giris_yapti_mi = isset($_SESSION["kullanici_id"]);
-  //  var_dump($kullanici_giris_yapti_mi);
+    $kullanici_giris_yapti_mi = isset($_SESSION["kullanici_id"]); //  var_dump($kullanici_giris_yapti_mi);
+    $antrenor_id=  $_SESSION["kullanici_id"];
+    $antrenor=KullaniciBilgileriniGetirById($antrenor_id);
+  
 ?>
 
 <div class="navbar-fixed">
 <nav>
-    <div class="nav-wrapper orange darken-3 ">
-        <a href="index.php" class="brand-logo "> <img src="files/images/logo.png"  style="margin-left:10px;border-radius:1000px;width:60px"> </a>  
-
+    <div class="nav-wrapper teal darken-1 ">
+        <a href="index.php" class="brand-logo ">  <img src="files/images/logo.png"  style="margin-left:10px;border-radius:1000px;width:60px"> </a>  
+        <?php // echo $antrenor["ad"]." ".$antrenor["soyad"] ?>  
+       
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-
+      
             <li class="active"><a href="index.php">Sporcu Listesi</a></li>
             <li><a href="puan.php">Puan Tablosu</a></li>
             <li><a href="aidat.php">Aidat Tablosu</a></li>

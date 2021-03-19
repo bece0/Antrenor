@@ -1,7 +1,7 @@
 <?php 
     include 'head.php';
     include 'nav.php';
-    include 'database/database.php';
+    //include 'database/database.php';
 
     if(!$kullanici_giris_yapti_mi){
        header('Location: login.php'); 

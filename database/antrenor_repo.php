@@ -95,7 +95,7 @@
      * @return string  gelen sonucu döner,sonuç boş ise NULL döner 
      */
     function KullaniciBilgileriniGetirById($kullanici_id){
-        $sql = "SELECT * FROM antrenor where id = '$kullanici_id'";
+        $sql = "SELECT * FROM antrenor where antrenor_no = '$kullanici_id'";
         
         $con = BAGLANTI_GETIR();
         $result = $con->query($sql);

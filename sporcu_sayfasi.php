@@ -1,7 +1,7 @@
 <?php 
     include 'head.php';
     include 'nav.php';
-    include 'database/database.php';
+  //  include 'database/database.php';
 
     if(!$kullanici_giris_yapti_mi){
        header('Location: login.php'); 
@@ -294,7 +294,9 @@
                 <br>
 
             </div>
-            <div id="antrenman" class="col s12">
+         
+        </div>
+        <div id="antrenman" class="col s12">
                 <br>
                 <div class="card row mx-2 mb-3">
                     <br>
@@ -302,7 +304,6 @@
                     <br>
                 </div>
             </div>
-        </div>
     </div>
 
 </div>
