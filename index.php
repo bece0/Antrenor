@@ -54,7 +54,7 @@
                         
                         ?>
                      
-                        <tr>                     
+                        <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=<?php echo $sporcu_no ?>';">                     
                             <td><a href="sporcu_sayfasi.php?sporcu=<?php echo $sporcu_no ?>">
                                   <img src="files/images/logo.jpg" style="margin-bottom:5px;border-radius:1000px;width:20%"></a></td>
                             <td><?php echo $ad_soyad  ?></td>

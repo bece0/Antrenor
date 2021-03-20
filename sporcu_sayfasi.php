@@ -8,9 +8,13 @@
       
    }
 
-    $sporcu_bilgileri = array(); 
     $sporcu_no =  $_GET["sporcu"]; //var_dump($sporcu_no);
+
+    $sporcu_bilgileri = array(); 
     $sporcu_bilgileri= SporcuBilgileriGetir($sporcu_no); //var_dump($sporcu_bilgileri);
+
+    $yarisma_bilgileri = array();
+    $yarisma_bilgileri = SporcuYarismalariGetir($sporcu_no); //var_dump($yarisma_bilgileri);
 
 ?>
 
@@ -21,8 +25,8 @@
         <div class="col s12">
             <ul class="tabs">
                 <li class="tab col s3"><a class="active" href="#bilgiler">Bilgiler</a></li>
-                <li class="tab col s3"><a href="#puan">Puan Durumu</a></li>
                 <li class="tab col s3 "><a href="#yarisma">Yarışma Dereceleri</a></li>
+                <li class="tab col s3"><a href="#puan">Puan Durumu</a></li>
                 <li class="tab col s3 disabled"><a href="#antrenman">Antrenman Programı</a></li>
             </ul>
         </div>
@@ -201,6 +205,61 @@
 
         </div> <!-- bilgiler -->
 
+        <div id="yarisma" class="col s12">
+            <br>
+            <div class="card row mx-2 mb-3">
+                <br>
+                <h5 style="text-align:center"> Yarışma Dereceleri </h5>
+                <table class="table table-striped  table-hover highlight ">
+                    <thead>
+                        <tr>
+
+                            <th scope="col"> Yarışma Adı </th>
+                            <th scope="col"> Tarih </th>
+                            <th scope="col"> Sıralama </th>
+                            <th scope="col">Madalya</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php 
+                          $yarisma_sayisi=count($yarisma_bilgileri);  
+
+                            for($i=0 ; $i<$yarisma_sayisi ; $i++){ 
+
+                                $yarisma = $yarisma_bilgileri[$i]; //var_dump($yarisma);
+                                $yarisma_adi=  $yarisma['yarisma_adi'];
+                                $tarih= $yarisma['tarih'];
+                                $siralama= $yarisma['siralama'];
+                                $madalya= $yarisma['madalya']; 
+
+                            ?>
+                        <tr>
+                            <td><?php echo $yarisma_adi  ?></td>
+                            <td><?php echo $tarih  ?></td>
+                            <td><?php echo $siralama  ?></td>
+                            <td><?php echo $madalya  ?></td>
+
+
+                        </tr>
+                        <?php } ?>
+
+                    </tbody>
+                </table>
+                <br>
+                <center>
+                    <div class="col-sm-12 col-md-2 ">
+                        <a class=" waves-light btn green" id="yarisma_ekle_buton"
+                            href="yarisma_ekle.php?sporcu=<?php echo $sporcu_no ?>">Ekle</a>
+                    </div>
+                </center>
+                <br>
+
+            </div>
+
+        </div> <!-- yarisma -->
+
         <div id="puan" class="col s12">
             <br>
             <div class="card row mx-2 mb-3">
@@ -248,66 +307,13 @@
             </div>
         </div> <!-- puan -->
 
-        <div id="yarisma" class="col s12">
+        <div id="antrenman" class="col s12">
             <br>
             <div class="card row mx-2 mb-3">
                 <br>
-                <h5 style="text-align:center"> Yarışma Dereceleri </h5>
-                <table class="table table-striped  table-hover highlight ">
-                    <thead>
-                        <tr>
-
-                            <th scope="col"> Yarışma Adı </th>
-                            <th scope="col"> Tarih </th>
-                            <th scope="col"> Sıralama </th>
-                            <th scope="col">Madalya</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-
-
-                        <tr>
-                            <td>2020 Açık Hava Türkiye Şampiyonası</td>
-                            <td>14/10/2020</td>
-                            <td>17</td>
-                            <td>-</td>
-
-
-                        </tr>
-                        <tr>
-                            <td>18 Mart Şehitler Türkiye Şampiyonası</td>
-                            <td>18/03/2017</td>
-                            <td>45</td>
-                            <td>-</td>
-
-
-                        </tr>
-
-
-
-                    </tbody>
-                </table>
+                <h5 style="text-align:center"> Antrenman Programı </h5>
                 <br>
-                <center>
-                    <div class="col-sm-12 col-md-2 ">
-                        <a class=" waves-light btn green" id="bilgi_duzenle_buton"
-                            href="yarisma_sonucu.php?sporcu=<?php echo $sporcu_no ?>">Ekle</a>
-                    </div>
-                </center>
-                <br>
-
             </div>
-         
-        </div>  <!-- yarisma -->
-
-        <div id="antrenman" class="col s12">
-                <br>
-                <div class="card row mx-2 mb-3">
-                    <br>
-                    <h5 style="text-align:center"> Antrenman Programı </h5>
-                    <br>
-                </div>
         </div> <!-- antrenman -->
     </div>
 

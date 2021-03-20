@@ -25,5 +25,16 @@
         return SQLUpdateCalistir($sql);
     }
     
+            
+    function SporcuYarismalariGetir($sporcu_no){
+        $sql = "SELECT  * FROM yarisma WHERE sporcu_no= '$sporcu_no'" ; 
+        
+         return SQLCalistir($sql);
+    }
+
+    function SporcuYarismaEkle($sporcu_no,$yarisma_adi,$tarih,$siralama,$madalya){
+        $sql="INSERT INTO yarisma (sporcu_no,yarisma_adi,tarih,siralama,madalya) VALUES ('$sporcu_no','$yarisma_adi', '$tarih','$siralama','$madalya') " ;
+        return SQLInsertCalistir($sql);
+    }
 
 ?>

@@ -182,6 +182,7 @@ $(function() {
         swal({
             title: "Bilgiler güncellendi!",
             icon: "success",
+       
         });
 
     })
