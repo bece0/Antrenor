@@ -22,7 +22,7 @@
             <li><a href="aidat.php">Aidat Tablosu</a></li>
 
             <?php if($kullanici_giris_yapti_mi ){ ?>
-            <li><a class="waves-effect waves-light btn  orange" href="login.php">Çıkış</a></li>
+            <li><a class="waves-effect waves-light btn  orange darken-2" href="login.php">Çıkış</a></li>
             <?php } ?>
 
         </ul>

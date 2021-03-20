@@ -131,7 +131,7 @@
         $con = BAGLANTI_GETIR();
         
         if ($con->query($sql_sorgusu) === TRUE) {
-            _SistemLogYaz("SORGU_UPDATE", $sql_sorgusu);
+
             return TRUE;
         } else {
             echo "Error at update : " . $sql_sorgusu . "<br>" . $con->error;

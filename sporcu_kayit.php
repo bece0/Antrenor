@@ -15,7 +15,7 @@
     <br>
 
     <div class="row">
-    
+
 
         <div id="bilgiler" class="col s12">
             <br>
@@ -24,69 +24,77 @@
 
                 <div class="card-body">
                     <br>
-                    <h5 style= "text-align:center"> Kişisel Bilgiler</h5>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th data-field="1"></th>
-                                <th data-field="2"></th>
-                                <th data-field="3"></th>
-               
-                            </tr>
-                        </thead>
 
-                        <tbody>
-                            <tr >
-                                <td style= "text-align:center"><i class="material-icons">account_circle</i></td>
-                                <td > Ad Soyad :</td>
-                                <td> <input  id="adsoyad" type="text" class="validate"> </td>
+                    <h5 style="text-align:center"> Kişisel Bilgiler</h5>
+                    <form action="action/sporcu_kayit_action.php" method="post" id="sporcu_kayit">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-field="1"></th>
+                                    <th data-field="2"></th>
+                                    <th data-field="3"></th>
 
-                            </tr>
-                            <tr>
-                              
-                                <td style= "text-align:center"><i class="material-icons">wc</i></td>
-                                <td> Cinsiyet :</td>
-                                <td> <input  id="cinsiyet" type="text" class="validate"> </td>
+                                </tr>
+                            </thead>
 
-                            </tr>
-                            <tr>
-                              
-                                <td style= "text-align:center"><i class="material-icons">cake</i></td>
-                                <td> Doğum Tarihi :</td>
-                              
-                                <td> <input  id="dogum_tarihi" type="text" class="validate"> </td>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align:center"><i class="material-icons">account_circle</i></td>
+                                    <td> Ad :</td>
+                                    <td> <input name="ad" type="text" class="validate"> </td>
 
-                            </tr>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center"><i class="material-icons">account_circle</i></td>
+                                    <td> Soyad :</td>
+                                    <td> <input name="soyad" type="text" class="validate"> </td>
 
-                            <tr>
-                              
-                                <td style= "text-align:center"><i class="material-icons">phone</i></td>
-                                <td> Tel No :</td>
-                                <td> <input  id="tel_no" type="text" class="validate"> </td>
-                       
-                            </tr>
+                                </tr>
+                                <tr>
 
-                        </tbody>
-                    </table>
+                                    <td style="text-align:center"><i class="material-icons">wc</i></td>
+                                    <td> Cinsiyet :</td>
+                                    <td> <input name="cinsiyet" type="text" class="validate"> </td>
+
+                                </tr>
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons">cake</i></td>
+                                    <td> Doğum Tarihi :</td>
+                                    <td> <input name="dogum_tarihi" type="text" class="validate"> </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons">phone</i></td>
+                                    <td> Tel No :</td>
+                                    <td> <input name="tel_no" type="text" class="validate"> </td>
+
+                                </tr>
 
 
-                    <br>
-                    <center>
-                        <div class="col-sm-12 col-md-2 ">
-                            <a class=" waves-light btn green" id="kayit_buton">TAMAMLA</a>
-                        </div>
-                    </center>
-                    <br>
+                            </tbody>
+
+                        </table>
+                        <br>
+                        <center>
+                            <button type="submit" class="waves-light btn green" id="kayit_buton"
+                                form="sporcu_kayit">TAMAMLA</a>
+                        </center>
+                    </form>
+
+
 
                 </div>
             </div>
 
-        </div>
+        </div> <!-- bilgiler -->
 
 
-      
-        </div>
+
     </div>
+</div>
 
 </div>
 
@@ -95,7 +103,10 @@ $(function() {
 
     $('#kayit_buton').on("click", function() {
 
-        alert("KAYIT OLUNDU!");
+        swal({
+            title: "Sporcu Kayıt edildi!",
+            icon: "success",
+        });
 
     })
 
