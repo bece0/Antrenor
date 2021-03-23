@@ -265,7 +265,9 @@
             <div class="card row mx-2 mb-3">
                 <br>
                 <h5 style="text-align:center">Puan Durumu</h5>
-                <table class="table table-striped  table-hover highlight ">
+
+                <!-- 
+                 <table class=" table table-striped  table-hover highlight ">
                     <thead>
                         <tr>
                             <th scope="col"> Antrenman No </th>
@@ -277,13 +279,13 @@
                     <tbody>
 
 
-                        <tr>
+                        <tr >
                             <td>1</td>
                             <td>19.03.2021</td>
                             <td>250</td>
 
                         </tr>
-                        <tr>
+                        <tr >
                             <td>2</td>
                             <td>20.03.2021</td>
                             <td>260</td>
@@ -293,12 +295,137 @@
 
 
                     </tbody>
+                </table>    -->
+
+                <table class=" table centered ">
+
+                    <tr>
+                        <th scope="col "> Antrenman No </th>
+                        <th scope="col "> Tarih </th>
+                        <th scope="col "> Toplam Puan </th>
+
+                    </tr>
+
                 </table>
+
+                <ul class="collapsible popout" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header">
+
+                            <table class="table table-striped  table-hover highlight centered ">
+                                <tr>
+                                    <td>1</td>
+                                    <td>19.03.2021</td>
+                                    <td>260</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="collapsible-body" style="background-color:#e0f2f1  ">
+                        <table>
+                        <thead>
+                            <tr>
+                                <th data-field="1">Seri</th>
+                                <th data-field="1">1. Ok</th>
+                                <th data-field="2">2. Ok</th>
+                                <th data-field="3">3. Ok</th>
+                                <th data-field="3">Toplam</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                 <td data-field="1">1</td>
+                                <td data-field="1">10</td>
+                                <td data-field="2">10</td>
+                                <td data-field="3">9</td>
+                                <td data-field="3">29</td>
+                              
+                            </tr>
+                            <tr>
+                                 <td data-field="1">2</td>
+                                <td data-field="1">X</td>
+                                <td data-field="2">8</td>
+                                <td data-field="3">10</td>
+                                <td data-field="3">28</td>
+                              
+                            </tr>
+                            <tr>
+
+                            <td data-field="1">3</td>
+                                <td data-field="1">8</td>
+                                <td data-field="2">7</td>
+                                <td data-field="3">10</td>
+                                <td data-field="3">25</td>
+                              
+                            </tr>
+
+                            <tr>
+
+                            <td data-field="1">4</td>
+                                <td data-field="1">X</td>
+                                <td data-field="2">9</td>
+                                <td data-field="3">6</td>
+                                <td data-field="3">25</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">
+                            <table class=" table table-striped  table-hover highlight centered">
+                                <tr>
+                                    <td>2</td>
+                                    <td>20.03.2021</td>
+                                    <td>260</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="collapsible-body" style="background-color:#e0f2f1  ">
+                            <p>PUAN DETAY</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">
+                            <table class=" table table-striped  table-hover highlight centered">
+                                <tr>
+                                    <td>3</td>
+                                    <td>21.03.2021</td>
+                                    <td>260</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="collapsible-body" style="background-color:#e0f2f1  ">
+                            <p>PUAN DETAY</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">
+                            <table class=" table table-striped  table-hover highlight centered">
+                                <tr>
+                                    <td>4</td>
+                                    <td>22.03.2021</td>
+                                    <td>260</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="collapsible-body" style="background-color:#e0f2f1 ">
+                            <p>PUAN DETAY</p>
+                        </div>
+                    </li>
+
+                </ul>
+
+
+
                 <br>
                 <center>
                     <div class="col-sm-12 col-md-2 ">
-                        <a class=" waves-light btn green" id="bilgi_duzenle_buton"
-                            href="yarisma_sonucu.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
+                        <a class=" waves-light btn green" id="puan_duzenle_buton" href="#">Düzenle</a>
                     </div>
                 </center>
                 <br>
@@ -320,9 +447,10 @@
 </div>
 
 <script>
-$(function() {
-
-
-
-})
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems, {
+        accordion: false
+    });
+});
 </script>
