@@ -11,6 +11,12 @@
        return SQLInsertCalistir($sql);
     }
 
+    function SonKayitIdGetir(){
+        $sql = "SELECT sporcu_no FROM sporcu ORDER BY sporcu_no DESC LIMIT 1";
+        return SQLTekliKayitGetir($sql);
+
+    }
+
         
     function SporcuBilgileriGetir($sporcu_no){
         $sql = "SELECT  * FROM sporcu WHERE sporcu_no= '$sporcu_no'" ; 

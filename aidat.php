@@ -71,33 +71,41 @@
             ?>
             <tr>
                 <td><?php echo  $ad_soyad ?></td>
-                <td> <label><input type="checkbox" <?php if  ($ocak=="1"){ ?> checked="checked"
-                            <?php }?> /><span></span></label></td>
-                <td> <label><input type="checkbox" <?php if  ($subat=="1"){ ?> checked="checked"
-                            <?php }?> /><span></span></label></td>
-                <td> <label><input type="checkbox" <?php if  ($mart=="1"){ ?> checked="checked"
-                            <?php }?> /><span></span></label></td>
-                <td> <label><input type="checkbox" <?php if  ($nisan=="1"){ ?> checked="checked"
-                            <?php }?> /><span></span></label></td>
-                <td> <label><input type="checkbox" <?php if  ($mayis=="1"){ ?> checked="checked"
-                            <?php }?> /><span></span></label></td>
-                <td> <label><input type="checkbox" <?php if  ($haziran=="1"){ ?> checked="checked"
-                            <?php }?> /><span></span></label></td>
-                <td> <label><input type="checkbox" <?php if  ($temmuz=="1"){ ?> checked="checked"
-                            <?php }?> /><span></span></label></td>
-                <td> <label><input type="checkbox" <?php if  ($agustos=="1"){ ?> checked="checked"
-                            <?php }?> /><span></span></label></td>
-                <td> <label><input type="checkbox" <?php if  ($eylul=="1"){ ?> checked="checked"
-                            <?php }?> /><span></span></label></td>
-                <td> <label><input type="checkbox" <?php if  ($ekim=="1"){ ?> checked="checked"
-                            <?php }?> /><span></span></label></td>
-                <td> <label><input type="checkbox" <?php if  ($kasim=="1"){ ?> checked="checked"
-                            <?php }?> /><span></span></label></td>
-                <td> <label><input type="checkbox" <?php if  ($aralik=="1"){ ?> checked="checked"
-                            <?php }?> /><span></span></label></td>
+                <td> <?php if  ($ocak=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                        class="material-icons">remove</i> <?php }?> </td>
+                <td> <?php if  ($subat=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                        class="material-icons">remove</i> <?php }?> </td>
+                <td> <?php if  ($mart=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                        class="material-icons">remove</i> <?php }?> </td>
+                <td> <?php if  ($nisan=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                        class="material-icons">remove</i> <?php }?> </td>
+                <td> <?php if  ($mayis=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                        class="material-icons">remove</i> <?php }?> </td>
+                <td> <?php if  ($haziran=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                        class="material-icons">remove</i> <?php }?> </td>
+                <td> <?php if  ($temmuz=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                        class="material-icons">remove</i> <?php }?> </td>
+                <td> <?php if  ($agustos=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                        class="material-icons">remove</i> <?php }?> </td>
+                <td> <?php if  ($eylul=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                        class="material-icons">remove</i> <?php }?> </td>
+                <td> <?php if  ($ekim=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                        class="material-icons">remove</i> <?php }?> </td>
+                <td> <?php if  ($kasim=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                        class="material-icons">remove</i> <?php }?> </td>
+                <td> <?php if  ($aralik=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                        class="material-icons">remove</i> <?php }?> </td>
+
             </tr>
             <?php  } ?>
 
         </tbody>
     </table>
+    <br>
+    <center>
+        <div class="col-sm-12 col-md-2 ">
+            <a class=" waves-light btn green" id="aidat_ekle_buton" href="aidat_duzenle.php">Düzenle</a>
+        </div>
+    </center>
+    <br>
 </div>

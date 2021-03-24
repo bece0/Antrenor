@@ -19,8 +19,10 @@
     //SporcuKayit($antrenor_no,$ad,$soyad,$cinsiyet,$dogum_tarihi,$tel_no);
 
     if(SporcuKayit($antrenor_no,$ad,$soyad,$cinsiyet,$dogum_tarihi,$tel_no)=== TRUE){
-      //  $sporcu_no= 
-      //  AidatTablosunaEkle($antrenor_no,$sporcu_no);  
+       
+        $sporcu= SonKayitIdGetir(); //var_dump($sporcu_no);
+        $sporcu_no=$sporcu["sporcu_no"];
+        AidatTablosunaEkle($antrenor_no, $sporcu_no);   
         header('Location: ../index.php'); 
         
     }else {
