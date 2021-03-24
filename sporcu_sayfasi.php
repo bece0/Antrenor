@@ -322,56 +322,150 @@
 
                         </div>
                         <div class="collapsible-body" style="background-color:#e0f2f1  ">
-                        <table>
-                        <thead>
-                            <tr>
-                                <th data-field="1">Seri</th>
-                                <th data-field="1">1. Ok</th>
-                                <th data-field="2">2. Ok</th>
-                                <th data-field="3">3. Ok</th>
-                                <th data-field="3">Toplam</th>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th data-field="seri">Seri</th>
+                                        <th data-field="1">1. Ok</th>
+                                        <th data-field="2">2. Ok</th>
+                                        <th data-field="3">3. Ok</th>
+                                        <th data-field="3">S.T</th>
 
-                            </tr>
-                        </thead>
+                                    </tr>
+                                </thead>
 
-                        <tbody>
-                            <tr>
-                                 <td data-field="1">1</td>
-                                <td data-field="1">10</td>
-                                <td data-field="2">10</td>
-                                <td data-field="3">9</td>
-                                <td data-field="3">29</td>
-                              
-                            </tr>
-                            <tr>
-                                 <td data-field="1">2</td>
-                                <td data-field="1">X</td>
-                                <td data-field="2">8</td>
-                                <td data-field="3">10</td>
-                                <td data-field="3">28</td>
-                              
-                            </tr>
-                            <tr>
+                                <tbody>
+                                    <tr>
+                                        <td data-field="1">1</td>
+                                        <td data-field="1">10</td>
+                                        <td data-field="2">10</td>
+                                        <td data-field="3">9</td>
+                                        <td data-field="3">29</td>
 
-                            <td data-field="1">3</td>
-                                <td data-field="1">8</td>
-                                <td data-field="2">7</td>
-                                <td data-field="3">10</td>
-                                <td data-field="3">25</td>
-                              
-                            </tr>
+                                    </tr>
+                                    <tr>
+                                        <td data-field="1">2</td>
+                                        <td data-field="1">X</td>
+                                        <td data-field="2">8</td>
+                                        <td data-field="3">10</td>
+                                        <td data-field="3">28</td>
 
-                            <tr>
+                                    </tr>
+                                    <tr>
 
-                            <td data-field="1">4</td>
-                                <td data-field="1">X</td>
-                                <td data-field="2">9</td>
-                                <td data-field="3">6</td>
-                                <td data-field="3">25</td>
-                            </tr>
+                                        <td data-field="1">3</td>
+                                        <td data-field="1">8</td>
+                                        <td data-field="2">7</td>
+                                        <td data-field="3">10</td>
+                                        <td data-field="3">25</td>
 
-                        </tbody>
-                    </table>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td data-field="1">4</td>
+                                        <td data-field="1">X</td>
+                                        <td data-field="2">9</td>
+                                        <td data-field="3">6</td>
+                                        <td data-field="3">25</td>
+                                    </tr>     
+                                    <tr>
+                                        <td data-field="1">5</td>
+                                        <td data-field="1">10</td>
+                                        <td data-field="2">10</td>
+                                        <td data-field="3">9</td>
+                                        <td data-field="3">29</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td data-field="1">6</td>
+                                        <td data-field="1">X</td>
+                                        <td data-field="2">8</td>
+                                        <td data-field="3">10</td>
+                                        <td data-field="3">28</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th data-field="seri"></th>
+                                        <th data-field="1"></th>
+                                        <th data-field="2"></th>
+                                        <th data-field="3"></th>
+                                        <th data-field="3">Toplam : </th>
+
+                                    </tr>
+                                    <tr>
+                                        <th data-field="seri">Seri</th>
+                                        <th data-field="1">1. Ok</th>
+                                        <th data-field="2">2. Ok</th>
+                                        <th data-field="3">3. Ok</th>
+                                        <th data-field="3">S.T</th>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td data-field="1">7</td>
+                                        <td data-field="1">8</td>
+                                        <td data-field="2">7</td>
+                                        <td data-field="3">10</td>
+                                        <td data-field="3">25</td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td data-field="1">8</td>
+                                        <td data-field="1">X</td>
+                                        <td data-field="2">9</td>
+                                        <td data-field="3">6</td>
+                                        <td data-field="3">25</td>
+                                    </tr>
+
+                                                                   
+                                    <tr>
+                                        <td data-field="1">9</td>
+                                        <td data-field="1">10</td>
+                                        <td data-field="2">10</td>
+                                        <td data-field="3">9</td>
+                                        <td data-field="3">29</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td data-field="1">10</td>
+                                        <td data-field="1">X</td>
+                                        <td data-field="2">8</td>
+                                        <td data-field="3">10</td>
+                                        <td data-field="3">28</td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td data-field="1">11</td>
+                                        <td data-field="1">8</td>
+                                        <td data-field="2">7</td>
+                                        <td data-field="3">10</td>
+                                        <td data-field="3">25</td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td data-field="1">12</td>
+                                        <td data-field="1">X</td>
+                                        <td data-field="2">9</td>
+                                        <td data-field="3">6</td>
+                                        <td data-field="3">25</td>
+                                    </tr>
+                                    <tr>
+                                        <th data-field="seri"></th>
+                                        <th data-field="1"></th>
+                                        <th data-field="2"></th>
+                                        <th data-field="3"></th>
+                                        <th data-field="3">Toplam : </th>
+
+                                    </tr>
+                                  
+                                </tbody>
+                            </table>
 
                         </div>
                     </li>
