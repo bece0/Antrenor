@@ -224,7 +224,8 @@
                     <tbody>
 
                         <?php 
-                          $yarisma_sayisi=count($yarisma_bilgileri);  
+                          $yarisma_sayisi=count(array($yarisma_bilgileri));
+
 
                             for($i=0 ; $i<$yarisma_sayisi ; $i++){ 
 
@@ -308,7 +309,7 @@
 
                 </table>
 
-                <ul class="collapsible popout" data-collapsible="accordion">
+                <ul class="collapsible popout" data-collapsible="accordion">   <!-- ANTRENMAN -->
                     <li>
                         <div class="collapsible-header">
 
@@ -322,7 +323,7 @@
 
                         </div>
                         <div class="collapsible-body" style="background-color:#e0f2f1  ">
-                            <table>
+                             <table>   <!-- PUAN DETAY-->
                                 <thead>
                                     <tr>
                                         <th data-field="seri">Seri</th>
