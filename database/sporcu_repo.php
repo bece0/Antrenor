@@ -37,4 +37,16 @@
         return SQLInsertCalistir($sql);
     }
 
+    function AidatBilgisiGetir($antrenor_no){
+        $sql = "SELECT  sporcu.ad,sporcu.soyad,aidat. * FROM aidat inner join sporcu WHERE sporcu.antrenor_no= '$antrenor_no'" ;
+        return SQLCalistir($sql);
+
+    }
+
+    function AidatTablosunaEkle($antrenor_no,$sporcu_no){
+        $sql="INSERT INTO aidat (antrenor_no,sporcu_no,sene,ocak,subat,mart,nisan,mayis,haziran,temmuz,agustos,eylul,ekim,kasim,aralik) VALUES ('$antrenor_no','$sporcu_no','2021', '0','0','0','0','0','0','0','0','0','0','0','0') " ;
+        return SQLInsertCalistir($sql);
+
+    }
+
 ?>
