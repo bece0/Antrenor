@@ -224,9 +224,11 @@
                     <tbody>
 
                         <?php 
-                          $yarisma_sayisi=count(array($yarisma_bilgileri));
+                        
+                        //  $yarisma_sayisi=count($yarisma_bilgileri); 
+                          $yarisma_sayisi=count((is_countable($yarisma_bilgileri)?$yarisma_bilgileri:[])); 
 
-
+                          if($yarisma_sayisi!=0){
                             for($i=0 ; $i<$yarisma_sayisi ; $i++){ 
 
                                 $yarisma = $yarisma_bilgileri[$i]; //var_dump($yarisma);
@@ -235,17 +237,25 @@
                                 $siralama= $yarisma['siralama'];
                                 $madalya= $yarisma['madalya']; 
 
-                            ?>
-                        <tr>
-                            <td><?php echo $yarisma_adi  ?></td>
-                            <td><?php echo $tarih  ?></td>
-                            <td><?php echo $siralama  ?></td>
-                            <td><?php echo $madalya  ?></td>
+                    
+                                            
+                                    ?>
+                                <tr>
+                                    <td><?php echo $yarisma_adi  ?></td>
+                                    <td><?php echo $tarih  ?></td>
+                                    <td><?php echo $siralama  ?></td>
+                                    <td><?php echo $madalya  ?></td>
 
 
-                        </tr>
-                        <?php } ?>
-
+                                </tr>
+                                <?php } }else{ ?>
+                                <tr>
+                                    <td><i class="material-icons">remove</i></td>
+                                    <td><i class="material-icons">remove</i></td>
+                                    <td><i class="material-icons">remove</i></td>
+                                    <td><i class="material-icons">remove</i></td>
+                                </tr>
+                            <?php  } ?>
                     </tbody>
                 </table>
                 <br>
@@ -309,7 +319,8 @@
 
                 </table>
 
-                <ul class="collapsible popout" data-collapsible="accordion">   <!-- ANTRENMAN -->
+                <ul class="collapsible popout" data-collapsible="accordion">
+                    <!-- ANTRENMAN -->
                     <li>
                         <div class="collapsible-header">
 
@@ -323,7 +334,8 @@
 
                         </div>
                         <div class="collapsible-body" style="background-color:#e0f2f1  ">
-                             <table>   <!-- PUAN DETAY-->
+                            <table>
+                                <!-- PUAN DETAY-->
                                 <thead>
                                     <tr>
                                         <th data-field="seri">Seri</th>
@@ -369,7 +381,7 @@
                                         <td data-field="2">9</td>
                                         <td data-field="3">6</td>
                                         <td data-field="3">25</td>
-                                    </tr>     
+                                    </tr>
                                     <tr>
                                         <td data-field="1">5</td>
                                         <td data-field="1">10</td>
@@ -421,7 +433,7 @@
                                         <td data-field="3">25</td>
                                     </tr>
 
-                                                                   
+
                                     <tr>
                                         <td data-field="1">9</td>
                                         <td data-field="1">10</td>
@@ -464,7 +476,7 @@
                                         <th data-field="3">Toplam : </th>
 
                                     </tr>
-                                  
+
                                 </tbody>
                             </table>
 
