@@ -27,6 +27,8 @@
     <div class="row">
         <div class="col-12">
             <!-- <div class="table-responsive"> -->
+
+     
             <table class="table table-striped  table-hover highlight ">
                 <thead>
                     <tr>
@@ -40,7 +42,7 @@
                 </thead>
                 <tbody>
 
-                <?php 
+                    <?php 
                   
                     $sporcu_sayisi=count($sporcu_listesi);
                     
@@ -53,17 +55,18 @@
                         $sporcu_no= $sporcu['sporcu_no']; 
                         
                         ?>
-                     
-                        <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=<?php echo $sporcu_no ?>';">                     
-                            <td><a href="sporcu_sayfasi.php?sporcu=<?php echo $sporcu_no ?>">
-                                  <img src="files/images/logo.jpg" style="margin-bottom:5px;border-radius:1000px;width:20%"></a></td>
-                            <td><?php echo $ad_soyad  ?></td>
-                            <td><?php echo $kategori ?></td>
-                            <td><?php echo $yas_grubu ?></td>
-                            <!-- <td class="text-right"><button class="btn btn-sm btn-info"><i class="fa fa-pencil"></i> </button> </td> -->
-                          
-                        </tr>
-                     
+
+                    <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=<?php echo $sporcu_no ?>';">
+                        <td><a href="sporcu_sayfasi.php?sporcu=<?php echo $sporcu_no ?>">
+                                <img src="files/images/logo.jpg"
+                                    style="margin-bottom:5px;border-radius:1000px;width:20%"></a></td>
+                        <td><?php echo $ad_soyad  ?></td>
+                        <td><?php echo $kategori ?></td>
+                        <td><?php echo $yas_grubu ?></td>
+                        <!-- <td class="text-right"><button class="btn btn-sm btn-info"><i class="fa fa-pencil"></i> </button> </td> -->
+
+                    </tr>
+
                     <?php } ?>
 
                 </tbody>
@@ -75,7 +78,7 @@
             <div class="row">
 
                 <div class="col-sm-12 col-md-2 ">
-                <a class=" waves-light btn green" id= "sporcu_kayit_buton" href="sporcu_kayit.php">Sporcu Kayıt</a>
+                    <a class=" waves-light btn green" id="sporcu_kayit_buton" href="sporcu_kayit.php">Sporcu Kayıt</a>
                 </div>
             </div>
         </div>
@@ -89,13 +92,8 @@
 
 
 <script>
-
 $(function() {
-    
-  
+
+
 })
-
-
-
-
 </script>
