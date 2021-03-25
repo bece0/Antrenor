@@ -47,7 +47,7 @@
         <tbody>
             <?php 
              
-                $sporcu_sayisi=count($sporcu_listesi);
+                $sporcu_sayisi=count($sporcu_listesi); //var_dump($sporcu_sayisi);
             for($i=0 ; $i<$sporcu_sayisi;$i++){
               
                 $sporcu= $sporcu_listesi[$i];

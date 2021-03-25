@@ -44,7 +44,7 @@
     }
 
     function AidatBilgisiGetir($antrenor_no){
-        $sql = "SELECT  sporcu.ad,sporcu.soyad,aidat. * FROM aidat inner join sporcu WHERE sporcu.antrenor_no= '$antrenor_no'" ;
+        $sql = "SELECT  sporcu.ad,sporcu.soyad,aidat. * FROM aidat inner join sporcu on aidat.sporcu_no=sporcu.sporcu_no WHERE sporcu.antrenor_no= '$antrenor_no'" ;
         return SQLCalistir($sql);
 
     }
