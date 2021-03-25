@@ -69,7 +69,7 @@
                 $kasim= $aidat['kasim'];
                 $aralik= $aidat['aralik']; 
             ?>
-            <tr>
+            <tr onclick="document.location = 'aidat_duzenle.php?sporcu=<?php echo $sporcu['sporcu_no'] ?>';">
                 <td><?php echo  $ad_soyad ?></td>
                 <td> <?php if  ($ocak=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
                         class="material-icons">remove</i> <?php }?> </td>
@@ -101,11 +101,11 @@
 
         </tbody>
     </table>
-    <br>
+    <!-- <br>
     <center>
         <div class="col-sm-12 col-md-2 ">
             <a class=" waves-light btn green" id="aidat_ekle_buton" href="aidat_duzenle.php">Düzenle</a>
         </div>
     </center>
-    <br>
+    <br> -->
 </div>

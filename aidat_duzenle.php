@@ -13,12 +13,28 @@
     header('Location: login.php'); 
 }
 
-$sporcu_listesi = array();
-$antrenor_id=  $_SESSION["kullanici_id"];
-$sporcu_listesi= SporculariGetir($antrenor_id);
+    $sporcu_no= $_GET['sporcu'];
+    $sporcu= SporcuBilgileriGetir($sporcu_no);
 
-$aidat_listesi = array();
-$aidat_listesi = AidatBilgisiGetir($antrenor_id); //var_dump( $aidat_listesi);
+    $ad_soyad=  $sporcu['ad']." ".$sporcu['soyad'];
+
+    $aidat = array();
+    $aidat = SporcununAidatBilgisiGetir($sporcu_no); //var_dump( $aidat);
+
+
+    $ocak= $aidat['ocak'];   
+    $subat= $aidat['subat'];
+    $mart= $aidat['mart']; 
+    $nisan= $aidat['nisan'];
+    $mayis= $aidat['mayis'];
+    $haziran= $aidat['haziran']; 
+    $temmuz= $aidat['temmuz'];
+    $agustos= $aidat['agustos'];
+    $eylul= $aidat['eylul']; 
+    $ekim= $aidat['ekim'];
+    $kasim= $aidat['kasim'];
+    $aralik= $aidat['aralik']; 
+
 ?>
 
 
@@ -58,58 +74,33 @@ $aidat_listesi = AidatBilgisiGetir($antrenor_id); //var_dump( $aidat_listesi);
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
-             
-                $sporcu_sayisi=count($sporcu_listesi);
-            for($i=0 ; $i<$sporcu_sayisi;$i++){
-              
-                $sporcu= $sporcu_listesi[$i];
-                $aidat = $aidat_listesi[$i]; //var_dump($aidat);
-               
-                $ad_soyad=  $sporcu['ad']." ".$sporcu['soyad'];
-         
-               
-                $ocak= $aidat['ocak']; 
-                $subat= $aidat['subat'];
-                $mart= $aidat['mart']; 
-                $nisan= $aidat['nisan'];
-                $mayis= $aidat['mayis'];
-                $haziran= $aidat['haziran']; 
-                $temmuz= $aidat['temmuz'];
-                $agustos= $aidat['agustos'];
-                $eylul= $aidat['eylul']; 
-                $ekim= $aidat['ekim'];
-                $kasim= $aidat['kasim'];
-                $aralik= $aidat['aralik']; 
-            ?>
                                 <tr>
                                     <td><?php echo  $ad_soyad ?></td>
-                                    <td> <label><input type="checkbox"  <?php if  ($ocak=="1"){ ?>
+                                    <td> <label><input type="checkbox" name="ocak" <?php if  ($ocak=="1"){ ?>
                                                 checked="checked" <?php }else ?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox"  <?php if  ($subat=="1"){ ?>
+                                    <td> <label><input type="checkbox" name="subat" <?php if  ($subat=="1"){ ?>
                                                 checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox"  <?php if  ($mart=="1"){ ?>
+                                    <td> <label><input type="checkbox" name="mart" <?php if  ($mart=="1"){ ?>
                                                 checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox"  <?php if  ($nisan=="1"){ ?>
+                                    <td> <label><input type="checkbox" name="nisan" <?php if  ($nisan=="1"){ ?>
                                                 checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox"  <?php if  ($mayis=="1"){ ?>
+                                    <td> <label><input type="checkbox" name="mayis" <?php if  ($mayis=="1"){ ?>
                                                 checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox"  <?php if  ($haziran=="1"){ ?>
+                                    <td> <label><input type="checkbox" name="haziran" <?php if  ($haziran=="1"){ ?>
                                                 checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox"  <?php if  ($temmuz=="1"){ ?>
+                                    <td> <label><input type="checkbox" name="temmuz" <?php if  ($temmuz=="1"){ ?>
                                                 checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox"  <?php if  ($agustos=="1"){ ?>
+                                    <td> <label><input type="checkbox" name="agustos" <?php if  ($agustos=="1"){ ?>
                                                 checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox"  <?php if  ($eylul=="1"){ ?>
+                                    <td> <label><input type="checkbox" name="eylul" <?php if  ($eylul=="1"){ ?>
                                                 checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox"  <?php if  ($ekim=="1"){ ?>
+                                    <td> <label><input type="checkbox" name="ekim" <?php if  ($ekim=="1"){ ?>
                                                 checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox"  <?php if  ($kasim=="1"){ ?>
+                                    <td> <label><input type="checkbox" name="kasim" <?php if  ($kasim=="1"){ ?>
                                                 checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox"  <?php if  ($aralik=="1"){ ?>
+                                    <td> <label><input type="checkbox" name="aralik" <?php if  ($aralik=="1"){ ?>
                                                 checked="checked" <?php }?> /><span></span></label></td>
                                 </tr>
-                                <?php  } ?>
 
                             </tbody>
                         </table>
