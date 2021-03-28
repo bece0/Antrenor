@@ -65,7 +65,7 @@
         
 
         $sql="UPDATE aidat SET ocak='$ocak',subat='$subat',mart='$mart',nisan='$nisan',mayis='$mayis',haziran='$haziran',
-        temmuz='$temmuz',agustos='$agustos',eylul='$eylul',ekim='ekim',kasim='$kasim',aralik= '$aralik' WHERE sporcu_no='$sporcu_no'";
+        temmuz='$temmuz',agustos='$agustos',eylul='$eylul',ekim='$ekim',kasim='$kasim',aralik= '$aralik' WHERE sporcu_no='$sporcu_no'";
  
         return SQLUpdateCalistir($sql);
 
