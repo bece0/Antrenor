@@ -76,37 +76,49 @@
                             <tbody>
                                 <tr>
                                     <td><?php echo  $ad_soyad ?></td>
-                                    <td> <label><input type="checkbox" name="ocak" <?php if  ($ocak=="1"){ ?>
-                                                checked="checked" <?php }else ?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox" name="subat" <?php if  ($subat=="1"){ ?>
-                                                checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox" name="mart" <?php if  ($mart=="1"){ ?>
-                                                checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox" name="nisan" <?php if  ($nisan=="1"){ ?>
-                                                checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox" name="mayis" <?php if  ($mayis=="1"){ ?>
-                                                checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox" name="haziran" <?php if  ($haziran=="1"){ ?>
-                                                checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox" name="temmuz" <?php if  ($temmuz=="1"){ ?>
-                                                checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox" name="agustos" <?php if  ($agustos=="1"){ ?>
-                                                checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox" name="eylul" <?php if  ($eylul=="1"){ ?>
-                                                checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox" name="ekim" <?php if  ($ekim=="1"){ ?>
-                                                checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox" name="kasim" <?php if  ($kasim=="1"){ ?>
-                                                checked="checked" <?php }?> /><span></span></label></td>
-                                    <td> <label><input type="checkbox" name="aralik" <?php if  ($aralik=="1"){ ?>
-                                                checked="checked" <?php }?> /><span></span></label></td>
+                                    <td> <label><input type="checkbox" name="aylar[]" value="ocak"
+                                                <?php if  ($ocak=="1"){ ?> checked="checked"
+                                                <?php } ?> /><span></span></label></td>
+                                    <td> <label><input type="checkbox" name="aylar[]" value="subat"
+                                                <?php if  ($subat=="1"){ ?> checked="checked"
+                                                <?php }?> /><span></span></label></td>
+                                    <td> <label><input type="checkbox" name="aylar[]" value="mart"
+                                                <?php if  ($mart=="1"){ ?> checked="checked"
+                                                <?php }?> /><span></span></label></td>
+                                    <td> <label><input type="checkbox" name="aylar[]" value="nisan"
+                                                <?php if  ($nisan=="1"){ ?> checked="checked"
+                                                <?php }?> /><span></span></label></td>
+                                    <td> <label><input type="checkbox" name="aylar[]" value="mayis"
+                                                <?php if  ($mayis=="1"){ ?> checked="checked"
+                                                <?php }?> /><span></span></label></td>
+                                    <td> <label><input type="checkbox" name="aylar[]" value="haziran"
+                                                <?php if  ($haziran=="1"){ ?> checked="checked"
+                                                <?php }?> /><span></span></label></td>
+                                    <td> <label><input type="checkbox" name="aylar[]" value="temmuz"
+                                                <?php if  ($temmuz=="1"){ ?> checked="checked"
+                                                <?php }?> /><span></span></label></td>
+                                    <td> <label><input type="checkbox" name="aylar[]" value="agustos"
+                                                <?php if  ($agustos=="1"){ ?> checked="checked"
+                                                <?php }?> /><span></span></label></td>
+                                    <td> <label><input type="checkbox" name="aylar[]" value="eylul"
+                                                <?php if  ($eylul=="1"){ ?> checked="checked"
+                                                <?php }?> /><span></span></label></td>
+                                    <td> <label><input type="checkbox" name="aylar[]" value="ekim"
+                                                <?php if  ($ekim=="1"){ ?> checked="checked"
+                                                <?php }?> /><span></span></label></td>
+                                    <td> <label><input type="checkbox" name="aylar[]" value="kasim"
+                                                <?php if  ($kasim=="1"){ ?> checked="checked"
+                                                <?php }?> /><span></span></label></td>
+                                    <td> <label><input type="checkbox" name="aylar[]" value="aralik"
+                                                <?php if  ($aralik=="1"){ ?> checked="checked"
+                                                <?php }?> /><span></span></label></td>
                                 </tr>
 
                             </tbody>
                         </table>
 
 
-
+                        <input type="hidden" id="sporcu_no" name="sporcu_no" value="<?php echo $sporcu_no ?>" />
                         <br>
                         <center>
                             <button type="submit" class="waves-light btn green" id="aidat_duzenle_buton"
