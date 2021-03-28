@@ -16,6 +16,11 @@
     $yarisma_bilgileri = array();
     $yarisma_bilgileri = SporcuYarismalariGetir($sporcu_no); //var_dump($yarisma_bilgileri);
 
+    $antrenman_bilgileri = array();
+    $antrenman_bilgileri = sporcuAntrenmanlariGetir($sporcu_no); //var_dump($antrenman_bilgileri);
+
+
+
 ?>
 
 <div class="container">
@@ -25,9 +30,10 @@
         <div class="col s12">
             <ul class="tabs">
                 <li class="tab col s3"><a class="active" href="#bilgiler">Bilgiler</a></li>
-                <li class="tab col s3 "><a href="#yarisma">Yarışma Dereceleri</a></li>
+                <li class="tab col s3  "><a href="#yarisma">Yarışma Dereceleri</a></li>
                 <li class="tab col s3"><a href="#puan">Puan Durumu</a></li>
-                <li class="tab col s3 disabled"><a href="#antrenman">Antrenman Programı</a></li>
+                <li class="tab col s3 "><a href="#antrenman">Antrenman Programı</a></li>
+
             </ul>
         </div>
 
@@ -240,22 +246,22 @@
                     
                                             
                                     ?>
-                                <tr>
-                                    <td><?php echo $yarisma_adi  ?></td>
-                                    <td><?php echo $tarih  ?></td>
-                                    <td><?php echo $siralama  ?></td>
-                                    <td><?php echo $madalya  ?></td>
+                        <tr>
+                            <td><?php echo $yarisma_adi  ?></td>
+                            <td><?php echo $tarih  ?></td>
+                            <td><?php echo $siralama  ?></td>
+                            <td><?php echo $madalya  ?></td>
 
 
-                                </tr>
-                                <?php } }else{ ?>
-                                <tr>
-                                    <td><i class="material-icons">remove</i></td>
-                                    <td><i class="material-icons">remove</i></td>
-                                    <td><i class="material-icons">remove</i></td>
-                                    <td><i class="material-icons">remove</i></td>
-                                </tr>
-                            <?php  } ?>
+                        </tr>
+                        <?php } }else{ ?>
+                        <tr>
+                            <td><i class="material-icons">remove</i></td>
+                            <td><i class="material-icons">remove</i></td>
+                            <td><i class="material-icons">remove</i></td>
+                            <td><i class="material-icons">remove</i></td>
+                        </tr>
+                        <?php  } ?>
                     </tbody>
                 </table>
                 <br>
@@ -276,9 +282,9 @@
             <div class="card row mx-2 mb-3">
                 <br>
                 <h5 style="text-align:center">Puan Durumu</h5>
+                <br>
 
-                <!-- 
-                 <table class=" table table-striped  table-hover highlight ">
+                <!--   <table class=" table table-striped  table-hover highlight ">
                     <thead>
                         <tr>
                             <th scope="col"> Antrenman No </th>
@@ -303,12 +309,10 @@
 
                         </tr>
 
-
-
                     </tbody>
                 </table>    -->
 
-                <table class=" table centered ">
+                <!-- <table class=" table centered  ">
 
                     <tr>
                         <th scope="col "> Antrenman No </th>
@@ -317,213 +321,87 @@
 
                     </tr>
 
-                </table>
+                </table> -->
+
+
 
                 <ul class="collapsible popout" data-collapsible="accordion">
-                    <!-- ANTRENMAN -->
-                    <li>
-                        <div class="collapsible-header">
 
-                            <table class="table table-striped  table-hover highlight centered ">
-                                <tr>
-                                    <td>1</td>
-                                    <td>19.03.2021</td>
-                                    <td>260</td>
-                                </tr>
-                            </table>
+                    <?php 
+                        
+                        $antrenman_sayisi=count((is_countable($antrenman_bilgileri)?$antrenman_bilgileri:[])); 
 
-                        </div>
-                        <div class="collapsible-body" style="background-color:#e0f2f1  ">
-                            <table>
-                                <!-- PUAN DETAY-->
-                                <thead>
-                                    <tr>
-                                        <th data-field="seri">Seri</th>
-                                        <th data-field="1">1. Ok</th>
-                                        <th data-field="2">2. Ok</th>
-                                        <th data-field="3">3. Ok</th>
-                                        <th data-field="3">S.T</th>
+                        if($antrenman_sayisi!=0){
+                          for($i=0 ; $i<$antrenman_sayisi ; $i++){ 
 
-                                    </tr>
-                                </thead>
+                              $antrenman = $antrenman_bilgileri[$i]; //var_dump($antrenman);
+                              $antrenman_no=  $antrenman['antrenman_no'];
+                              $tarih= $antrenman['tarih'];
+                              $toplam_puan= $antrenman['toplam_puan'];
 
-                                <tbody>
-                                    <tr>
-                                        <td data-field="1">1</td>
-                                        <td data-field="1">10</td>
-                                        <td data-field="2">10</td>
-                                        <td data-field="3">9</td>
-                                        <td data-field="3">29</td>
+                              $seri_bilgileri= array();
+                              $seri_bilgileri = AntrenmanDetayiGetir($sporcu_no , $antrenman_no);
+                              $seri_sayisi=count((is_countable($seri_bilgileri)?$seri_bilgileri:[]));  
+                           
+           
+                                  ?>
+                                    <li>
+                                        <div class="collapsible-header center">
 
-                                    </tr>
-                                    <tr>
-                                        <td data-field="1">2</td>
-                                        <td data-field="1">X</td>
-                                        <td data-field="2">8</td>
-                                        <td data-field="3">10</td>
-                                        <td data-field="3">28</td>
+                                            <div class="col s4"><?php echo $antrenman_no ?></div>
+                                            <div class="col s4"><?php echo $tarih ?></div>
+                                            <div class="col s4"><?php echo $toplam_puan ?></div>
 
-                                    </tr>
-                                    <tr>
+                                        </div>
 
-                                        <td data-field="1">3</td>
-                                        <td data-field="1">8</td>
-                                        <td data-field="2">7</td>
-                                        <td data-field="3">10</td>
-                                        <td data-field="3">25</td>
+                                        <div class="collapsible-body center" style="background-color:#e0f2f1  ">
+                                            <table>
+                                                <!-- PUAN DETAY-->
+                                                <thead>
+                                                    <tr>
+                                                        <th data-field="seri">Seri</th>
+                                                        <th data-field="1">1. Ok</th>
+                                                        <th data-field="2">2. Ok</th>
+                                                        <th data-field="3">3. Ok</th>
+                                                        <!-- <th data-field="3">S.T</th> -->
 
-                                    </tr>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <?php 
 
-                                    <tr>
+                                                    if($seri_sayisi!=0){
+                                                        for($j=0 ; $j<$seri_sayisi ; $j++){ 
 
-                                        <td data-field="1">4</td>
-                                        <td data-field="1">X</td>
-                                        <td data-field="2">9</td>
-                                        <td data-field="3">6</td>
-                                        <td data-field="3">25</td>
-                                    </tr>
-                                    <tr>
-                                        <td data-field="1">5</td>
-                                        <td data-field="1">10</td>
-                                        <td data-field="2">10</td>
-                                        <td data-field="3">9</td>
-                                        <td data-field="3">29</td>
+                                                            $seri = $seri_bilgileri[$j]; 
+                                                            $seri_no=  $seri['seri_no'];
+                                                            $ok_1= $seri['ok_1'];
+                                                            $ok_2= $seri['ok_2'];
+                                                            $ok_3= $seri['ok_3'];
+                                                            $seri_toplam= $seri['seri_toplam'];
 
-                                    </tr>
-                                    <tr>
-                                        <td data-field="1">6</td>
-                                        <td data-field="1">X</td>
-                                        <td data-field="2">8</td>
-                                        <td data-field="3">10</td>
-                                        <td data-field="3">28</td>
+                                                ?>
+                                                            <tr>
+                                                                <td data-field="1"><?php echo $seri_no ?></td>
+                                                                <td data-field="2"><?php echo $ok_1 ?></td>
+                                                                <td data-field="3"><?php echo $ok_2 ?></td>
+                                                                <td data-field="3"><?php echo $ok_3 ?></td>
+                                                                <!-- <td data-field="4"><?php echo $seri_toplam ?></td> -->
 
-                                    </tr>
-                                    <tr>
-                                        <th data-field="seri"></th>
-                                        <th data-field="1"></th>
-                                        <th data-field="2"></th>
-                                        <th data-field="3"></th>
-                                        <th data-field="3">Toplam : </th>
+                                                            </tr>
 
-                                    </tr>
-                                    <tr>
-                                        <th data-field="seri">Seri</th>
-                                        <th data-field="1">1. Ok</th>
-                                        <th data-field="2">2. Ok</th>
-                                        <th data-field="3">3. Ok</th>
-                                        <th data-field="3">S.T</th>
+                                                    <?php } } ?>
 
-                                    </tr>
-                                    <tr>
-
-                                        <td data-field="1">7</td>
-                                        <td data-field="1">8</td>
-                                        <td data-field="2">7</td>
-                                        <td data-field="3">10</td>
-                                        <td data-field="3">25</td>
-
-                                    </tr>
-
-                                    <tr>
-
-                                        <td data-field="1">8</td>
-                                        <td data-field="1">X</td>
-                                        <td data-field="2">9</td>
-                                        <td data-field="3">6</td>
-                                        <td data-field="3">25</td>
-                                    </tr>
+                                                  
+                                                </tbody>
 
 
-                                    <tr>
-                                        <td data-field="1">9</td>
-                                        <td data-field="1">10</td>
-                                        <td data-field="2">10</td>
-                                        <td data-field="3">9</td>
-                                        <td data-field="3">29</td>
+                                            </table>
 
-                                    </tr>
-                                    <tr>
-                                        <td data-field="1">10</td>
-                                        <td data-field="1">X</td>
-                                        <td data-field="2">8</td>
-                                        <td data-field="3">10</td>
-                                        <td data-field="3">28</td>
+                                        </div>
+                                    </li>
 
-                                    </tr>
-                                    <tr>
-
-                                        <td data-field="1">11</td>
-                                        <td data-field="1">8</td>
-                                        <td data-field="2">7</td>
-                                        <td data-field="3">10</td>
-                                        <td data-field="3">25</td>
-
-                                    </tr>
-
-                                    <tr>
-
-                                        <td data-field="1">12</td>
-                                        <td data-field="1">X</td>
-                                        <td data-field="2">9</td>
-                                        <td data-field="3">6</td>
-                                        <td data-field="3">25</td>
-                                    </tr>
-                                    <tr>
-                                        <th data-field="seri"></th>
-                                        <th data-field="1"></th>
-                                        <th data-field="2"></th>
-                                        <th data-field="3"></th>
-                                        <th data-field="3">Toplam : </th>
-
-                                    </tr>
-
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <table class=" table table-striped  table-hover highlight centered">
-                                <tr>
-                                    <td>2</td>
-                                    <td>20.03.2021</td>
-                                    <td>260</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="collapsible-body" style="background-color:#e0f2f1  ">
-                            <p>PUAN DETAY</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <table class=" table table-striped  table-hover highlight centered">
-                                <tr>
-                                    <td>3</td>
-                                    <td>21.03.2021</td>
-                                    <td>260</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="collapsible-body" style="background-color:#e0f2f1  ">
-                            <p>PUAN DETAY</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="collapsible-header">
-                            <table class=" table table-striped  table-hover highlight centered">
-                                <tr>
-                                    <td>4</td>
-                                    <td>22.03.2021</td>
-                                    <td>260</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="collapsible-body" style="background-color:#e0f2f1 ">
-                            <p>PUAN DETAY</p>
-                        </div>
-                    </li>
+                    <?php } }?>
 
                 </ul>
 
