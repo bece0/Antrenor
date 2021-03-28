@@ -164,6 +164,7 @@
 
     include 'antrenor_repo.php';
     include 'sporcu_repo.php';
-
+    include 'antrenman_repo.php';
+    include 'aidat_repo.php';
 
 ?>
