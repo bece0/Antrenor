@@ -19,7 +19,7 @@
       
             <li class="active"><a href="index.php">Sporcu Listesi</a></li>
             <li><a href="puan.php">Puan Tablosu</a></li>
-            <li><a href="aidat.php">Aidat Tablosu</a></li>
+            <li><a href="aidat.php">Malzeme Ücret</a></li>
 
             <?php if($kullanici_giris_yapti_mi ){ ?>
             <li><a class="waves-effect waves-light btn  orange darken-2" href="login.php">Çıkış</a></li>

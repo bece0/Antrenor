@@ -13,7 +13,7 @@
         </center>
     </div>
 </section>
-
+<br>
     <table class="table table-bordered highlight  ">
         <thead>
             <tr>
@@ -45,3 +45,6 @@
         </tbody>
     </table>
 </div>
+
+
+<?php  //   include 'footer.php';?>

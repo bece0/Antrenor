@@ -200,10 +200,10 @@
                     <br>
                     <center>
              
-                            <a class=" waves-light btn green" id="bilgi_duzenle_buton"
+                            <a class=" waves-light btn green " id="bilgi_duzenle_buton"
                                 href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
               
-                            <a class=" waves-light btn red" id="sporcu_sil_buton"
+                            <a class=" waves-light btn red " id="sporcu_sil_buton"
                                 href="action/sporcu_sil_action.php?sporcu=<?php echo $sporcu_no ?>">Sporcu Sil</a>
                      
                     </center>
@@ -434,6 +434,8 @@
     </div>
 
 </div>
+
+<?php     include 'footer.php';?>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

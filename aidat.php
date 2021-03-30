@@ -12,40 +12,53 @@
 
     $aidat_listesi = array();
     $aidat_listesi = AidatBilgisiGetir($antrenor_id); //var_dump( $aidat_listesi);
+
+     $yil = date("Y");
+
+
 ?>
 
 
+
+
+
 <div class="container">
+    <br>
 
-    <section class="jumbotron text-center">
-        <div class="container">
-            <center>
-                <h4 class="jumbotron-heading"> 2021 MALZEME ÜCRET TABLOSU</h4>
-            </center>
-        </div>
-    </section>
+    <div class="row">
+        <div class="col s12">
 
+            <section class="jumbotron text-center">
+                <div class="container">
+                    <center>
+                   
+                    
+                        <h4 class="jumbotron-heading"><i class="small material-icons  teal lighten-3">  navigate_before </i> 2021 MALZEME ÜCRET TABLOSU<i class="small material-icons  teal lighten-3">  navigate_next </i></h4>
+                    </center>
+                </div>
+            </section>
 
-    <table class="table table-bordered highlight">
-        <thead>
-            <tr>
-                <th>Ad Soyad</th>
-                <th>Oca</th>
-                <th>Şub</th>
-                <th>Mar</th>
-                <th>Nis</th>
-                <th>May</th>
-                <th>Haz</th>
-                <th>Tem</th>
-                <th>Ağu</th>
-                <th>Eyl</th>
-                <th>Eki</th>
-                <th>Kas</th>
-                <th>Ara</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php 
+            <br>
+            <table class="table table-bordered highlight">
+                <thead>
+                    <tr>
+                        <th>Ad Soyad</th>
+                        <th>Oca</th>
+                        <th>Şub</th>
+                        <th>Mar</th>
+                        <th>Nis</th>
+                        <th>May</th>
+                        <th>Haz</th>
+                        <th>Tem</th>
+                        <th>Ağu</th>
+                        <th>Eyl</th>
+                        <th>Eki</th>
+                        <th>Kas</th>
+                        <th>Ara</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
              
                 $sporcu_sayisi=count($sporcu_listesi); //var_dump($sporcu_sayisi);
             for($i=0 ; $i<$sporcu_sayisi;$i++){
@@ -69,43 +82,41 @@
                 $kasim= $aidat['kasim'];
                 $aralik= $aidat['aralik']; 
             ?>
-            <tr onclick="document.location = 'aidat_duzenle.php?sporcu=<?php echo $sporcu['sporcu_no'] ?>';">
-                <td><?php echo  $ad_soyad ?></td>
-                <td> <?php if  ($ocak=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                        class="material-icons">remove</i> <?php }?> </td>
-                <td> <?php if  ($subat=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                        class="material-icons">remove</i> <?php }?> </td>
-                <td> <?php if  ($mart=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                        class="material-icons">remove</i> <?php }?> </td>
-                <td> <?php if  ($nisan=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                        class="material-icons">remove</i> <?php }?> </td>
-                <td> <?php if  ($mayis=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                        class="material-icons">remove</i> <?php }?> </td>
-                <td> <?php if  ($haziran=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                        class="material-icons">remove</i> <?php }?> </td>
-                <td> <?php if  ($temmuz=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                        class="material-icons">remove</i> <?php }?> </td>
-                <td> <?php if  ($agustos=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                        class="material-icons">remove</i> <?php }?> </td>
-                <td> <?php if  ($eylul=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                        class="material-icons">remove</i> <?php }?> </td>
-                <td> <?php if  ($ekim=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                        class="material-icons">remove</i> <?php }?> </td>
-                <td> <?php if  ($kasim=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                        class="material-icons">remove</i> <?php }?> </td>
-                <td> <?php if  ($aralik=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                        class="material-icons">remove</i> <?php }?> </td>
+                    <tr onclick="document.location = 'aidat_duzenle.php?sporcu=<?php echo $sporcu['sporcu_no'] ?>';">
+                        <td><?php echo  $ad_soyad ?></td>
+                        <td> <?php if  ($ocak=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                                class="material-icons">remove</i> <?php }?> </td>
+                        <td> <?php if  ($subat=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                                class="material-icons">remove</i> <?php }?> </td>
+                        <td> <?php if  ($mart=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                                class="material-icons">remove</i> <?php }?> </td>
+                        <td> <?php if  ($nisan=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                                class="material-icons">remove</i> <?php }?> </td>
+                        <td> <?php if  ($mayis=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                                class="material-icons">remove</i> <?php }?> </td>
+                        <td> <?php if  ($haziran=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                                class="material-icons">remove</i> <?php }?> </td>
+                        <td> <?php if  ($temmuz=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                                class="material-icons">remove</i> <?php }?> </td>
+                        <td> <?php if  ($agustos=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                                class="material-icons">remove</i> <?php }?> </td>
+                        <td> <?php if  ($eylul=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                                class="material-icons">remove</i> <?php }?> </td>
+                        <td> <?php if  ($ekim=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                                class="material-icons">remove</i> <?php }?> </td>
+                        <td> <?php if  ($kasim=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                                class="material-icons">remove</i> <?php }?> </td>
+                        <td> <?php if  ($aralik=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
+                                class="material-icons">remove</i> <?php }?> </td>
 
-            </tr>
-            <?php  } ?>
+                    </tr>
+                    <?php  } ?>
 
-        </tbody>
-    </table>
-    <!-- <br>
-    <center>
-        <div class="col-sm-12 col-md-2 ">
-            <a class=" waves-light btn green" id="aidat_ekle_buton" href="aidat_duzenle.php">Düzenle</a>
+                </tbody>
+            </table>
+            <br>
         </div>
-    </center>
-    <br> -->
+    </div>
 </div>
+
+<?php   //  include 'footer.php';?>

@@ -22,13 +22,27 @@
         </center>
     </div>
 </section>
+<br>
+
 
 <div class="container mb-4">
     <div class="row">
         <div class="col-12">
             <!-- <div class="table-responsive"> -->
 
-     
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">search</i>
+                            <input type="text" id="autocomplete-input" class="autocomplete">
+                            <label for="autocomplete-input">Sporcu Ara</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <table class="table table-striped  table-hover highlight ">
                 <thead>
                     <tr>
@@ -90,8 +104,21 @@
 
 </html>
 
+<?php    // include 'footer.php';?>
+
 
 <script>
+
+
+$(document).ready(function() {
+    $('input.autocomplete').autocomplete({
+        data: {
+            "Apple": null,
+            "Microsoft": null,
+            "Google": 'https://placehold.it/250x250'
+        },
+    });
+});
 $(function() {
 
 
