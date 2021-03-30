@@ -6,14 +6,41 @@
 
 <div class="container">
 
-<section class="jumbotron text-center">
-    <div class="container">
-        <center>
-            <h4 class="jumbotron-heading">PUAN TABLOSU</h4>
-        </center>
+    <section class="jumbotron text-center">
+        <div class="container">
+            <center>
+                <h4 class="jumbotron-heading">PUAN TABLOSU</h4>
+            </center>
+        </div>
+    </section>
+    <br>
+
+    <div class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <select>
+                    <option value="" disabled selected>Yay türü seçin</option>
+                    <option value="1">Klasik yay</option>
+                    <option value="2">Makaralı Yay</option>
+              
+                </select>
+              
+            </div>
+            <div class="input-field col s6">
+                <select>
+                    <option value="" disabled selected>Atış Mesafesi seçin</option>
+                    <option value="1">20</option>
+                    <option value="2">30</option>
+                    <option value="3">60</option>
+                    <option value="4">70</option>
+                </select>
+         
+            </div>
+        </div>
     </div>
-</section>
-<br>
+
+
+
     <table class="table table-bordered highlight  ">
         <thead>
             <tr>
@@ -48,3 +75,9 @@
 
 
 <?php  //   include 'footer.php';?>
+
+<script>
+$(document).ready(function() {
+    $('select').formSelect();
+});
+</script>
