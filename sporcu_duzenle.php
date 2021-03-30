@@ -116,16 +116,67 @@
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Yay Bilgisi:</td>
-                                    <td> <input value="<?php echo $sporcu_bilgileri["yay"] ?>" name="yay" type="text"
-                                            class="validate"> </td>
+                                    <td> Yay-kg ölçüsü:</td>
+                                    <td><input value=" <?php echo $sporcu_bilgileri["yay_kilo"] ?>" name="yay_kilo"
+                                            type="text" class="validate">
+                                    </td>
+
                                 </tr>
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
                                     <td> Yay Sertliği:</td>
-                                    <td> <input value="<?php echo $sporcu_bilgileri["yay_sertligi"] ?>"
-                                            name="yay_sertligi" type="text" class="validate"> </td>
+                                    <td><input value=" <?php echo $sporcu_bilgileri["yay_sertligi"] ?>" name="yay_sertligi"
+                                            type="text" class="validate">
+                                    </td>
+                               
+
+                                </tr>
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Handle:</td>
+                                    <td><input value=" <?php echo $sporcu_bilgileri["handle"] ?>" name="handle"
+                                            type="text" class="validate"></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Limp:</td>
+                                    <td><input value=" <?php echo $sporcu_bilgileri["limp"] ?>" name="limp"
+                                            type="text" class="validate"></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Berger:</td>
+                                    <td><input value=" <?php echo $sporcu_bilgileri["berger"] ?>" name="berger"
+                                            type="text" class="validate"></td>
+                                </tr>
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Kliker:</td>
+                                    <td><input value=" <?php echo $sporcu_bilgileri["kliker"] ?>" name="kliker"
+                                            type="text" class="validate"></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Nişangah:</td>
+                                    <td><input value=" <?php echo $sporcu_bilgileri["nisangah"] ?>" name="nisangah"
+                                            type="text" class="validate"></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Stabilizör:</td>
+                                    <td><input value=" <?php echo $sporcu_bilgileri["stabilizer"] ?>" name="stabilizer"
+                                            type="text" class="validate"></td>
                                 </tr>
                                 <tr>
 
@@ -182,7 +233,7 @@ $(function() {
         swal({
             title: "Bilgiler güncellendi!",
             icon: "success",
-       
+
         });
 
     })

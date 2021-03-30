@@ -19,7 +19,19 @@
 
     $kategori = $_POST["kategori"];
 
-    $yay = $_POST["yay"];
+    $yay_kilo = $_POST["yay_kilo"];
+    
+    $handle = $_POST["handle"];
+
+    $limp = $_POST["limp"];
+
+    $berger = $_POST["berger"]; 
+
+    $kliker = $_POST["kliker"];
+
+    $nisangah = $_POST["nisangah"];
+
+    $stabilizer = $_POST["stabilizer"];
 
     $ok = $_POST["ok"];
 
@@ -32,7 +44,7 @@
 
     ;
 
-    if(SporcuBilgileriGüncelle($sporcu_no,$ad,$soyad,$cinsiyet,$dogum_tarihi,$tel_no,$yas_grubu,$kategori,$yay,$ok,$kol_boyu,$yay_sertligi,$atis_mesafesi)=== TRUE){
+    if(SporcuBilgileriGüncelle($sporcu_no,$ad,$soyad,$cinsiyet,$dogum_tarihi,$tel_no,$yas_grubu,$kategori,$yay_kilo,$handle,$limp,$berger,$kliker,$nisangah,$stabilizer,$ok,$kol_boyu,$yay_sertligi,$atis_mesafesi)=== TRUE){
       
 
         header('Location: ../sporcu_sayfasi.php?sporcu='.$sporcu_no.''); 

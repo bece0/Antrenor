@@ -32,7 +32,7 @@
                 <li class="tab col s3"><a class="active" href="#bilgiler">Bilgiler</a></li>
                 <li class="tab col s3  "><a href="#yarisma">Yarışma Dereceleri</a></li>
                 <li class="tab col s3"><a href="#puan">Puan Durumu</a></li>
-                <li class="tab col s3 "><a href="#antrenman">Antrenman Programı</a></li>
+                <li class="tab col s3 disabled"><a href="#antrenman">Antrenman Programı</a></li>
 
             </ul>
         </div>
@@ -60,6 +60,13 @@
                                 <td style="text-align:center"><i class="material-icons">account_circle</i></td>
                                 <td> Ad Soyad :</td>
                                 <td><?php echo $sporcu_bilgileri["ad"]." ".$sporcu_bilgileri["soyad"] ?></td>
+                                <!-- <td>Edit</td> -->
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons">assignment_ind</i></td>
+                                <td> TC No :</td>
+                                <td><?php echo $sporcu_bilgileri["tc_no"] ?></td>
                                 <!-- <td>Edit</td> -->
                             </tr>
                             <tr>
@@ -107,35 +114,77 @@
                                 <td style="text-align:center"><i class="material-icons"> dns </i></td>
                                 <td> Kategori:</td>
                                 <td><?php echo $sporcu_bilgileri["kategori"] ?></td>
-                                <!-- <td>Edit</td> -->
+                             
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                <td> Yay Bilgisi:</td>
-                                <td><?php echo $sporcu_bilgileri["yay"] ?></td>
-                                <!-- <td>Edit</td> -->
+                                <td> Yay-kg ölçüsü:</td>
+                                <td><?php echo $sporcu_bilgileri["yay_kilo"] ?></td>
+                                
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> looks </i></td>
                                 <td> Yay Sertliği:</td>
                                 <td><?php echo $sporcu_bilgileri["yay_sertligi"] ?></td>
-                                <!-- <td>Edit</td> -->
+                               
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                <td> Handle:</td>
+                                <td><?php echo $sporcu_bilgileri["handle"] ?></td>
+                               
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                <td> Limp:</td>
+                                <td><?php echo $sporcu_bilgileri["limp"] ?></td>
+                             
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                <td> Berger:</td>
+                                <td><?php echo $sporcu_bilgileri["berger"] ?></td>
+                               
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                <td> Kliker:</td>
+                                <td><?php echo $sporcu_bilgileri["kliker"] ?></td>
+                               
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                <td> Nişangah:</td>
+                                <td><?php echo $sporcu_bilgileri["nisangah"] ?></td>
+                              
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                <td> Stabilizör:</td>
+                                <td><?php echo $sporcu_bilgileri["stabilizer"] ?></td>
+                                
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
                                 <td> Ok Bilgisi:</td>
                                 <td><?php echo $sporcu_bilgileri["ok"] ?></td>
-                                <!-- <td>Edit</td> -->
+                              
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> straighten </i></td>
                                 <td> Kol Boyu:</td>
                                 <td><?php echo $sporcu_bilgileri["kol_boyu"] ?></td>
-                                <!-- <td>Edit</td> -->
+                                
                             </tr>
 
                             <tr>
@@ -143,68 +192,23 @@
                                 <td style="text-align:center"><i class="material-icons"> track_changes </i> </td>
                                 <td>Atış Mesafesi:</td>
                                 <td><?php echo $sporcu_bilgileri["atis_mesafesi"] ?></td>
-                                <!-- <td>Edit</td> -->
+                               
                             </tr>
 
                         </tbody>
                     </table>
                     <br>
                     <center>
-                        <div class="col-sm-12 col-md-2 ">
+             
                             <a class=" waves-light btn green" id="bilgi_duzenle_buton"
                                 href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
-                        </div>
+              
+                            <a class=" waves-light btn red" id="sporcu_sil_buton"
+                                href="action/sporcu_sil_action.php?sporcu=<?php echo $sporcu_no ?>">Sporcu Sil</a>
+                     
                     </center>
                     <br>
-                    <!-- 
-                    <ul class=" collection">
-                            <li class="collection-header">
-                                <h4>Kişisel Bilgiler</h4>
-                            </li>
-
-                            <li class="collection-item"><i class="mdi mdi-account icon-sm "></i>
-                                <span class="collection-item-name">Ad Soyad :</span>
-                                <span class="collection-item-detail">Begüm ÇELEBİ</span>
-                                <a href="" class="collection-item-edit">Edit</a></li>
-                            <li class="collection-item"><i class="mdi mdi-cake icon-sm "></i>
-                                <span class="collection-item-name">Doğum Tarihi :</span>
-                                <span class="collection-item-detail">14.07.1996</span>
-                                <a href="" class="collection-item-edit">Edit</a></li>
-                            <li class="collection-item"><i class="mdi mdi-account icon-sm "></i>
-                                <span class="collection-item-name">Cinsiyet:</span><span
-                                    class="collection-item-detail">Kadın</span>
-                                <a href="" class="collection-item-edit">Edit</a></li>
-                            <li class="collection-item"><i class="mdi mdi-phone icon-sm "></i>
-                                <span class="collection-item-name">Tel No :</span><span
-                                    class="collection-item-detail">+9779861106179</span>
-                                <a href="" class="collection-item-edit">Edit</a></li></span>
-
-                            <li class="collection-header">
-                                <h4>Teknik Bilgiler</h4>
-                            </li>
-
-                            <li class="collection-items"><i class="mdi mdi-looks "></i>
-                                <span class="collection-item-name"> Yay Bilgisi:</span>
-                                <span class="collection-item-detail">Hoyt bilmem ne :d</span>
-                                <a href="" class="collection-item-edit">Edit</a></li>
-                            <li class="collection-items"><i class="mdi mdi-chevron-double-right "></i>
-                                <span class="collection-item-name"> Ok Bilgisi:</span>
-                                <span class="collection-item-detail"> x10 - 800 </span>
-                                <a href="" class="collection-item-edit">Edit</a></li>
-                            <li class="collection-items"><i class="mdi mdi-ruler "></i>
-                                <span class="collection-item-name">Kol Boyu:</span>
-                                <span class="collection-item-detail"> 35 cm</span>
-                                <a href="" class="-collectionut-item-edit">Edit</a></li>
-                            <li class="collection-items"><i class="mdi mdi-weight-kilogram "></i>
-                                <span class="collection-item-name">Yay Sertliği</span>
-                                <span class="collection-item-detail">28"</span>
-                                <a href="" class="collection-item-edit">Edit</a></li>
-                            <li class="collection-items"><i class="mdi mdi-bullseye"></i>
-                                <span class="collection-item-name">AtışMesafesi:</span>
-                                <span class="collection-item-detail">70 m</span>
-                                <a href="" class="collection-item-edit">Edit</a></li>
-
-                            </ul> -->
+           
 
                 </div>
             </div>
@@ -345,30 +349,30 @@
                            
            
                                   ?>
-                                    <li>
-                                        <div class="collapsible-header center">
+                    <li>
+                        <div class="collapsible-header center">
 
-                                            <div class="col s4"><?php echo $antrenman_no ?></div>
-                                            <div class="col s4"><?php echo $tarih ?></div>
-                                            <div class="col s4"><?php echo $toplam_puan ?></div>
+                            <div class="col s4"><?php echo $antrenman_no ?></div>
+                            <div class="col s4"><?php echo $tarih ?></div>
+                            <div class="col s4"><?php echo $toplam_puan ?></div>
 
-                                        </div>
+                        </div>
 
-                                        <div class="collapsible-body center" style="background-color:#e0f2f1  ">
-                                            <table>
-                                                <!-- PUAN DETAY-->
-                                                <thead>
-                                                    <tr>
-                                                        <th data-field="seri">Seri</th>
-                                                        <th data-field="1">1. Ok</th>
-                                                        <th data-field="2">2. Ok</th>
-                                                        <th data-field="3">3. Ok</th>
-                                                        <!-- <th data-field="3">S.T</th> -->
+                        <div class="collapsible-body center" style="background-color:#e0f2f1  ">
+                            <table>
+                                <!-- PUAN DETAY-->
+                                <thead>
+                                    <tr>
+                                        <th data-field="seri">Seri</th>
+                                        <th data-field="1">1. Ok</th>
+                                        <th data-field="2">2. Ok</th>
+                                        <th data-field="3">3. Ok</th>
+                                        <!-- <th data-field="3">S.T</th> -->
 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                <?php 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
 
                                                     if($seri_sayisi!=0){
                                                         for($j=0 ; $j<$seri_sayisi ; $j++){ 
@@ -381,25 +385,25 @@
                                                             $seri_toplam= $seri['seri_toplam'];
 
                                                 ?>
-                                                            <tr>
-                                                                <td data-field="1"><?php echo $seri_no ?></td>
-                                                                <td data-field="2"><?php echo $ok_1 ?></td>
-                                                                <td data-field="3"><?php echo $ok_2 ?></td>
-                                                                <td data-field="3"><?php echo $ok_3 ?></td>
-                                                                <!-- <td data-field="4"><?php echo $seri_toplam ?></td> -->
+                                    <tr>
+                                        <td data-field="1"><?php echo $seri_no ?></td>
+                                        <td data-field="2"><?php echo $ok_1 ?></td>
+                                        <td data-field="3"><?php echo $ok_2 ?></td>
+                                        <td data-field="3"><?php echo $ok_3 ?></td>
+                                        <!-- <td data-field="4"><?php echo $seri_toplam ?></td> -->
 
-                                                            </tr>
+                                    </tr>
 
-                                                    <?php } } ?>
-
-                                                  
-                                                </tbody>
+                                    <?php } } ?>
 
 
-                                            </table>
+                                </tbody>
 
-                                        </div>
-                                    </li>
+
+                            </table>
+
+                        </div>
+                    </li>
 
                     <?php } }?>
 

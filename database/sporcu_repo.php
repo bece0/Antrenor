@@ -6,8 +6,8 @@
 
     }
 
-    function SporcuKayit($antrenor_no,$ad,$soyad,$cinsiyet,$dogum_tarihi,$tel_no){
-        $sql="INSERT INTO sporcu (antrenor_no,ad,soyad,cinsiyet,dogum_tarihi,tel_no) VALUES ('$antrenor_no','$ad', '$soyad','$cinsiyet','$dogum_tarihi','$tel_no') " ;
+    function SporcuKayit($antrenor_no,$ad,$soyad,$tc_no,$cinsiyet,$dogum_tarihi,$tel_no){
+        $sql="INSERT INTO sporcu (antrenor_no,ad,soyad,tc_no,cinsiyet,dogum_tarihi,tel_no) VALUES ('$antrenor_no','$ad', '$soyad','$tc_no','$cinsiyet','$dogum_tarihi','$tel_no') " ;
        return SQLInsertCalistir($sql);
     }
 
@@ -24,9 +24,9 @@
         return SQLTekliKayitGetir($sql);
     }
 
-    function SporcuBilgileriGüncelle($sporcu_no,$ad,$soyad,$cinsiyet,$dogum_tarihi,$tel_no,$yas_grubu,$kategori,$yay,$ok,$kol_boyu,$yay_sertligi,$atis_mesafesi){
+    function SporcuBilgileriGüncelle($sporcu_no,$ad,$soyad,$cinsiyet,$dogum_tarihi,$tel_no,$yas_grubu,$kategori,$yay_kilo,$handle,$limp,$berger,$kliker,$nisangah,$stabilizer,$ok,$kol_boyu,$yay_sertligi,$atis_mesafesi){
         $sql="UPDATE sporcu SET ad='$ad',soyad='$soyad',cinsiyet='$cinsiyet',dogum_tarihi='$dogum_tarihi',tel_no='$tel_no',yas_grubu='$yas_grubu',
-        kategori='$kategori',yay='$yay',ok='$ok',kol_boyu='$kol_boyu',yay_sertligi='$yay_sertligi',atis_mesafesi= '$atis_mesafesi' WHERE sporcu_no='$sporcu_no'";
+        kategori='$kategori',yay_kilo='$yay_kilo',handle='$handle',limp='$limp',berger='$berger',kliker='$kliker',nisangah='$nisangah',stabilizer='$stabilizer',ok='$ok',kol_boyu='$kol_boyu',yay_sertligi='$yay_sertligi',atis_mesafesi= '$atis_mesafesi' WHERE sporcu_no='$sporcu_no'";
         
         return SQLUpdateCalistir($sql);
     }

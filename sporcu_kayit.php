@@ -52,6 +52,13 @@
                                 </tr>
                                 <tr>
 
+                                    <td style="text-align:center"><i class="material-icons">assignment_ind</i></td>
+                                    <td> TC No :</td>
+                                    <td> <input name="tcno" type="text" class="validate"> </td>
+
+                                </tr>
+                                <tr>
+
                                     <td style="text-align:center"><i class="material-icons">wc</i></td>
                                     <td> Cinsiyet :</td>
                                     <td> <input name="cinsiyet" type="text" class="validate"> </td>
