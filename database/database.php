@@ -143,8 +143,7 @@
         $con = BAGLANTI_GETIR();
 
         if ($con->query($sql_sorgusu) === TRUE) {
-            // _SistemLogYaz($baslik, $mesaj);
-            _SistemLogYaz("SORGU_DELETE", $sql_sorgusu);
+
             return TRUE;
         } else {
             echo "Error at delete : " . $sql_sorgusu . "<br>" . $con->error;

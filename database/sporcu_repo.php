@@ -11,6 +11,12 @@
        return SQLInsertCalistir($sql);
     }
 
+    
+    function SporcuSil($sporcu_no){
+        $sql="DELETE FROM sporcu WHERE sporcu_no= '$sporcu_no'" ;
+       return SQLDeleteCalistir($sql);
+    }
+
     function SonKayitIdGetir(){
         $sql = "SELECT sporcu_no FROM sporcu ORDER BY sporcu_no DESC LIMIT 1";
         return SQLTekliKayitGetir($sql);

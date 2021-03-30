@@ -29,6 +29,11 @@ function AidatTablosuGuncelle($sporcu_no,$ocak,$subat,$mart,$nisan,$mayis,$hazir
 }
 
 
+function AidatSporcuSil($sporcu_no){
+    $sql="DELETE FROM aidat WHERE sporcu_no= '$sporcu_no'" ;
+   return SQLDeleteCalistir($sql);
+}
+
 
 
 
