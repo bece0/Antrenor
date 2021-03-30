@@ -20,7 +20,7 @@
     <section class="jumbotron text-center">
         <div class="container">
             <center>
-                <h4 class="jumbotron-heading"> 2021 AİDAT TABLOSU</h4>
+                <h4 class="jumbotron-heading"> 2021 MALZEME ÜCRET TABLOSU</h4>
             </center>
         </div>
     </section>

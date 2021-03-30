@@ -281,7 +281,7 @@
             <br>
             <div class="card row mx-2 mb-3">
                 <br>
-                <h5 style="text-align:center">Puan Durumu</h5>
+                <h5 style="text-align:center">Antrenmanlar</h5>
                 <br>
 
                 <!--   <table class=" table table-striped  table-hover highlight ">
