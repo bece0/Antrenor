@@ -9,7 +9,7 @@
     <section class="jumbotron text-center">
         <div class="container">
             <center>
-                <h4 class="jumbotron-heading">PUAN TABLOSU</h4>
+                <h4 class="jumbotron-heading">HAFTALIK PUAN TABLOSU</h4>
             </center>
         </div>
     </section>
