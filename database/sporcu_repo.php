@@ -30,8 +30,34 @@
         return SQLTekliKayitGetir($sql);
     }
 
+    function SporcuOkBilgileriGetir($sporcu_no){
+        $sql = "SELECT  * FROM ok_bilgi WHERE sporcu_no= '$sporcu_no'" ; 
+        
+        return SQLTekliKayitGetir($sql);
+    }
+
+    function SporcuYayBilgileriGetir($sporcu_no){
+        $sql = "SELECT  * FROM yay_bilgi WHERE sporcu_no= '$sporcu_no'" ; 
+        
+        return SQLTekliKayitGetir($sql);
+    }
+
     function SporcuBilgileriGüncelle($sporcu_no,$ad,$soyad,$cinsiyet,$dogum_tarihi,$tel_no,$yas_grubu,$kategori,$yay_kilo,$handle,$limp,$berger,$kliker,$nisangah,$stabilizer,$ok,$kol_boyu,$yay_sertligi,$atis_mesafesi){
         $sql="UPDATE sporcu SET ad='$ad',soyad='$soyad',cinsiyet='$cinsiyet',dogum_tarihi='$dogum_tarihi',tel_no='$tel_no',yas_grubu='$yas_grubu',
+        kategori='$kategori',yay_kilo='$yay_kilo',handle='$handle',limp='$limp',berger='$berger',kliker='$kliker',nisangah='$nisangah',stabilizer='$stabilizer',ok='$ok',kol_boyu='$kol_boyu',yay_sertligi='$yay_sertligi',atis_mesafesi= '$atis_mesafesi' WHERE sporcu_no='$sporcu_no'";
+        
+        return SQLUpdateCalistir($sql);
+    }
+
+    function SporcuYayBilgileriGüncelle($sporcu_no,$ad,$soyad,$cinsiyet,$dogum_tarihi,$tel_no,$yas_grubu,$kategori,$yay_kilo,$handle,$limp,$berger,$kliker,$nisangah,$stabilizer,$ok,$kol_boyu,$yay_sertligi,$atis_mesafesi){
+        $sql="UPDATE yay_bilgi SET ad='$ad',soyad='$soyad',cinsiyet='$cinsiyet',dogum_tarihi='$dogum_tarihi',tel_no='$tel_no',yas_grubu='$yas_grubu',
+        kategori='$kategori',yay_kilo='$yay_kilo',handle='$handle',limp='$limp',berger='$berger',kliker='$kliker',nisangah='$nisangah',stabilizer='$stabilizer',ok='$ok',kol_boyu='$kol_boyu',yay_sertligi='$yay_sertligi',atis_mesafesi= '$atis_mesafesi' WHERE sporcu_no='$sporcu_no'";
+        
+        return SQLUpdateCalistir($sql);
+    }
+
+    function SporcuOkBilgileriGüncelle($sporcu_no,$ad,$soyad,$cinsiyet,$dogum_tarihi,$tel_no,$yas_grubu,$kategori,$yay_kilo,$handle,$limp,$berger,$kliker,$nisangah,$stabilizer,$ok,$kol_boyu,$yay_sertligi,$atis_mesafesi){
+        $sql="UPDATE ok_bilgi SET ad='$ad',soyad='$soyad',cinsiyet='$cinsiyet',dogum_tarihi='$dogum_tarihi',tel_no='$tel_no',yas_grubu='$yas_grubu',
         kategori='$kategori',yay_kilo='$yay_kilo',handle='$handle',limp='$limp',berger='$berger',kliker='$kliker',nisangah='$nisangah',stabilizer='$stabilizer',ok='$ok',kol_boyu='$kol_boyu',yay_sertligi='$yay_sertligi',atis_mesafesi= '$atis_mesafesi' WHERE sporcu_no='$sporcu_no'";
         
         return SQLUpdateCalistir($sql);

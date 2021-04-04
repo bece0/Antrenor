@@ -13,6 +13,14 @@
     $sporcu_bilgileri = array(); 
     $sporcu_bilgileri= SporcuBilgileriGetir($sporcu_no); //var_dump($sporcu_bilgileri);
 
+    $ok_bilgileri = array(); 
+    $ok_bilgileri= SporcuOkBilgileriGetir($sporcu_no); //var_dump($ok_bilgileri);
+
+
+    $yay_bilgileri = array(); 
+    $yay_bilgileri= SporcuYayBilgileriGetir($sporcu_no); //var_dump($yay_bilgileri);
+
+
     $yarisma_bilgileri = array();
     $yarisma_bilgileri = SporcuYarismalariGetir($sporcu_no); //var_dump($yarisma_bilgileri);
 
@@ -97,118 +105,251 @@
 
 
                     <br>
+                    <h5 style="text-align:center"> Teknik Bilgiler </h5>
 
-                    <table>
-                        <thead>
-                            <h5 style="text-align:center"> Teknik Bilgiler </h5>
-                            <tr>
-                                <th data-field="1"></th>
-                                <th data-field="2"></th>
-                                <th data-field="3"></th>
+                    <div class="row">
+                        <div class="col s6">
 
-                            </tr>
-                        </thead>
+                            <table>
+                                <thead>
 
-                        <tbody>
-                            <tr>
-                                <td style="text-align:center"><i class="material-icons"> dns </i></td>
-                                <td> Kategori:</td>
-                                <td><?php echo $sporcu_bilgileri["kategori"] ?></td>
-                             
-                            </tr>
-                            <tr>
+                                    <tr>
+                                        <th data-field="1"></th>
+                                        <th data-field="2"></th>
+                                        <th data-field="3"></th>
 
-                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                <td> Yay-kg ölçüsü:</td>
-                                <td><?php echo $sporcu_bilgileri["yay_kilo"] ?></td>
-                                
-                            </tr>
-                            <tr>
+                                    </tr>
+                                </thead>
 
-                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                <td> Yay Sertliği:</td>
-                                <td><?php echo $sporcu_bilgileri["yay_sertligi"] ?></td>
-                               
-                            </tr>
-                            <tr>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                        <td> Yay Kategori:</td>
+                                        <td><?php echo $yay_bilgileri["kategori"] ?></td>
 
-                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                <td> Handle:</td>
-                                <td><?php echo $sporcu_bilgileri["handle"] ?></td>
-                               
-                            </tr>
-                            <tr>
+                                    </tr>
+                                    <tr>
 
-                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                <td> Limp:</td>
-                                <td><?php echo $sporcu_bilgileri["limp"] ?></td>
-                             
-                            </tr>
-                            <tr>
+                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                        <td> Ebat:</td>
+                                        <td><?php echo $yay_bilgileri["ebat"] ?></td>
 
-                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                <td> Berger:</td>
-                                <td><?php echo $sporcu_bilgileri["berger"] ?></td>
-                               
-                            </tr>
-                            <tr>
+                                    </tr>
+                                    <tr>
 
-                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                <td> Kliker:</td>
-                                <td><?php echo $sporcu_bilgileri["kliker"] ?></td>
-                               
-                            </tr>
-                            <tr>
+                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                        <td> Çekiş Ağırlığı:</td>
+                                        <td><?php echo $yay_bilgileri["cekis_agirligi"] ?></td>
 
-                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                <td> Nişangah:</td>
-                                <td><?php echo $sporcu_bilgileri["nisangah"] ?></td>
-                              
-                            </tr>
-                            <tr>
+                                    </tr>
+                                    <tr>
 
-                                <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                <td> Stabilizör:</td>
-                                <td><?php echo $sporcu_bilgileri["stabilizer"] ?></td>
-                                
-                            </tr>
-                            <tr>
+                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                        <td> Yay Sertliği:</td>
+                                        <td><?php echo $yay_bilgileri["yay_sertligi"] ?></td>
 
-                                <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
-                                <td> Ok Bilgisi:</td>
-                                <td><?php echo $sporcu_bilgileri["ok"] ?></td>
-                              
-                            </tr>
-                            <tr>
+                                    </tr>
 
-                                <td style="text-align:center"><i class="material-icons"> straighten </i></td>
-                                <td> Kol Boyu:</td>
-                                <td><?php echo $sporcu_bilgileri["kol_boyu"] ?></td>
-                                
-                            </tr>
+                                    <tr>
 
-                            <tr>
+                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                        <td> Handle:</td>
+                                        <td><?php echo $yay_bilgileri["handle"] ?></td>
 
-                                <td style="text-align:center"><i class="material-icons"> track_changes </i> </td>
-                                <td>Atış Mesafesi:</td>
-                                <td><?php echo $sporcu_bilgileri["atis_mesafesi"] ?></td>
-                               
-                            </tr>
+                                    </tr>
+                                    <tr>
 
-                        </tbody>
-                    </table>
+                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                        <td> Limp:</td>
+                                        <td><?php echo $yay_bilgileri["limp"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                        <td> Kiriş Yüksekliği:</td>
+                                        <td><?php echo $yay_bilgileri["kiris_yuksekligi"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                        <td> Berger:</td>
+                                        <td><?php echo $yay_bilgileri["berger"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                        <td> Kliker:</td>
+                                        <td><?php echo $yay_bilgileri["kliker"] ?></td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                        <td> Stabilizör:</td>
+                                        <td><?php echo $yay_bilgileri["stabilizer"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                        <td> Tiller:</td>
+                                        <td><?php echo $yay_bilgileri["tiller"] ?></td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                        <td> Nişangah:</td>
+                                        <td><?php echo $yay_bilgileri["nisangah"] ?></td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> track_changes </i></td>
+                                        <td> Atış Mesafesi:</td>
+                                        <td><?php echo $yay_bilgileri["atis_mesafesi"] ?></td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> comment </i>
+                                        </td>
+                                        <td>Notlar:</td>
+                                        <td><?php echo $yay_bilgileri["notlar"] ?></td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col s6">
+
+                            <table>
+                                <thead>
+
+                                    <tr>
+                                        <th data-field="1"></th>
+                                        <th data-field="2"></th>
+                                        <th data-field="3"></th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td> Ok Sayısı:</td>
+                                        <td><?php echo $ok_bilgileri["ok_sayisi"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td> Ok Numarası:</td>
+                                        <td><?php echo $ok_bilgileri["ok_numarasi"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td> Uzunluk:</td>
+                                        <td><?php echo $ok_bilgileri["uzunluk"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td> Malzeme:</td>
+                                        <td><?php echo $ok_bilgileri["malzeme"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td> Sapma:</td>
+                                        <td><?php echo $ok_bilgileri["sapma"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td> Çap:</td>
+                                        <td><?php echo $ok_bilgileri["cap"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td> Ağırlık:</td>
+                                        <td><?php echo $ok_bilgileri["agirlik"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td> Uç Ağırlığı:</td>
+                                        <td><?php echo $ok_bilgileri["uc_agirligi"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td> Tüy:</td>
+                                        <td><?php echo $ok_bilgileri["tuy"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td> Arkalık:</td>
+                                        <td><?php echo $ok_bilgileri["arkalik"] ?></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> straighten </i></td>
+                                        <td> Kol Boyu:</td>
+                                        <td><?php echo $ok_bilgileri["kol_boyu"] ?></td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td style="text-align:center"><i class="material-icons"> comment </i>
+                                        </td>
+                                        <td>Notlar:</td>
+                                        <td><?php echo $ok_bilgileri["notlar"] ?></td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     <br>
                     <center>
-             
-                            <a class=" waves-light btn green " id="bilgi_duzenle_buton"
-                                href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
-              
-                            <a class=" waves-light btn red " id="sporcu_sil_buton"
-                                href="action/sporcu_sil_action.php?sporcu=<?php echo $sporcu_no ?>">Sporcu Sil</a>
-                     
+
+                        <a class=" waves-light btn green " id="bilgi_duzenle_buton"
+                            href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
+
+                        <a class=" waves-light btn red " id="sporcu_sil_buton"
+                            href="action/sporcu_sil_action.php?sporcu=<?php echo $sporcu_no ?>">Sporcu Sil</a>
+
                     </center>
                     <br>
-           
+
 
                 </div>
             </div>
