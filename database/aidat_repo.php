@@ -1,8 +1,8 @@
 <?php 
 
 
-function AidatBilgisiGetir($antrenor_no){
-    $sql = "SELECT  sporcu.ad,sporcu.soyad,aidat. * FROM aidat inner join sporcu on aidat.sporcu_no=sporcu.sporcu_no WHERE sporcu.antrenor_no= '$antrenor_no'" ;
+function AidatBilgisiGetir($antrenor_no,$yil){
+    $sql = "SELECT  sporcu.ad,sporcu.soyad,aidat. * FROM aidat inner join sporcu on aidat.sporcu_no=sporcu.sporcu_no WHERE sporcu.antrenor_no= '$antrenor_no' AND aidat.sene= '$yil' " ;
     return SQLCalistir($sql);
 
 }
@@ -28,6 +28,14 @@ function AidatTablosuGuncelle($sporcu_no,$ocak,$subat,$mart,$nisan,$mayis,$hazir
 
 }
 
+/*
+function AidatTablosundanSil($antrenor_no,$yil){
+
+    $sql="DELETE FROM aidat WHERE yil < '$yil' " ;
+    return SQLDeleteCalistir($sql);
+
+}
+*/
 
 function AidatSporcuSil($sporcu_no){
     $sql="DELETE FROM aidat WHERE sporcu_no= '$sporcu_no'" ;

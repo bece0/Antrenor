@@ -6,6 +6,8 @@
     $kullanici_giris_yapti_mi = isset($_SESSION["kullanici_id"]); //  var_dump($kullanici_giris_yapti_mi);
     $antrenor_id=  $_SESSION["kullanici_id"];
     $antrenor=KullaniciBilgileriniGetirById($antrenor_id);
+
+    $yil = date("Y");
   
 ?>
 
@@ -19,7 +21,7 @@
       
             <li class="active"><a href="index.php">Sporcu Listesi</a></li>
             <li><a href="puan.php">Puan Tablosu</a></li>
-            <li><a href="aidat.php">Malzeme Ücret</a></li>
+            <li><a href="aidat.php?yil=<?php echo $yil ?>">Malzeme Ücret</a></li>
 
             <?php if($kullanici_giris_yapti_mi ){ ?>
             <li><a class="waves-effect waves-light btn  orange darken-2" href="login.php">Çıkış</a></li>

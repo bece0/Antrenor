@@ -10,16 +10,16 @@
     $antrenor_id=  $_SESSION["kullanici_id"];
     $sporcu_listesi= SporculariGetir($antrenor_id);
 
-    $aidat_listesi = array();
-    $aidat_listesi = AidatBilgisiGetir($antrenor_id); //var_dump( $aidat_listesi);
+   $gosterilen_yil =  $_GET["yil"]; //var_dump( $simdiki_yil);
+   $gecen_yil = $gosterilen_yil-1;  //var_dump( $gecen_yil);
+ 
+                    
+   $aidat_listesi = array();
 
-     $yil = date("Y");
+    
 
 
 ?>
-
-
-
 
 
 <div class="container">
@@ -31,8 +31,15 @@
             <section class="jumbotron text-center">
                 <div class="container">
                     <center>
-                        <h4 class="jumbotron-heading"><button><i class="medium material-icons"> navigate_before </i></button>
-                         2021 MALZEME ÜCRET TABLOSU  <button> <i class="medium material-icons "> navigate_next </i></button></h4>
+
+                        <h4 class="jumbotron-heading">
+                            <a class="btn-floating btn-medium  waves-light orange <?php if ($gosterilen_yil <= date("Y")-1){?> disabled <?php }?> "
+                                href="aidat.php?yil=<?php echo $gecen_yil ?>"><i
+                                    class="material-icons">navigate_before</i></a>
+                            <?php echo $_GET["yil"] ?> MALZEME ÜCRET TABLOSU
+                            <a class="btn-floating btn-medium   waves-light orange <?php if ($gosterilen_yil >= date("Y")){?> disabled <?php }?>"
+                                href="aidat.php?yil=<?php echo $yil ?>"><i class="material-icons">navigate_next</i></a>
+                        </h4>
                     </center>
                 </div>
             </section>
@@ -58,6 +65,9 @@
                 </thead>
                 <tbody>
                     <?php 
+
+              
+                $aidat_listesi = AidatBilgisiGetir($antrenor_id , $gosterilen_yil); //var_dump( $aidat_listesi);
              
                 $sporcu_sayisi=count($sporcu_listesi); //var_dump($sporcu_sayisi);
             for($i=0 ; $i<$sporcu_sayisi;$i++){
