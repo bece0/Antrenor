@@ -342,7 +342,7 @@
                     <center>
 
                         <a class=" waves-light btn green " id="bilgi_duzenle_buton"
-                            href="sporcu_duzenle_modal.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
+                            href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
 
                         <a class=" waves-light btn red " id="sporcu_sil_buton"
                             href="action/sporcu_sil_action.php?sporcu=<?php echo $sporcu_no ?>">Sporcu Sil</a>
