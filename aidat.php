@@ -10,8 +10,8 @@
     $antrenor_id=  $_SESSION["kullanici_id"];
     $sporcu_listesi= SporculariGetir($antrenor_id);
 
-   $gosterilen_yil =  $_GET["yil"]; //var_dump( $simdiki_yil);
-   $gecen_yil = $gosterilen_yil-1;  //var_dump( $gecen_yil);
+   $gosterilen_yil =  $_GET["sene"]; //var_dump( $simdiki_yil);
+   $gecen_yil = (int)$gosterilen_yil-1;  //var_dump( $gecen_yil);
  
                     
    $aidat_listesi = array();
@@ -34,11 +34,11 @@
 
                         <h4 class="jumbotron-heading">
                             <a class="btn-floating btn-medium  waves-light orange <?php if ($gosterilen_yil <= date("Y")-1){?> disabled <?php }?> "
-                                href="aidat.php?yil=<?php echo $gecen_yil ?>"><i
+                                href="aidat.php?sene=<?php echo $gecen_yil ?>"><i
                                     class="material-icons">navigate_before</i></a>
-                            <?php echo $_GET["yil"] ?> MALZEME ÜCRET TABLOSU
+                            <?php echo $_GET["sene"] ?> MALZEME ÜCRET TABLOSU
                             <a class="btn-floating btn-medium   waves-light orange <?php if ($gosterilen_yil >= date("Y")){?> disabled <?php }?>"
-                                href="aidat.php?yil=<?php echo $yil ?>"><i class="material-icons">navigate_next</i></a>
+                                href="aidat.php?sene=<?php echo $yil ?>"><i class="material-icons">navigate_next</i></a>
                         </h4>
                     </center>
                 </div>
@@ -91,7 +91,7 @@
                 $kasim= $aidat['kasim'];
                 $aralik= $aidat['aralik']; 
             ?>
-                    <tr onclick="document.location = 'aidat_duzenle.php?sporcu=<?php echo $sporcu['sporcu_no'] ?>';">
+                    <tr onclick="document.location = 'aidat_duzenle.php?sporcu=<?php echo $sporcu['sporcu_no']?>&sene=<?php echo $gosterilen_yil ?>'">
                         <td><?php echo  $ad_soyad ?></td>
                         <td> <?php if  ($ocak=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
                                 class="material-icons">remove</i> <?php }?> </td>

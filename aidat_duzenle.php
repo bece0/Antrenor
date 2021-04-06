@@ -18,8 +18,9 @@
 
     $ad_soyad=  $sporcu['ad']." ".$sporcu['soyad'];
 
+    $sene= $_GET['sene'];
     $aidat = array();
-    $aidat = SporcununAidatBilgisiGetir($sporcu_no); //var_dump( $aidat);
+    $aidat = SporcununAidatBilgisiGetir($sporcu_no,$sene); //var_dump( $aidat);
 
 
     $ocak= $aidat['ocak'];   
@@ -119,6 +120,8 @@
 
 
                         <input type="hidden" id="sporcu_no" name="sporcu_no" value="<?php echo $sporcu_no ?>" />
+                       
+                        <input type="hidden" id="sene" name="sene" value="<?php echo $sene ?>" />
                         <br>
                         <center>
                             <button type="submit" class="waves-light btn green" id="aidat_duzenle_buton"

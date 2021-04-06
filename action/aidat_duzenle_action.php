@@ -25,6 +25,7 @@ if(isset($ocak) || isset($subat) || isset($mart) || isset($nisan) || isset($mayi
 session_start();
 include '../database/database.php';
 $sporcu_no=$_POST["sporcu_no"]; 
+$sene=$_POST["sene"]; 
 
 if(isset($_POST['aylar'])) {
     $aylar = $_POST['aylar']; //var_dump($aylar);
@@ -93,9 +94,9 @@ if(isset($_POST['aylar'])) {
         $aralik = 0; }
 
 
-        if(AidatTablosuGuncelle($sporcu_no,$ocak,$subat,$mart,$nisan,$mayis,$haziran,$temmuz,$agustos,$eylul,$ekim,$kasim,$aralik)=== TRUE){
-       
-            header('Location: ../aidat.php'); 
+        if(AidatTablosuGuncelle($sporcu_no,$sene,$ocak,$subat,$mart,$nisan,$mayis,$haziran,$temmuz,$agustos,$eylul,$ekim,$kasim,$aralik)=== TRUE){
+
+            header('Location: ../aidat.php?sene='.$sene.''); 
             
         }else {
                 $_SESSION["_error"] = "Bir hata oluştu.";

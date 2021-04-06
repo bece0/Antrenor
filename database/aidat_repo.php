@@ -7,8 +7,8 @@ function AidatBilgisiGetir($antrenor_no,$yil){
 
 }
 
-function SporcununAidatBilgisiGetir($sporcu_no){
-    $sql = "SELECT  sporcu.ad,sporcu.soyad,aidat. * FROM aidat inner join sporcu on aidat.sporcu_no=sporcu.sporcu_no WHERE sporcu.sporcu_no= '$sporcu_no'" ;
+function SporcununAidatBilgisiGetir($sporcu_no,$sene){
+    $sql = "SELECT  sporcu.ad,sporcu.soyad,aidat. * FROM aidat inner join sporcu on aidat.sporcu_no=sporcu.sporcu_no WHERE sporcu.sporcu_no= '$sporcu_no' and sene='$sene'" ;
     return SQLTekliKayitGetir($sql);
 
 }
@@ -19,10 +19,10 @@ function AidatTablosunaEkle($antrenor_no,$sporcu_no){
 
 }
 
-function AidatTablosuGuncelle($sporcu_no,$ocak,$subat,$mart,$nisan,$mayis,$haziran,$temmuz,$agustos,$eylul,$ekim,$kasim,$aralik){
+function AidatTablosuGuncelle($sporcu_no,$sene,$ocak,$subat,$mart,$nisan,$mayis,$haziran,$temmuz,$agustos,$eylul,$ekim,$kasim,$aralik){
    
    $sql="UPDATE aidat SET ocak='$ocak',subat='$subat',mart='$mart',nisan='$nisan',mayis='$mayis',haziran='$haziran',
-    temmuz='$temmuz',agustos='$agustos',eylul='$eylul',ekim='$ekim',kasim='$kasim',aralik= '$aralik' WHERE sporcu_no='$sporcu_no'";
+    temmuz='$temmuz',agustos='$agustos',eylul='$eylul',ekim='$ekim',kasim='$kasim',aralik= '$aralik' WHERE sporcu_no='$sporcu_no' and sene='$sene'";
 
     return SQLUpdateCalistir($sql);
 
