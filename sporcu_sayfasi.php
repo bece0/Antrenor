@@ -53,7 +53,7 @@
                 <div class="card-body">
                     <br>
                     <h5 style="text-align:center"> Kişisel Bilgiler</h5>
-                    <table>
+                    <table class="striped">
                         <thead>
                             <tr>
                                 <th data-field="1"></th>
@@ -110,7 +110,7 @@
                     <div class="row">
                         <div class="col s6">
 
-                            <table>
+                        <table class="striped">
                                 <thead>
 
                                     <tr>
@@ -125,7 +125,7 @@
                                     <tr>
                                         <td style="text-align:center"><i class="material-icons"> looks </i></td>
                                         <td> Yay Kategori:</td>
-                                        <td><?php echo $yay_bilgileri["kategori"] ?></td>
+                                        <td><?php echo $sporcu_bilgileri["kategori"] ?></td>
 
                                     </tr>
                                     <tr>
@@ -223,7 +223,7 @@
                                         <td style="text-align:center"><i class="material-icons"> comment </i>
                                         </td>
                                         <td>Notlar:</td>
-                                        <td><?php echo $yay_bilgileri["notlar"] ?></td>
+                                        <td><?php echo $yay_bilgileri["yay_notlar"] ?></td>
 
                                     </tr>
 
@@ -234,7 +234,7 @@
                         </div>
                         <div class="col s6">
 
-                            <table>
+                            <table class="striped">
                                 <thead>
 
                                     <tr>
@@ -249,70 +249,70 @@
 
                                     <tr>
 
-                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
                                         <td> Ok Sayısı:</td>
                                         <td><?php echo $ok_bilgileri["ok_sayisi"] ?></td>
 
                                     </tr>
                                     <tr>
 
-                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
                                         <td> Ok Numarası:</td>
                                         <td><?php echo $ok_bilgileri["ok_numarasi"] ?></td>
 
                                     </tr>
                                     <tr>
 
-                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
                                         <td> Uzunluk:</td>
                                         <td><?php echo $ok_bilgileri["uzunluk"] ?></td>
 
                                     </tr>
                                     <tr>
 
-                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
                                         <td> Malzeme:</td>
                                         <td><?php echo $ok_bilgileri["malzeme"] ?></td>
 
                                     </tr>
                                     <tr>
 
-                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
                                         <td> Sapma:</td>
                                         <td><?php echo $ok_bilgileri["sapma"] ?></td>
 
                                     </tr>
                                     <tr>
 
-                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
                                         <td> Çap:</td>
                                         <td><?php echo $ok_bilgileri["cap"] ?></td>
 
                                     </tr>
                                     <tr>
 
-                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
                                         <td> Ağırlık:</td>
                                         <td><?php echo $ok_bilgileri["agirlik"] ?></td>
 
                                     </tr>
                                     <tr>
 
-                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
                                         <td> Uç Ağırlığı:</td>
                                         <td><?php echo $ok_bilgileri["uc_agirligi"] ?></td>
 
                                     </tr>
                                     <tr>
 
-                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
                                         <td> Tüy:</td>
                                         <td><?php echo $ok_bilgileri["tuy"] ?></td>
 
                                     </tr>
                                     <tr>
 
-                                        <td style="text-align:center"><i class="material-icons"> swap_horiz </i></td>
+                                        <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
                                         <td> Arkalık:</td>
                                         <td><?php echo $ok_bilgileri["arkalik"] ?></td>
 
@@ -329,8 +329,8 @@
 
                                         <td style="text-align:center"><i class="material-icons"> comment </i>
                                         </td>
-                                        <td>Notlar:</td>
-                                        <td><?php echo $ok_bilgileri["notlar"] ?></td>
+                                        <td> Notlar:</td>
+                                        <td><?php echo $ok_bilgileri["ok_notlar"] ?></td>
 
                                     </tr>
 
@@ -342,7 +342,7 @@
                     <center>
 
                         <a class=" waves-light btn green " id="bilgi_duzenle_buton"
-                            href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
+                            href="sporcu_duzenle_modal.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
 
                         <a class=" waves-light btn red " id="sporcu_sil_buton"
                             href="action/sporcu_sil_action.php?sporcu=<?php echo $sporcu_no ?>">Sporcu Sil</a>
