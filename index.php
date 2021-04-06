@@ -32,13 +32,33 @@
 
             <div class="row">
                 <div class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
+                    <form>
+                        <div class="input-field col s4">
                             <i class="material-icons prefix">search</i>
                             <input type="text" id="autocomplete-input" class="autocomplete">
                             <label for="autocomplete-input">Sporcu Ara</label>
                         </div>
-                    </div>
+                        <div class="input-field col s4">
+
+                            <select>
+                                <option value="" disabled selected>Yay türü seçin</option>
+                                <option value="1">Klasik yay</option>
+                                <option value="2">Makaralı Yay</option>
+
+                            </select>
+                        </div>
+                        <div class="input-field col s4">
+
+                            <select>
+                                <option value="" disabled selected>Yaş Grubu seçin</option>
+                                <option value="1">Büyükler</option>
+                                <option value="2">Gençler</option>
+                                <option value="3">Kadetler</option>
+                                <option value="4">Yıldızlar</option>
+                                <option value="5">Minikler</option>
+                            </select>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -85,7 +105,7 @@
 
                 </tbody>
             </table>
-            <!-- </div> -->
+
         </div>
         <br><br>
         <div class="col mb-2">
@@ -93,7 +113,7 @@
 
                 <div class="col-sm-12 col-md-2 ">
                     <a class=" waves-light btn green " id="sporcu_kayit_buton" href="sporcu_kayit.php">Sporcu Kayıt</a>
-                  
+
                 </div>
             </div>
         </div>
@@ -101,15 +121,18 @@
 </div>
 
 
-</body>
-
-</html>
+<?php     include 'footer.php';?>
 
 <?php    // include 'footer.php';?>
 
 
 <script>
-
+$(document).ready(function() {
+    $('select').formSelect();
+});
+$(document).ready(function(){
+    $('.modal').modal();
+  });
 
 $(document).ready(function() {
     $('input.autocomplete').autocomplete({

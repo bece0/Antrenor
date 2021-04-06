@@ -72,7 +72,8 @@
         </tbody>
     </table>
 </div>
-
+<br>
+<?php     include 'footer.php';?>
 
 <?php  //   include 'footer.php';?>
 
