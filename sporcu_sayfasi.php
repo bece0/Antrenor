@@ -53,7 +53,7 @@
                 <div class="card-body">
                     <br>
                     <h5 style="text-align:center"> Kişisel Bilgiler</h5>
-                    <table class="striped">
+                    <table class="striped orange lighten-4">
                         <thead>
                             <tr>
                                 <th data-field="1"></th>
@@ -110,7 +110,7 @@
                     <div class="row">
                         <div class="col s6">
 
-                        <table class="striped">
+                        <table class="striped orange lighten-4">
                                 <thead>
 
                                     <tr>
@@ -234,7 +234,7 @@
                         </div>
                         <div class="col s6">
 
-                            <table class="striped">
+                            <table class="striped orange lighten-4">
                                 <thead>
 
                                     <tr>
@@ -361,7 +361,7 @@
             <div class="card row mx-2 mb-3">
                 <br>
                 <h5 style="text-align:center"> Yarışma Dereceleri </h5>
-                <table class="table table-striped  table-hover highlight ">
+                <table class="table table-striped table-hover highlight">
                     <thead>
                         <tr>
 
@@ -500,7 +500,7 @@
                         </div>
 
                         <div class="collapsible-body center" style="background-color:#e0f2f1  ">
-                            <table>
+                            <table >
                                 <!-- PUAN DETAY-->
                                 <thead>
                                     <tr>

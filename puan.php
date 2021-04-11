@@ -59,13 +59,13 @@
             </tr>
             <tr>
                 <td>2</td>
-                <td>Begüm Çelebi</td>
+                <td>Ayşe Yılmaz</td>
                 <td>300</td>
 
             </tr>
             <tr>
                 <td>3</td>
-                <td>Begüm Çelebi</td>
+                <td>Ali Kaya</td>
                 <td>270</td>
 
             </tr>
