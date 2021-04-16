@@ -74,8 +74,43 @@
         return SQLInsertCalistir($sql);
     }
 
+    function SporculariGetirYay($yay){
+        $sql = "SELECT  * FROM sporcu WHERE kategori= '$yay'" ;
+        return SQLCalistir($sql);
 
+    }
 
+    function SporcuAra($yay_kategori,$yas_grubu,$isim_ara){
+        $sql = "SELECT  * FROM sporcu" ;
+        $where_exist=TRUE;
+
+        if($yay_kategori ==NULL && $yas_grubu ==NULL ){
+            $sql = "SELECT  * FROM sporcu" ; 
+            $where_exist=FALSE;
+        }
+        else if($yay_kategori !=NULL && $yas_grubu !=NULL ){
+            $sql = "SELECT  * FROM sporcu WHERE kategori= '$yay_kategori' AND yas_grubu='$yas_grubu' " ;
+        }else{
+            if($yay_kategori == NULL){
+                $sql = "SELECT  * FROM sporcu WHERE yas_grubu='$yas_grubu' " ;
+            }else if($yas_grubu == NULL){
+                $sql = "SELECT  * FROM sporcu WHERE kategori= '$yay_kategori' " ;
+            }
+        }
+
+        if($isim_ara!=NULL){
+            if($where_exist==FALSE){
+                $sql=$sql." WHERE ";
+            }else{
+                $sql=$sql." AND ";
+            }
+            $sql=$sql." (ad LIKE '%$isim_ara%' OR soyad LIKE '%$isim_ara%')  ";
+        }
+       
+       // echo $sql;
+        return SQLCalistir($sql);
+
+    }
  
 
 ?>

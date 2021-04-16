@@ -27,43 +27,52 @@
 
 <div class="container mb-4">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 ">
             <!-- <div class="table-responsive"> -->
 
-            <div class="row">
+            <div class="row ">
                 <div class="col s12">
-                    <form>
-                        <div class="input-field col s4">
-                            <i class="material-icons prefix">search</i>
-                            <input type="text" id="autocomplete-input" class="autocomplete">
-                            <label for="autocomplete-input">Sporcu Ara</label>
-                        </div>
-                        <div class="input-field col s4">
 
-                            <select>
-                                <option value="" disabled selected>Yay türü seçin</option>
-                                <option value="1">Klasik yay</option>
-                                <option value="2">Makaralı Yay</option>
+                    <div class="input-field col s5">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text" id="text_ara" class="autocomplete" onchange="arama_yap()">
 
-                            </select>
-                        </div>
-                        <div class="input-field col s4">
+                        <label for="text_ara">Sporcu Adı</label>
 
-                            <select>
-                                <option value="" disabled selected>Yaş Grubu seçin</option>
-                                <option value="1">Büyükler</option>
-                                <option value="2">Gençler</option>
-                                <option value="3">Kadetler</option>
-                                <option value="4">Yıldızlar</option>
-                                <option value="5">Minikler</option>
-                            </select>
-                        </div>
-                    </form>
+                    </div>
+
+                    <div class="input-field col s3">
+
+                        <select id="yay_turu_ara" onchange="arama_yap()">
+                            <option value="" selected>Yay türü seçin</option>
+                            <option value="klasik">Klasik</option>
+                            <option value="makarali">Makaralı</option>
+
+                        </select>
+                    </div>
+                    <div class="input-field col s3">
+
+                        <select id="yas_grubu_ara" onchange="arama_yap()">
+                            <option value="" selected>Yaş Grubu seçin</option>
+                            <option value="buyukler">Büyükler</option>
+                            <option value="gencler">Gençler</option>
+                            <option value="kadetler">Kadetler</option>
+                            <option value="yildizlar">Yıldızlar</option>
+                            <option value="minikler">Minikler</option>
+                        </select>
+                    </div>
+
+
+                    <div class="input-field col s1">
+                        <button class=" waves-light btn green" type="button" id="temizle_buton"> Temizle </button>
+                    </div>
+
+
                 </div>
             </div>
 
 
-            <table class="table table-striped  table-hover highlight ">
+            <table class="table table-striped  table-hover highlight amber lighten-5 ">
                 <thead>
                     <tr>
 
@@ -74,7 +83,7 @@
                         <!-- <th> </th> -->
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="sporcu_listesi">
 
                     <?php 
                   
@@ -108,43 +117,91 @@
 
         </div>
         <br><br>
-        <div class="col mb-2">
+        <div class="col s12">
             <div class="row">
 
-                <div class="col-sm-12 col-md-2 ">
-                    <a class=" waves-light btn green " id="sporcu_kayit_buton" href="sporcu_kayit.php">Sporcu Kayıt</a>
-
-                </div>
+                <center>
+                    <a class=" waves-light btn orange modal-trigger " id="sporcu_kayit_buton"
+                        href="#sporcu_kayit_modal">Sporcu Kayıt</a>
+                    <?php  include 'modals/sporcu_kayit_modal.php';  ?>
+                </center>
             </div>
         </div>
     </div>
 </div>
 
 
-<?php     include 'footer.php';?>
 
-<?php    // include 'footer.php';?>
+
+<?php  //   include 'footer.php';?>
+
+
 
 
 <script>
+var arama_yap = function() {
+    var yay = $("#yay_turu_ara option:selected").val();
+    var yas_grubu = $("#yas_grubu_ara option:selected").val();
+    var text = $("#text_ara").val();
+    var veri = {
+        "yay": yay,
+        "yas_grubu": yas_grubu,
+        "text": text,
+
+    };
+
+    var json_string = JSON.stringify(veri);
+
+    $.ajax({
+        url: 'listele_servis.php',
+        type: 'POST',
+        data: json_string,
+        contentType: 'application/json',
+        success: function(cevap) {
+            $("#sporcu_listesi").empty();
+            if (!
+                cevap
+            ) { //<div class = 'alert alert-warning' role = 'alert' > Sporcu Bulunamadı </div>
+                Swal.fire('Sporcu Bulunamadı');
+            } else {
+                for (var i = 0; i < cevap.length; i++) {
+                    var satir = `
+                            <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=${cevap[i].sporcu_no}';">
+                                <td><img src="files/images/logo.jpg" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
+                                <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
+                                <td>${  cevap[i].kategori  }</td>
+                                <td>${ cevap[i].yas_grubu}</td>
+                            
+                            
+                            </tr>
+                        
+                        `;
+                    $("#sporcu_listesi").append(satir);
+                }
+            }
+
+            console.log(cevap);
+        },
+        error: function(error) {
+            console.log(error);
+        },
+
+
+
+    });
+
+
+}
+
 $(document).ready(function() {
     $('select').formSelect();
-});
-$(document).ready(function(){
     $('.modal').modal();
-  });
 
-$(document).ready(function() {
-    $('input.autocomplete').autocomplete({
-        data: {
-            "Apple": null,
-            "Microsoft": null,
-            "Google": 'https://placehold.it/250x250'
-        },
+    $("#temizle_buton").click(function() {
+
+        //TODO
+
     });
+
 });
-$(function() {
-
-
-})
 </script>
