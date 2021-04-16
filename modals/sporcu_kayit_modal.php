@@ -1,16 +1,12 @@
 <!-- Modal Structure -->
-<div id="sporcu_kayit_modal" class="modal">
+<div id="sporcu_kayit_modal" class="modal modal-fixed-footer">
     <div class="modal-content">
         <h4>Kişisel Bilgiler</h4>
         <div class="row">
 
 
             <div id="bilgiler" class="col s12">
-                <br>
-
-                <div class="card row mx-2 mb-3">
-
-                    <div class="card-body">
+            
                         <br>
 
                         <form action="action/sporcu_kayit_action.php" method="post" id="sporcu_kayit">
@@ -77,8 +73,7 @@
 
 
 
-                    </div>
-                </div>
+                
 
             </div> <!-- bilgiler -->
 

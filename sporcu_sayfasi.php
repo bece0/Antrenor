@@ -53,7 +53,7 @@
                 <div class="card-body">
                     <br>
                     <h5 style="text-align:center"> Kişisel Bilgiler</h5>
-                    <table class="striped orange lighten-4">
+                    <table class="striped">
                         <thead>
                             <tr>
                                 <th data-field="1"></th>
@@ -110,7 +110,7 @@
                     <div class="row">
                         <div class="col s6">
 
-                        <table class="striped orange lighten-4">
+                        <table class="striped">
                                 <thead>
 
                                     <tr>
@@ -234,7 +234,7 @@
                         </div>
                         <div class="col s6">
 
-                            <table class="striped orange lighten-4">
+                            <table class="striped ">
                                 <thead>
 
                                     <tr>
@@ -576,7 +576,7 @@
 
 </div>
 
-<?php     include 'footer.php';?>
+<?php   //  include 'footer.php';?>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

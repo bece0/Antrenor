@@ -72,7 +72,7 @@
             </div>
 
 
-            <table class="table table-striped  table-hover highlight amber lighten-5 ">
+            <table class="table table-striped  table-hover highlight ">
                 <thead>
                     <tr>
 
