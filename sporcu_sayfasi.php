@@ -343,7 +343,7 @@
 
                     <div class="fixed-action-btn">
                         <a class="btn-floating btn-large teal">
-                            <i class="large material-icons">create</i>
+                            <i class="large material-icons">menu</i>
                         </a>
                         <ul>
                             <li><a class="btn-floating yellow" id="bilgi_duzenle_buton"
@@ -425,12 +425,27 @@
                     </tbody>
                 </table>
                 <br>
-                <center>
+                <!-- <center>
                     <div class="col-sm-12 col-md-2 ">
                         <a class=" waves-light btn green" id="yarisma_ekle_buton"
-                            href="yarisma_ekle.php?sporcu=<?php echo $sporcu_no ?>">Ekle</a>
+                            href="yarisma_ekle.php?sporcu=<?php //echo $sporcu_no ?>">Ekle</a>
                     </div>
-                </center>
+                </center> -->
+
+                <div class="fixed-action-btn">
+                    <a class="btn-floating btn-large teal">
+                        <i class="large material-icons">menu</i>
+                    </a>
+                    <ul>
+                        <li><a class="btn-floating orange modal-trigger" id="yarisma_ekle_buton"
+                                href="#yarisma_ekle_modal"><i class="material-icons">mode_edit</i></a>Yarışma Ekle</li>
+
+                    </ul>
+                </div>
+                <?php  
+                  include 'modals/yarisma_ekle_modal.php';
+                ?>
+
                 <br>
 
             </div>
@@ -568,11 +583,21 @@
 
 
                 <br>
-                <center>
+
+                <div class="fixed-action-btn">
+                <a class="btn-floating btn-large teal">
+                    <i class="large material-icons">menu</i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating orange modal-trigger" id="puan_duzenle_buton" href="#">
+                        <i class="material-icons">edit</i></a>Puan Düzenle</li>
+                </ul>
+            </div>
+                <!-- <center>
                     <div class="col-sm-12 col-md-2 ">
                         <a class=" waves-light btn green" id="puan_duzenle_buton" href="#">Düzenle</a>
                     </div>
-                </center>
+                </center> -->
                 <br>
 
                 <br>
@@ -594,6 +619,8 @@
 <?php   //  include 'footer.php';?>
 
 <script>
+$('.modal').modal();
+
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.collapsible');
     var instances = M.Collapsible.init(elems, {

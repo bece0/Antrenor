@@ -1,13 +1,4 @@
-<?php 
-    include 'head.php';
-    include 'nav.php';
-
-?>
-
-<body>
-
-    <!-- Modal Structure -->
-    <div id="yarisma_ekle_modal" class="modal modal-fixed-footer">
+<div id="yarisma_ekle_modal" class="modal modal-fixed-footer">
         <div class="modal-content">
 
             <br>
