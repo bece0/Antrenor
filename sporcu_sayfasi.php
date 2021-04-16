@@ -110,7 +110,7 @@
                     <div class="row">
                         <div class="col s6">
 
-                        <table class="striped">
+                            <table class="striped">
                                 <thead>
 
                                     <tr>
@@ -339,15 +339,30 @@
                         </div>
                     </div>
                     <br>
-                    <center>
 
-                        <a class=" waves-light btn green " id="bilgi_duzenle_buton"
-                            href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>">Düzenle</a>
+
+                    <div class="fixed-action-btn">
+                        <a class="btn-floating btn-large teal">
+                            <i class="large material-icons">create</i>
+                        </a>
+                        <ul>
+                            <li><a class="btn-floating yellow" id="bilgi_duzenle_buton"
+                                    href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>"><i
+                                        class="material-icons">mode_edit</i></a>Düzenle</li>
+                            <li><a class="btn-floating red darken-1" id="sporcu_sil_buton"
+                                    href="action/sporcu_sil_action.php?sporcu=<?php echo $sporcu_no ?>"><i
+                                        class="material-icons">delete</i></a>Sporcu Sil</li>
+
+                        </ul>
+                    </div>
+
+                    <!-- <a class=" waves-light btn green " id="bilgi_duzenle_buton"
+                            href="sporcu_duzenle.php?sporcu=<?php // echo $sporcu_no ?>">Düzenle</a>
 
                         <a class=" waves-light btn red " id="sporcu_sil_buton"
-                            href="action/sporcu_sil_action.php?sporcu=<?php echo $sporcu_no ?>">Sporcu Sil</a>
+                            href="action/sporcu_sil_action.php?sporcu=<?php //echo $sporcu_no ?>">Sporcu Sil</a> -->
 
-                    </center>
+
                     <br>
 
 
@@ -500,7 +515,7 @@
                         </div>
 
                         <div class="collapsible-body center" style="background-color:#e0f2f1  ">
-                            <table >
+                            <table>
                                 <!-- PUAN DETAY-->
                                 <thead>
                                     <tr>
