@@ -167,68 +167,67 @@
 
 
 <script>
-var arama_yap = function() {
-        var yay = $("#yay_turu_ara option:selected").val();
-        var yas_grubu = $("#yas_grubu_ara option:selected").val();
-        var text = $("#text_ara").val();
-        var veri = {
-            "yay": yay,
-            "yas_grubu": yas_grubu,
-            "text": text,
-        };
+        var arama_yap = function() {
+            var yay = $("#yay_turu_ara option:selected").val();
+            var yas_grubu = $("#yas_grubu_ara option:selected").val();
+            var text = $("#text_ara").val();
+            var veri = {
+                "yay": yay,
+                "yas_grubu": yas_grubu,
+                "text": text,
+            };
 
-        var json_string = JSON.stringify(veri);
+            var json_string = JSON.stringify(veri);
 
-        $.ajax({
+            $.ajax({
                 url: 'listele_servis.php',
                 type: 'POST',
                 data: json_string,
                 contentType: 'application/json',
                 success: function(cevap) {
                     $("#sporcu_listesi").empty();
-                    if (!
-                        cevap
-                    ) { //<div class = 'alert alert-warning' role = 'alert' > Sporcu Bulunamadı </div>
-                        Swal.fire('Sporcu Bulunamadı');
+                    if (!cevap) { //<div class = 'alert alert-warning' role = 'alert' > Sporcu Bulunamadı </div>
+                        $("#sporcu_listesi").append("Sporcu Bulunamadı");
+                        // Swal.fire('Sporcu Bulunamadı');
                     } else {
                         for (var i = 0; i < cevap.length; i++) {
                             var satir = `
-                                <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=${cevap[i].sporcu_no}';">
-                                    <td><img src="files/images/logo.jpg" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
-                                    <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
-                                    <td>${  cevap[i].kategori  }</td>
-                                    <td>${ cevap[i].yas_grubu}</td>
-                                
-                                
-                                </tr>
-                            
-                            `;
+                                                <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=${cevap[i].sporcu_no}';">
+                                                    <td><img src="files/images/logo.jpg" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
+                                                    <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
+                                                    <td>${  cevap[i].kategori  }</td>
+                                                    <td>${ cevap[i].yas_grubu}</td>
+                                                
+                                                
+                                                </tr>
+                                            
+                                            `;
                             $("#sporcu_listesi").append(satir);
-                     
-                            }
+
                         }
+                    }
 
-                        console.log(cevap);
-                    },
-                    error: function(error) {
-                            console.log(error);
-                        },
-
-
-
-                });
+                    console.log(cevap);
+                },
+                error: function(error) {
+                    console.log(error);
+                },
 
 
-        }
+
+            });
+
+
+}
 
         $(document).ready(function() {
             $('select').formSelect();
             $('.modal').modal();
             $('.collapsible').collapsible();
 
-            $('.modal').modal('dismissible');
+            // $('.modal').modal('dismissible');
 
-          
+
 
         });
 </script>
