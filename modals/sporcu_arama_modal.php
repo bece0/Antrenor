@@ -1,4 +1,4 @@
- <div id="sporcu_arama_modal" class="modal  ">
+ <div id="sporcu_arama_modal" class="modal bottom-sheet ">
     <div class="modal-content">
         <center>
             <h4>Sporcu Ara</h4>
@@ -44,10 +44,16 @@
     </div>
     <div class="modal-footer">
         <center>
-            <button class=" waves-light btn green" type="button" id="temizle_buton">
-                Temizle
+            <button class=" waves-light btn red modal-close" type="button" id="kapat_buton">
+                Kapat
             </button>
         </center>
     </div>
 
 </div> 
+
+
+<script>
+
+ 
+</script>

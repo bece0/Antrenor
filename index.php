@@ -226,11 +226,9 @@ var arama_yap = function() {
             $('.modal').modal();
             $('.collapsible').collapsible();
 
-            $("#temizle_buton").click(function() {
+            $('.modal').modal('dismissible');
 
-                //TODO
-
-            });
+          
 
         });
 </script>
