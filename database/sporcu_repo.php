@@ -36,7 +36,7 @@
     return SQLDeleteCalistir($sql);
     }
 
-    function AidatSporcuSilOk($sporcu_no){
+    function SporcuSilOk($sporcu_no){
         $sql="DELETE FROM ok_bilgi WHERE sporcu_no= '$sporcu_no'" ;
     return SQLDeleteCalistir($sql);
     }
