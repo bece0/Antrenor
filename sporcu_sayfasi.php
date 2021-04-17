@@ -39,9 +39,9 @@
             <li><a class="btn-floating deep-purple lighten-2" id="bilgi_duzenle_buton"
                     href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>"><i
                         class="material-icons">mode_edit</i></a>Düzenle</li>
-            <li><a class="btn-floating red darken-1" id="sporcu_sil_buton"
-                    href="action/sporcu_sil_action.php?sporcu=<?php echo $sporcu_no ?>"><i
+            <li><a class="btn-floating red darken-1" id="sporcu_sil_buton" onclick="sporcu_sil()"><i
                         class="material-icons">delete</i></a>Sporcu Sil</li>
+                    <!-- href="action/sporcu_sil_action.php?sporcu=<?php echo $sporcu_no ?>"> -->
 
         </ul>
     </div>
@@ -61,7 +61,7 @@
 
             <div id="bilgiler" class="col s12">
                 <br>
-
+                <input type="hidden" id="sporcu_no" id="sporcu_no" value="<?php echo $sporcu_no ?>" />
                 <div class="card row mx-2 mb-3">
 
                     <div class="card-body">
@@ -619,12 +619,53 @@
 <?php   //  include 'footer.php';?>
 
 <script>
-$('.modal').modal();
 
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems, {
-        accordion: false
+    var sporcu_sil = function() {
+        var sporcu_no = $("#sporcu_no").val();
+      
+        var veri = {
+            "sporcu_no": sporcu_no,           
+        };
+
+        var json_string = JSON.stringify(veri);
+
+        $.ajax({
+            url: 'sporcu_sil_servis.php',
+            type: 'POST',
+            data: json_string,
+            contentType: 'application/json',
+            success: function(cevap) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Sporcu Silindi.',
+                    showConfirmButton: false,
+                    timer: 1500,
+                }).then((result) => {
+                          window.location.href = "index.php";
+                        });
+        
+                console.log(cevap);
+            },
+            error: function(error) {
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Hata.',
+                    text: 'Silme işlemi yapılamadı !',
+                })
+                console.log(error);
+            }
+
+        });
+
+
+    }
+    $('.modal').modal();
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems, {
+            accordion: false
+        });
     });
-});
 </script>

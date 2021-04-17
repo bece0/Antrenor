@@ -10,6 +10,8 @@ $sporcu_no = $_GET["sporcu"];
 if(SporcuSil($sporcu_no)=== TRUE){
     
     AidatSporcuSil($sporcu_no);
+    SporcuSilYay($sporcu_no);
+    SporcuSilOk($sporcu_no);
    
     header('Location: ../index.php'); 
     

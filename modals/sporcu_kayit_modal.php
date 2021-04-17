@@ -143,9 +143,12 @@
                     icon: 'success',
                     title: 'Sporcu Kayıt edildi.',
                     showConfirmButton: false,
-                    timer: 1500
-                })
-                location.reload(true);
+                    timer: 1500,
+                }).then((result) => {
+                    location.reload(true);
+                        });
+            
+            
                 console.log(cevap);
             },
             error: function(error) {
