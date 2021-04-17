@@ -1,6 +1,6 @@
 <?php 
-    include 'head.php';
-    include 'nav.php';
+    include 'includes/head.php';
+    include 'includes/nav.php';
   //  include 'database/database.php';
 
     if(!$kullanici_giris_yapti_mi){
@@ -411,13 +411,13 @@
 
 </div>
 
-<?php     include 'footer.php';?>
+<?php   //  include 'footer.php';?>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems, {
-        accordion: false
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems, {
+            accordion: false
+        });
     });
-});
 </script>
