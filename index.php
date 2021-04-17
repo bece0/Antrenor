@@ -2,6 +2,9 @@
 
     include 'head.php';
     include 'nav.php';
+
+    include 'modals/sporcu_kayit_modal.php';
+    include 'modals/sporcu_arama_modal.php';
   
    // var_dump($_SESSION);
     if(!$kullanici_giris_yapti_mi){
@@ -44,7 +47,7 @@
                 </ul>
             </div>
 
-            <!-- 
+            <!-- ARAMA FİLTRE
              <div class="col s11">
                     <ul class="collapsible ">
                         <li>
@@ -106,9 +109,6 @@
                 </div> 
            -->
 
-            <?php  include 'modals/sporcu_kayit_modal.php';
-                 include 'modals/sporcu_arama_modal.php';  ?>
-
             <table class="table table-striped  table-hover highlight ">
                 <thead>
                     <tr>
@@ -121,7 +121,7 @@
                     </tr>
                 </thead>
                 <tbody id="sporcu_listesi">
-
+                 
                     <?php 
                   
                     $sporcu_sayisi=count($sporcu_listesi);
@@ -137,9 +137,7 @@
                         ?>
 
                     <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=<?php echo $sporcu_no ?>';">
-                        <td><a href="sporcu_sayfasi.php?sporcu=<?php echo $sporcu_no ?>">
-                                <img src="files/images/logo.jpg"
-                                    style="margin-bottom:5px;border-radius:1000px;width:20%"></a></td>
+                        <td><a href="sporcu_sayfasi.php?sporcu=<?php echo $sporcu_no ?>"> <img src="files/images/logo.jpg"  style="margin-bottom:5px;border-radius:1000px;width:20%"></a></td>
                         <td><?php echo $ad_soyad  ?></td>
                         <td><?php echo $kategori ?></td>
                         <td><?php echo $yas_grubu ?></td>
@@ -151,6 +149,8 @@
 
                 </tbody>
             </table>
+            <br>
+            <div id="hata_mesaji"></div>
 
         </div>
         <br><br>
@@ -159,10 +159,7 @@
 </div>
 
 
-
-
 <?php  //   include 'footer.php';?>
-
 
 
 
@@ -186,22 +183,28 @@
                 contentType: 'application/json',
                 success: function(cevap) {
                     $("#sporcu_listesi").empty();
-                    if (!cevap) { //<div class = 'alert alert-warning' role = 'alert' > Sporcu Bulunamadı </div>
-                        $("#sporcu_listesi").append("Sporcu Bulunamadı");
+
+                    if (!cevap) { 
+                        $("#hata_mesaji").empty();
+                        $("#hata_mesaji").append("<div class='card-panel amber lighten-4'><center>Sporcu Bulunamadı.</center></div>");
                         // Swal.fire('Sporcu Bulunamadı');
+                        M.toast({
+                            html: 'Sporcu Bulunamadı!'
+                        })
                     } else {
+                        $("#hata_mesaji").empty();
                         for (var i = 0; i < cevap.length; i++) {
                             var satir = `
-                                                <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=${cevap[i].sporcu_no}';">
-                                                    <td><img src="files/images/logo.jpg" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
-                                                    <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
-                                                    <td>${  cevap[i].kategori  }</td>
-                                                    <td>${ cevap[i].yas_grubu}</td>
-                                                
-                                                
-                                                </tr>
-                                            
-                                            `;
+                                                        <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=${cevap[i].sporcu_no}';">
+                                                            <td><img src="files/images/logo.jpg" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
+                                                            <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
+                                                            <td>${  cevap[i].kategori  }</td>
+                                                            <td>${ cevap[i].yas_grubu}</td>
+                                                        
+                                                        
+                                                        </tr>
+                                                    
+                                                    `;
                             $("#sporcu_listesi").append(satir);
 
                         }
@@ -218,7 +221,7 @@
             });
 
 
-}
+        }
 
         $(document).ready(function() {
             $('select').formSelect();
