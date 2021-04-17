@@ -12,9 +12,9 @@
 
     $sporcu_listesi= array();
 
-   if($yay=="") $yay=NULL;
+   if($yay=="yay_default") $yay=NULL;
    
-   if($yas_grubu=="") $yas_grubu=NULL;
+   if($yas_grubu=="yas_default") $yas_grubu=NULL;
 
    if($text=="") $text=NULL;
 

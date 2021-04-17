@@ -3,7 +3,7 @@
     <div class="modal-content">
 
 
-        <div class="container">
+        
             <center>
                 <h4>Kişisel Bilgiler</h4>
             </center>
@@ -13,69 +13,92 @@
                 <div id="bilgiler" class="col s12">
 
                     <br>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th data-field="1"></th>
-                                <th data-field="2"></th>
-                                <th data-field="3"></th>
+                    <div class="col s6">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-field="1"></th>
+                                    <th data-field="2"></th>
+                                    <th data-field="3"></th>
 
-                            </tr>
-                        </thead>
+                                </tr>
+                            </thead>
 
-                        <tbody>
-                            <tr>
-                                <td style="text-align:center"><i class="material-icons">account_circle</i></td>
-                                <td> Ad :</td>
-                                <td> <input id="ad" type="text" class="validate" reguired> </td>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align:center"><i class="material-icons">account_circle</i></td>
+                                    <td> Ad :</td>
+                                    <td> <input id="ad" type="text" class="validate" reguired> </td>
 
-                            </tr>
-                            <tr>
-                                <td style="text-align:center"><i class="material-icons">account_circle</i></td>
-                                <td> Soyad :</td>
-                                <td> <input id="soyad" type="text" class="validate" reguired> </td>
+                                </tr>
 
-                            </tr>
-                            <tr>
+                                <tr>
 
-                                <td style="text-align:center"><i class="material-icons">assignment_ind</i></td>
-                                <td> TC No :</td>
-                                <td> <input id="tc_no" type="text" class="validate" reguired> </td>
+                                    <td style="text-align:center"><i class="material-icons">assignment_ind</i></td>
+                                    <td> TC No :</td>
+                                    <td> <input id="tc_no" type="text" class="validate" reguired> </td>
 
-                            </tr>
-                            <tr>
+                                </tr>
+                                <tr>
 
-                                <td style="text-align:center"><i class="material-icons">wc</i></td>
-                                <td> Cinsiyet :</td>
-                                <td> <input id="cinsiyet" type="text" class="validate" reguired> </td>
+                                    <td style="text-align:center"><i class="material-icons">wc</i></td>
+                                    <td> Cinsiyet :</td>
+                                    <td> <input id="cinsiyet" type="text" class="validate" reguired> </td>
 
-                            </tr>
-                            <tr>
+                                </tr>                   
 
-                                <td style="text-align:center"><i class="material-icons">cake</i></td>
-                                <td> Doğum Tarihi :</td>
-                                <td> <input id="dogum_tarihi" type="text" class="validate" reguired> </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td style="text-align:center"><i class="material-icons">phone</i></td>
-                                <td> Tel No :</td>
-                                <td> <input id="tel_no" type="text" class="validate" reguired> </td>
-
-                            </tr>
+            
 
 
-                        </tbody>
+                            </tbody>
 
-                    </table>
+                        </table>
+                    </div>
+                    <div class="col s6">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-field="1"></th>
+                                    <th data-field="2"></th>
+                                    <th data-field="3"></th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>                          
+                                <tr>
+                                    <td style="text-align:center"><i class="material-icons">account_circle</i></td>
+                                    <td> Soyad :</td>
+                                    <td> <input id="soyad" type="text" class="validate" reguired> </td>
+
+                                </tr>
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons">cake</i></td>
+                                    <td> Doğum Tarihi :</td>
+                                    <td> <input id="dogum_tarihi" type="text" class="validate" reguired> </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons">phone</i></td>
+                                    <td> Tel No :</td>
+                                    <td> <input id="tel_no" type="text" class="validate" reguired> </td>
+
+                                </tr>
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
                     <br>
 
                 </div> <!-- bilgiler -->
 
-            </div>
-        </div>
+            </div>     
+
     </div>
     <div class="modal-footer">
         <center>
