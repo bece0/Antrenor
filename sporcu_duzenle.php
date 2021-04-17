@@ -510,8 +510,10 @@ var sporcu_duzenle = function() {
                     title: 'Sporcu Bilgileri Güncellendi.',
                     showConfirmButton: false,
                     timer: 1500,
-                }),
-            window.location.href = "sporcu_sayfasi.php?sporcu=" + sporcu_no + "";
+                }).then((result) => {
+                          window.location.href = "sporcu_sayfasi.php?sporcu=" + sporcu_no + "";
+                        });
+            
             console.log(cevap);
 
         },

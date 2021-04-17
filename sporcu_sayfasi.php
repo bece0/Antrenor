@@ -36,7 +36,7 @@
             <i class="large material-icons">menu</i>
         </a>
         <ul>
-            <li><a class="btn-floating yellow" id="bilgi_duzenle_buton"
+            <li><a class="btn-floating deep-purple lighten-2" id="bilgi_duzenle_buton"
                     href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>"><i
                         class="material-icons">mode_edit</i></a>Düzenle</li>
             <li><a class="btn-floating red darken-1" id="sporcu_sil_buton"
@@ -77,7 +77,7 @@
                                 </tr>
                             </thead>
 
-                            <tbody>
+                            <tbody id="kisisel_bilgiler">
                                 <tr>
                                     <td style="text-align:center"><i class="material-icons">account_circle</i></td>
                                     <td> Ad Soyad :</td>
@@ -135,7 +135,7 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+                                    <tbody  id="yay_bilgiler">
                                         <tr>
                                             <td style="text-align:center"><i class="material-icons"> looks </i></td>
                                             <td> Yay Kategori:</td>
@@ -259,7 +259,7 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+                                    <tbody  id="ok_bilgiler">
 
                                         <tr>
 
