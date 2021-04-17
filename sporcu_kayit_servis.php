@@ -14,9 +14,13 @@
     $cinsiyet = $json_decode_edilmis->cinsiyet;
     $dogum_tarihi = $json_decode_edilmis->dogum_tarihi;
     $tel_no = $json_decode_edilmis->tel_no;
-
-    SporcuKayit($antrenor_no,$ad,$soyad,$tc_no,$cinsiyet,$dogum_tarihi,$tel_no);
-
+    
+    if(SporcuKayit($antrenor_no,$ad,$soyad,$tc_no,$cinsiyet,$dogum_tarihi,$tel_no)=== TRUE){
+        
+        $sporcu= SonKayitIdGetir(); //var_dump($sporcu_no);
+        $sporcu_no=$sporcu["sporcu_no"];
+        AidatTablosunaEkle($antrenor_no, $sporcu_no);   
+    }
 
   /*
 

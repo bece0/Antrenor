@@ -84,7 +84,7 @@
         $sql = "SELECT  * FROM sporcu" ;
         $where_exist=TRUE;
 
-        if($yay_kategori ==NULL && $yas_grubu ==NULL ){
+        if($yay_kategori ==NULL && $yas_grubu ==NULL  && $isim_ara==NULL  ){
             $sql = "SELECT  * FROM sporcu" ; 
             $where_exist=FALSE;
         }

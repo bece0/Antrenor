@@ -9,7 +9,7 @@
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">search</i>
-                        <input type="text" id="text_ara" class="autocomplete" onchange="arama_yap()">
+                        <input type="text" id="text_ara" onchange="arama_yap() ">
                         <label for="text_ara">Sporcu Adı</label>
 
                     </div>
@@ -45,9 +45,9 @@
 
     <div class="modal-footer">
         <center>
-            <!-- <button class=" waves-light btn green " type="button" id="temizle_buton">
+            <button class=" waves-light btn green " type="button" id="temizle_buton">
                 Temizle
-            </button> -->
+            </button>
             <button class=" waves-light btn red modal-close" type="button" id="kapat_buton">
                 Kapat
             </button>
@@ -60,8 +60,20 @@
 <script>
 $(document).ready(function() {
 
+
     $("#temizle_buton").click(function() {
+        //location.reload(true);
+        //$("#sporcu_arama_modal").open();
+
         $("#text_ara").val("");
+        $("#yay_turu_ara  option:selected").val("");
+        $("#yay_turu_ara option:selected").text("Yay türü seçin");
+        $("#yas_grubu_ara  option:selected").val("");
+        $("#yas_grubu_ara option:selected").text("Yaş grubu seçin");
+        arama_yap();
+
     });
+
+
 });
 </script>
