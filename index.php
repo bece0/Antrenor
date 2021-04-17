@@ -1,7 +1,7 @@
 <?php 
 
-    include 'head.php';
-    include 'nav.php';
+    include 'includes/head.php';
+    include 'includes/nav.php';
 
     include 'modals/sporcu_kayit_modal.php';
     include 'modals/sporcu_arama_modal.php';
@@ -177,7 +177,7 @@
             var json_string = JSON.stringify(veri);
 
             $.ajax({
-                url: 'listele_servis.php',
+                url: 'sporcu_listele_servis.php',
                 type: 'POST',
                 data: json_string,
                 contentType: 'application/json',
