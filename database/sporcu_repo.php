@@ -7,10 +7,23 @@
     }
 
     function SporcuKayit($antrenor_no,$ad,$soyad,$tc_no,$cinsiyet,$dogum_tarihi,$tel_no){
-        $sql="INSERT INTO sporcu (antrenor_no,ad,soyad,tc_no,cinsiyet,dogum_tarihi,tel_no) VALUES ('$antrenor_no','$ad', '$soyad','$tc_no','$cinsiyet','$dogum_tarihi','$tel_no') " ;
+        $sql="INSERT INTO sporcu (antrenor_no,ad,soyad,tc_no,cinsiyet,dogum_tarihi,tel_no,yas_grubu,kategori) VALUES ('$antrenor_no','$ad', '$soyad','$tc_no','$cinsiyet','$dogum_tarihi','$tel_no',' ',' ') " ;
        return SQLInsertCalistir($sql);
     }
 
+    function SporcuYayBilgileriKayit($sporcu_no){
+        $sql="INSERT INTO yay_bilgi (sporcu_no,ebat,cekis_agirligi,yay_sertligi,tiller,kiris_yuksekligi,handle,limp,berger,kliker,nisangah,stabilizer,atis_mesafesi,yay_notlar)
+         VALUES ('$sporcu_no',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ') ";
+        
+        return SQLInsertCalistir($sql);
+    }
+
+    function SporcuOkBilgileriKayit($sporcu_no){
+        $sql="INSERT INTO ok_bilgi (sporcu_no,ok_sayisi,ok_numarasi,uzunluk,malzeme,sapma,cap,agirlik,uc_agirligi,tuy,arkalik,kol_boyu,ok_notlar)
+        VALUES ('$sporcu_no',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ') ";
+        
+        return SQLInsertCalistir($sql);
+    }
     
     function SporcuSil($sporcu_no){
         $sql="DELETE FROM sporcu WHERE sporcu_no= '$sporcu_no'" ;
@@ -84,7 +97,7 @@
         $sql = "SELECT  * FROM sporcu" ;
         $where_exist=TRUE;
 
-        if($yay_kategori ==NULL && $yas_grubu ==NULL  && $isim_ara==NULL  ){
+        if($yay_kategori ==NULL && $yas_grubu ==NULL ){
             $sql = "SELECT  * FROM sporcu" ; 
             $where_exist=FALSE;
         }

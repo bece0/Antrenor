@@ -20,8 +20,9 @@
         $sporcu= SonKayitIdGetir(); //var_dump($sporcu_no);
         $sporcu_no=$sporcu["sporcu_no"];
         AidatTablosunaEkle($antrenor_no, $sporcu_no);   
+        SporcuYayBilgileriKayit($sporcu_no);
+        SporcuOkBilgileriKayit($sporcu_no);
     }
-
   /*
 
         $ad = $_POST["ad"]; 
