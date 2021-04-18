@@ -1,6 +1,8 @@
 <?php 
     include 'includes/head.php';
     include 'includes/nav.php';
+    
+    include 'modals/aidat_duzenle_modal.php';
 
 
     if(!$kullanici_giris_yapti_mi){
@@ -11,11 +13,9 @@
     $antrenor_id=  $_SESSION["kullanici_id"];
     $sporcu_listesi= SporculariGetir($antrenor_id);
 
-   $gosterilen_yil =  $_GET["sene"]; //var_dump( $simdiki_yil);
-   $gecen_yil = (int)$gosterilen_yil-1;  //var_dump( $gecen_yil);
- 
-                    
-   $aidat_listesi = array();
+    $gosterilen_yil =  $_GET["sene"]; //var_dump( $simdiki_yil);
+    $gecen_yil = (int)$gosterilen_yil-1;  //var_dump( $gecen_yil);
+    
 
     
 
@@ -30,7 +30,7 @@
         <div class="col s12">
 
             <section class="jumbotron text-center">
-                <div class="container">
+                
                     <center>
 
                         <h4 class="jumbotron-heading">
@@ -42,93 +42,136 @@
                                 href="aidat.php?sene=<?php echo $yil ?>"><i class="material-icons">navigate_next</i></a>
                         </h4>
                     </center>
-                </div>
+                     <input type="hidden" id="antrenor_id" id="antrenor_id" value="<?php echo $antrenor_id ?>" />
+                     <input type="hidden" id="gosterilen_yil" id="gosterilen_yil" value="<?php echo $gosterilen_yil ?>" />
+                    <div class="col s12">
+                        <table class="table table-bordered highlight">  <!-- Aidat Tablosu -->
+                                    <thead>
+                                        <tr>
+                                            <th>Ad Soyad</th>
+                                            <th>Oca</th>
+                                            <th>Şub</th>
+                                            <th>Mar</th>
+                                            <th>Nis</th>
+                                            <th>May</th>
+                                            <th>Haz</th>
+                                            <th>Tem</th>
+                                            <th>Ağu</th>
+                                            <th>Eyl</th>
+                                            <th>Eki</th>
+                                            <th>Kas</th>
+                                            <th>Ara</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody  id="aidat_tablosu"> </tbody>
+
+                        </table>
+                    </div>
+                
             </section>
 
             <br>
-            <table class="table table-bordered highlight">
-                <thead>
-                    <tr>
-                        <th>Ad Soyad</th>
-                        <th>Oca</th>
-                        <th>Şub</th>
-                        <th>Mar</th>
-                        <th>Nis</th>
-                        <th>May</th>
-                        <th>Haz</th>
-                        <th>Tem</th>
-                        <th>Ağu</th>
-                        <th>Eyl</th>
-                        <th>Eki</th>
-                        <th>Kas</th>
-                        <th>Ara</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php 
-
-              
-                $aidat_listesi = AidatBilgisiGetir($antrenor_id , $gosterilen_yil); //var_dump( $aidat_listesi);
-             
-                $sporcu_sayisi=count($sporcu_listesi); //var_dump($sporcu_sayisi);
-            for($i=0 ; $i<$sporcu_sayisi;$i++){
-              
-                $sporcu= $sporcu_listesi[$i];
-                $aidat = $aidat_listesi[$i]; //var_dump($aidat);
-               
-                $ad_soyad=  $sporcu['ad']." ".$sporcu['soyad'];
-         
-               
-                $ocak= $aidat['ocak']; 
-                $subat= $aidat['subat'];
-                $mart= $aidat['mart']; 
-                $nisan= $aidat['nisan'];
-                $mayis= $aidat['mayis'];
-                $haziran= $aidat['haziran']; 
-                $temmuz= $aidat['temmuz'];
-                $agustos= $aidat['agustos'];
-                $eylul= $aidat['eylul']; 
-                $ekim= $aidat['ekim'];
-                $kasim= $aidat['kasim'];
-                $aralik= $aidat['aralik']; 
-            ?>
-                    <tr onclick="document.location = 'aidat_duzenle.php?sporcu=<?php echo $sporcu['sporcu_no']?>&sene=<?php echo $gosterilen_yil ?>'">
-                        <td><?php echo  $ad_soyad ?></td>
-                        <td> <?php if  ($ocak=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                                class="material-icons">remove</i> <?php }?> </td>
-                        <td> <?php if  ($subat=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                                class="material-icons">remove</i> <?php }?> </td>
-                        <td> <?php if  ($mart=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                                class="material-icons">remove</i> <?php }?> </td>
-                        <td> <?php if  ($nisan=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                                class="material-icons">remove</i> <?php }?> </td>
-                        <td> <?php if  ($mayis=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                                class="material-icons">remove</i> <?php }?> </td>
-                        <td> <?php if  ($haziran=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                                class="material-icons">remove</i> <?php }?> </td>
-                        <td> <?php if  ($temmuz=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                                class="material-icons">remove</i> <?php }?> </td>
-                        <td> <?php if  ($agustos=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                                class="material-icons">remove</i> <?php }?> </td>
-                        <td> <?php if  ($eylul=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                                class="material-icons">remove</i> <?php }?> </td>
-                        <td> <?php if  ($ekim=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                                class="material-icons">remove</i> <?php }?> </td>
-                        <td> <?php if  ($kasim=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                                class="material-icons">remove</i> <?php }?> </td>
-                        <td> <?php if  ($aralik=="1"){ ?><i class="material-icons">check</i> <?php }else{?><i
-                                class="material-icons">remove</i> <?php }?> </td>
-
-                    </tr>
-                    <?php  } ?>
-
-                </tbody>
-            </table>
+            
+      
             <br>
         </div>
     </div>
 </div>
 <br>
 
-
 <?php   //  include 'footer.php';?>
+
+<script>
+
+    $(document).ready(function() {
+                var antrenor_id = $("#antrenor_id").val();
+                var gosterilen_yil = $("#gosterilen_yil").val();
+
+                var veri = {
+                    "antrenor_id": antrenor_id,
+                    "gosterilen_yil": gosterilen_yil,
+                };
+
+                var json_string = JSON.stringify(veri);
+
+                $.ajax({
+                    url: 'aidat_listele_servis.php',
+                    type: 'POST',
+                    data: json_string,
+                    contentType: 'application/json',
+                    success: function(cevap) {
+                        for (var i = 0; i < cevap.length; i++) {
+                            
+                            var aidat_bilgi = `         
+                                 <tr>
+                                    <a class="modal-trigger" id="aidat_duzenle" href="#aidat_duzenle_modal">
+                                                            <td> ${  cevap[i].ad + " " + cevap[i].soyad  }</td>
+
+                                                            <td>${(cevap[i].ocak)}</td>
+                                                            <td>${(cevap[i].subat)}</td>
+                                                            <td>${(cevap[i].mart)}</td>
+                                                            <td>${(cevap[i].nisan)}</td>
+                                                            <td>${(cevap[i].mayis)}</td>
+                                                            <td>${(cevap[i].haziran)}</td>
+                                                            <td>${(cevap[i].temmuz)}</td>
+                                                            <td>${(cevap[i].agustos)}</td>
+                                                            <td>${(cevap[i].eylul)}</td>
+                                                            <td>${(cevap[i].ekim)}</td>
+                                                            <td>${(cevap[i].kasim)}</td>
+                                                            <td>${(cevap[i].aralik)}</td>
+       
+                                    </a>
+                                </tr>
+                                                                    
+                                
+                            `;
+
+                            $("#aidat_tablosu").append(aidat_bilgi);
+                        }
+                
+        
+                        console.log(cevap);
+                    },
+                    error: function(error) {
+
+                        console.log(error);
+                    }
+
+                });
+    });
+
+/*
+     $('table tbody tr').on('click',function(){
+       //  ("#aidat_duzenle_modal").open();
+         $('.modal').modal('open');
+     });
+*/
+
+  
+</script>
+
+<!-- 
+<td> ${ (cevap[i].ocak)}<i class="material-icons">check</i>
+                                                            ${ else }<i class="material-icons">remove</i>  </td>
+                                                            <td> ${ if (cevap[i].subat)=="1" }<i class="material-icons">check</i>
+                                                            ${ else }<i class="material-icons">remove</i>  </td>
+                                                            <td> ${ if (cevap[i].mart)=="1" }<i class="material-icons">check</i>
+                                                            ${ else }<i class="material-icons">remove</i>  </td>
+                                                            <td> ${ if (cevap[i].nisan)=="1" }<i class="material-icons">check</i>
+                                                            ${ else }<i class="material-icons">remove</i>  </td>
+                                                            <td> ${ if (cevap[i].mayis)=="1" }<i class="material-icons">check</i>
+                                                            ${ else }<i class="material-icons">remove</i>  </td>
+                                                            <td> ${ if (cevap[i].haziran)=="1" }<i class="material-icons">check</i>
+                                                            ${ else }<i class="material-icons">remove</i>  </td>
+                                                            <td> ${ if (cevap[i].temmuz)=="1" }<i class="material-icons">check</i>
+                                                            ${ else }<i class="material-icons">remove</i>  </td>
+                                                            <td> ${ if (cevap[i].agustos)=="1" }<i class="material-icons">check</i>
+                                                            ${ else }<i class="material-icons">remove</i>  </td>
+                                                            <td> ${ if (cevap[i].eylul)=="1" }<i class="material-icons">check</i>
+                                                            ${ else }<i class="material-icons">remove</i>  </td>
+                                                            <td> ${ if (cevap[i].ekim)=="1" }<i class="material-icons">check</i>
+                                                            ${ else }<i class="material-icons">remove</i>  </td>
+                                                            <td> ${ if (cevap[i].kasim)=="1" }<i class="material-icons">check</i>
+                                                            ${ else }<i class="material-icons">remove</i>  </td>
+                                                            <td> ${ if (cevap[i].aralik)=="1" }<i class="material-icons">check</i>
+                                                            ${ else }<i class="material-icons">remove</i>  </td> -->

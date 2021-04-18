@@ -47,7 +47,8 @@
                 </ul>
             </div>
 
-            <!-- ARAMA FİLTRE
+            <!-- 
+                ARAMA FİLTRE
              <div class="col s11">
                     <ul class="collapsible ">
                         <li>
@@ -224,13 +225,7 @@
         }
 
         $(document).ready(function() {
-            $('select').formSelect();
-            $('.modal').modal();
-            $('.collapsible').collapsible();
-
-            // $('.modal').modal('dismissible');
-
-
-
+     
         });
+        
 </script>
