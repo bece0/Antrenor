@@ -50,8 +50,13 @@
     }
 
     function SporcuBilgileriGetir($sporcu_no){
-        $sql = "SELECT  * FROM sporcu WHERE sporcu_no= '$sporcu_no'" ; 
-        
+        $sql = "SELECT * FROM sporcu 
+        INNER JOIN yay_bilgi
+              ON sporcu.sporcu_no=yay_bilgi.sporcu_no
+        INNER JOIN ok_bilgi
+              ON sporcu.sporcu_no=ok_bilgi.sporcu_no
+        WHERE sporcu.sporcu_no= '$sporcu_no'";
+
         return SQLTekliKayitGetir($sql);
     }
 
