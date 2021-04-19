@@ -81,58 +81,57 @@
 <?php   //  include 'footer.php';?>
 
 <script>
+    var aidatlari_getir = function(){
+        var antrenor_id = $("#antrenor_id").val();
+        var gosterilen_yil = $("#gosterilen_yil").val();
 
-$(document).ready(function() {
-    var antrenor_id = $("#antrenor_id").val();
-    var gosterilen_yil = $("#gosterilen_yil").val();
+        var veri = {
+            "antrenor_id": antrenor_id,
+            "gosterilen_yil": gosterilen_yil,
+        };
 
-    var veri = {
-        "antrenor_id": antrenor_id,
-        "gosterilen_yil": gosterilen_yil,
-    };
+        var json_string = JSON.stringify(veri);
 
-    var json_string = JSON.stringify(veri);
-
-    $.ajax({
-        url: 'services/aidat_listele_servis.php',
-        type: 'POST',
-        data: json_string,
-        contentType: 'application/json',
-        success: function(cevap) {
-
-            for (var i = 0; i < cevap.length; i++) {
-                var aidat_bilgi = `<tr onclick="sporcu_aidat_getir()" id="aidat_duzenle_satir" data-sporcuno="${(cevap[i].sporcu_no)}" class="modal-trigger" href="#aidat_duzenle_modal" >                                                                  
-                                                                                                         
-                                                <td>${cevap[i].ad + " " + cevap[i].soyad  }</td>
-                                                <td>${(cevap[i].ocak=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
-                                                <td>${(cevap[i].subat=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
-                                                <td>${(cevap[i].mart=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
-                                                <td>${(cevap[i].nisan=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
-                                                <td>${(cevap[i].mayis=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
-                                                <td>${(cevap[i].haziran=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
-                                                <td>${(cevap[i].temmuz=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
-                                                <td>${(cevap[i].agustos=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
-                                                <td>${(cevap[i].eylul=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
-                                                <td>${(cevap[i].ekim=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
-                                                <td>${(cevap[i].kasim=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
-                                                <td>${(cevap[i].aralik=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>                        
+        $.ajax({
+            url: 'services/aidat_listele_servis.php',
+            type: 'POST',
+            data: json_string,
+            contentType: 'application/json',
+            success: function(cevap) {
+ 
+                for (var i = 0; i < cevap.length; i++) {             
+                    var aidat_bilgi = `<tr onclick="sporcu_aidat_getir(${(cevap[i].sporcu_no)})" id="aidat_duzenle_satir" data-sporcuno="${(cevap[i].sporcu_no)}" class="modal-trigger" href="#aidat_duzenle_modal" >                                                                  
+                                                                                                            
+                                            <td>${cevap[i].ad + " " + cevap[i].soyad  }</td>
+                                            <td>${(cevap[i].ocak=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                            <td>${(cevap[i].subat=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                            <td>${(cevap[i].mart=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                            <td>${(cevap[i].nisan=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                            <td>${(cevap[i].mayis=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                            <td>${(cevap[i].haziran=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                            <td>${(cevap[i].temmuz=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                            <td>${(cevap[i].agustos=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                            <td>${(cevap[i].eylul=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                            <td>${(cevap[i].ekim=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                            <td>${(cevap[i].kasim=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                            <td>${(cevap[i].aralik=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>                        
                                         </tr>                  
-                                    `;
+                    `;
 
-                $("#aidat_tablosu").append(aidat_bilgi);
+                    $("#aidat_tablosu").append(aidat_bilgi);
+                }
+                console.log(cevap);
+            },
+            error: function(error) {
+                console.log(error);
             }
-            console.log(cevap);
-        },
-        error: function(error) {
-            console.log(error);
-        }
+        });
+    }
+
+    $(document).ready(function() {
+        aidatlari_getir();
+
     });
-});
 
-
-$("#aidat_duzenle_satir").click(function() {  
-
-  //  sporcu_aidat_getir();
-
-});
+  
 </script>

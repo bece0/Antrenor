@@ -29,12 +29,6 @@
 
                         </tbody>
                     </table>
-                   
-                    <br> <br>
-                    <center>
-                        <button type="button" class="waves-light btn green modal-close" id="aidat_duzenle_buton"
-                            onclick="aidat_duzenle()">TAMAMLA</a>
-                    </center>
 
                 </div> <!-- bilgiler -->
 
@@ -44,32 +38,33 @@
     </div>
 
     <div class="modal-footer"></div>
-
+    <center>
+        <button type="button" class="waves-light btn green modal-close" id="aidat_duzenle_buton"
+            onclick="aidat_guncelle()">TAMAMLA</a>
+    </center>
 </div>
 
 
 <script>
-     var sporcu_aidat_getir = function() {
+var sporcu_aidat_getir = function(sporcu_no) {
 
-        //var sporcu_no = $('#sporcu_no').attr('data-sporcuno');      
-        var sporcu_no = $('#aidat_duzenle_satir').data('sporcuno');   console.log(sporcu_no);       
-        var sene = $("#gosterilen_yil").val();
+    var sene = $("#gosterilen_yil").val();
 
-        var veri = {
-            "sporcu_no": sporcu_no,
-            "sene": sene,
-        };
+    var veri = {
+        "sporcu_no": sporcu_no,
+        "sene": sene,
+    };
 
-        var json_string = JSON.stringify(veri);
+    var json_string = JSON.stringify(veri);
 
-        $.ajax({
-                url: 'services/aidat_getir_servis.php',
-                type: 'POST',
-                data: json_string,
-                contentType: 'application/json',
-                success: function(cevap) {
-                    $("#sporcu_aidat_bilgi").empty();
-                    var sporcu_aidat_bilgisi = `         
+    $.ajax({
+        url: 'services/aidat_getir_servis.php',
+        type: 'POST',
+        data: json_string,
+        contentType: 'application/json',
+        success: function(cevap) {
+            $("#sporcu_aidat_bilgi").empty();
+            var sporcu_aidat_bilgisi = `         
                
                             <tr>                                                                                                                      
                                 <td>${cevap.ad + " " +  cevap.soyad  }</td>
@@ -102,43 +97,43 @@
                                 
                     `;
 
-                    $("#sporcu_aidat_bilgi").append(sporcu_aidat_bilgisi);
-                
-                console.log(cevap);
-            },
-            error: function(error) {
+            $("#sporcu_aidat_bilgi").append(sporcu_aidat_bilgisi);
 
-                console.log(error);
-            }
+            console.log(cevap);
+        },
+        error: function(error) {
 
-        });
-    }  
+            console.log(error);
+        }
 
-    var aidat_duzenle = function() {
-        var sporcu_no = $('.sporcu_no').attr('data-sporcuno');
-      
-        var veri = {
-            "sporcu_no": sporcu_no,
-            "sene": sene,
-            "aylar": aylar
-        };
+    });
+}
 
-        var json_string = JSON.stringify(veri);
+var aidat_guncelle = function() {
+    var sporcu_no = $('.sporcu_no').attr('data-sporcuno');
 
-        $.ajax({
-                url: 'aidat_duzenle_servis.php',
-                type: 'POST',
-                data: json_string,
-                contentType: 'application/json',
-                success: function(cevap) {
+    var veri = {
+        "sporcu_no": sporcu_no,
+        "sene": sene,
+        "aylar": aylar
+    };
 
-                console.log(cevap);
-            },
-            error: function(error) {
+    var json_string = JSON.stringify(veri);
 
-                console.log(error);
-            }
+    $.ajax({
+        url: 'aidat_duzenle_servis.php',
+        type: 'POST',
+        data: json_string,
+        contentType: 'application/json',
+        success: function(cevap) {
 
-        });
-    }
+            console.log(cevap);
+        },
+        error: function(error) {
+
+            console.log(error);
+        }
+
+    });
+}
 </script>
