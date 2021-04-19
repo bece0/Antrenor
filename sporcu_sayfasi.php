@@ -582,7 +582,6 @@ var sporcu_yarismalari_listele = function() {
 }
 
 var sporcu_antrenmanlari_listele = function() {
-
 }
 
 var sporcu_sil = function() {
