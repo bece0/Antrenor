@@ -1,76 +1,121 @@
+<?php  $sporcu_no =  $_GET["sporcu"]; ?>
 <div id="yarisma_ekle_modal" class="modal modal-fixed-footer">
-        <div class="modal-content">
+    <div class="modal-content">
 
-            <br>
+        <br>
 
-            <h5 style="text-align:center"> Yarışma Bilgileri</h5>
-            <form action="action/yarisma_ekle_action.php" method="post" id="yarisma_ekle">
-                <table>
-                    <thead>
-                        <tr>
-                            <th data-field="1"></th>
-                            <th data-field="2"></th>
-                            <th data-field="3"></th>
+        <h5 style="text-align:center"> Yarışma Bilgileri</h5>
 
-                        </tr>
-                    </thead>
+        <table>
+            <thead>
+                <tr>
+                    <th data-field="1"></th>
+                    <th data-field="2"></th>
+                    <th data-field="3"></th>
 
-                    <tbody>
-                        <tr>
-                            <td style="text-align:center"><i class="material-icons">local_activity</i></td>
-                            <td> Yarışma Adı :</td>
-                            <td> <input name="yarisma_adi" type="text" class="validate"> </td>
+                </tr>
+            </thead>
 
-                        </tr>
+            <tbody>
+                <tr>
+                    <td style="text-align:center"><i class="material-icons">local_activity</i></td>
+                    <td> Yarışma Adı :</td>
+                    <td> <input id="yarisma_adi" type="text" class="validate"> </td>
 
-                        <tr>
+                </tr>
 
-                            <td style="text-align:center"><i class="material-icons">event</i></td>
-                            <td> Tarih :</td>
-                            <td> <input name="tarih" type="text" class="validate"> </td>
+                <tr>
 
-                        </tr>
-                        <tr>
+                    <td style="text-align:center"><i class="material-icons">event</i></td>
+                    <td> Tarih :</td>
+                    <td> <input id="tarih" type="text" class="validate"> </td>
 
-                            <td style="text-align:center"><i class="material-icons">storage</i></td>
-                            <td> Sıralama :</td>
-                            <td> <input name="siralama" type="text" class="validate"> </td>
+                </tr>
+                <tr>
 
-                        </tr>
+                    <td style="text-align:center"><i class="material-icons">storage</i></td>
+                    <td> Sıralama :</td>
+                    <td> <input id="siralama" type="text" class="validate"> </td>
 
-                        <tr>
+                </tr>
 
-                            <td style="text-align:center"><i class="material-icons">stars</i></td>
-                            <td> Madalya :</td>
-                            <td> <input name="madalya" type="text" class="validate"> </td>
+                <tr>
 
-                        </tr>
+                    <td style="text-align:center"><i class="material-icons">stars</i></td>
+                    <td> Madalya :</td>
+                    <td> <input id="madalya" type="text" class="validate"> </td>
 
+                </tr>
 
-                    </tbody>
+            </tbody>
 
-                </table>
-                <br>
+        </table>
+        <br>
 
+    </div>
+    <div class="modal-footer">
 
+        <center>
+            <button type="button" class=" modal-close waves-light btn green" id="yarisma_ekle_buton"
+                onclick="yarisma_ekle()">TAMAMLA</a>
+        </center>
 
-
-        </div>
-        <div class="modal-footer">
-
-            <center>
-                <input type="hidden" id="sporcu_no" name="sporcu_no" value="<?php echo $sporcu_no ?>" />
-                <button type="submit" class=" modal-close waves-light btn green" id="yarisma_ekle_buton"
-                    form="yarisma_ekle">TAMAMLA</a>
-            </center>
-           
-        </div>
-        </form>
     </div>
 
+</div>
 
 
 
+<script>
+    var yarisma_ekle = function() {
+        var sporcu_no = '<?php echo $sporcu_no ;?>';
+        var yarisma_adi = $("#yarisma_adi").val();
+        var tarih = $("#tarih").val();
+        var siralama = $("#siralama").val();
+        var madalya = $("#madalya").val();
+
+        var veri = {
+            "sporcu_no": sporcu_no,
+            "yarisma_adi": yarisma_adi,
+            "tarih": tarih,
+            "siralama": siralama,
+            "madalya": madalya
+        };
+
+        var json_string = JSON.stringify(veri);
+
+        $.ajax({
+            url: 'services/yarisma_ekle_servis.php',
+            type: 'POST',
+            data: json_string,
+            contentType: 'application/json',
+            success: function(cevap) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Yarışma eklendi.',
+                    showConfirmButton: false,
+                    timer: 1500,
+                }).then((result) => {
+                     //window.location.href = "sporcu_sayfasi.php?sporcu=" + sporcu_no + "";
+                     location.reload();
+                });
 
 
-</body>
+                console.log(cevap);
+            },
+            error: function(error) {
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Hata.',
+                    text: 'Ekleme işlemi yapılamadı !',
+                })
+                console.log(error);
+            }
+
+        });
+
+
+    }
+</script>
