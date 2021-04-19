@@ -97,8 +97,8 @@
                     showConfirmButton: false,
                     timer: 1500,
                 }).then((result) => {
-                     //window.location.href = "sporcu_sayfasi.php?sporcu=" + sporcu_no + "";
-                     location.reload();
+                     window.location.href = "sporcu_sayfasi.php?sporcu=" + sporcu_no + "#yarisma";
+                     //location.reload();
                 });
 
 

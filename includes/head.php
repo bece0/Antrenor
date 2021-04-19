@@ -8,7 +8,7 @@
 
          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
 
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"> </script>  
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"> </script>    -->
       
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -37,10 +37,11 @@
 
         <script>
             $(document).ready(function() {
+               $('.tabs').tabs();
+               $('.fixed-action-btn').floatingActionButton();
                $('select').formSelect();
                $('.modal').modal();
                $('.collapsible').collapsible();
-
 
             });
         </script>
