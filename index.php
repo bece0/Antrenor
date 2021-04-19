@@ -11,10 +11,10 @@
         header('Location: login.php'); 
    }
 
-   $sporcu_listesi = array();
+  
    $antrenor_id=  $_SESSION["kullanici_id"];
-   $sporcu_listesi= SporculariGetir($antrenor_id);
-  //var_dump( $sporcu_listesi);
+   // $sporcu_listesi = array();
+  // $sporcu_listesi= SporculariGetir($antrenor_id); var_dump( $sporcu_listesi);
 ?>
 
 <link rel="stylesheet" href="assets/index.css">
@@ -118,41 +118,14 @@
                         <th scope="col"> Ad - Soyad</th>
                         <th scope="col">Kategori</th>
                         <th scope="col">Yaş grubu</th>
-                        <!-- <th> </th> -->
+
                     </tr>
                 </thead>
-                <tbody id="sporcu_listesi" >
-                 
-                    <?php 
-                  
-                    $sporcu_sayisi=count($sporcu_listesi);
-                    
-                    for($i=0 ; $i < $sporcu_sayisi; $i++){
-                        
-                        $sporcu = $sporcu_listesi[$i]; //var_dump($sporcu);
-                        $ad_soyad=  $sporcu['ad']." ".$sporcu['soyad'];
-                        $kategori= $sporcu['kategori'];
-                        $yas_grubu= $sporcu['yas_grubu'];
-                        $sporcu_no= $sporcu['sporcu_no']; 
-                        
-                        ?>
-
-                    <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=<?php echo $sporcu_no ?>';">
-                        <td><a href="sporcu_sayfasi.php?sporcu=<?php echo $sporcu_no ?>"> <img src="files/images/logo.jpg"  style="margin-bottom:5px;border-radius:1000px;width:20%"></a></td>
-                        <td><?php echo $ad_soyad  ?></td>
-                        <td><?php echo $kategori ?></td>
-                        <td><?php echo $yas_grubu ?></td>
-                        <!-- <td class="text-right"><button class="btn btn-sm btn-info"><i class="fa fa-pencil"></i> </button> </td> -->
-
-                    </tr>
-
-                    <?php } ?>
-
-                </tbody>
+                <tbody id="sporcu_listesi"></tbody>
             </table>
             <br>
             <div id="hata_mesaji"></div>
-
+            <input type="hidden" id="antrenor_id" value="<?php echo $antrenor_id ?>" />
         </div>
         <br><br>
 
@@ -165,37 +138,89 @@
 
 
 <script>
-        var arama_yap = function() {
-            var yay = $("#yay_turu_ara option:selected").val();
-            var yas_grubu = $("#yas_grubu_ara option:selected").val();
-            var text = $("#text_ara").val();
-            var veri = {
-                "yay": yay,
-                "yas_grubu": yas_grubu,
-                "text": text,
-            };
+var sporculari_getir = function() {
+    var antrenor_id = $("#antrenor_id").val();
+    var veri = {
+        "antrenor_id": antrenor_id
+    };
 
-            var json_string = JSON.stringify(veri);
+    var json_string = JSON.stringify(veri);
 
-            $.ajax({
-                url: 'services/sporcu_listele_servis.php',
-                type: 'POST',
-                data: json_string,
-                contentType: 'application/json',
-                success: function(cevap) {
-                    $("#sporcu_listesi").empty();
+    $.ajax({
+        url: 'services/sporcu_listele_servis.php',
+        type: 'POST',
+        data: json_string,
+        contentType: 'application/json',
+        success: function(cevap) {
 
-                    if (!cevap) { 
-                        $("#hata_mesaji").empty();
-                        $("#hata_mesaji").append("<div class='card-panel amber lighten-4'><center>Sporcu Bulunamadı.</center></div>");
-                        // Swal.fire('Sporcu Bulunamadı');
-                        M.toast({
-                            html: 'Sporcu Bulunamadı!'
-                        })
-                    } else {
-                        $("#hata_mesaji").empty();
-                        for (var i = 0; i < cevap.length; i++) {
-                            var satir = `
+            $("#sporcu_listesi").empty();
+
+            if (!cevap) {
+                $("#hata_mesaji").empty();
+                $("#hata_mesaji").append(
+                    "<div class='card-panel amber lighten-4'><center>Sporcu Yok.</center></div>"
+                );
+
+            } else {
+                $("#hata_mesaji").empty();
+                for (var i = 0; i < cevap.length; i++) {
+                    var sporcu_listesi = `  <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=${cevap[i].sporcu_no}';">
+                                            <td><img src="files/images/logo.jpg" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
+                                            <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
+                                            <td>${  cevap[i].kategori  }</td>
+                                            <td>${ cevap[i].yas_grubu}</td>     
+                                        </tr>
+                 `;
+
+                    $("#sporcu_listesi").append(sporcu_listesi);
+
+                }
+            }
+
+            console.log(cevap);
+        },
+        error: function(error) {
+
+            console.log(error);
+        }
+
+    });
+
+}
+
+var arama_yap = function() {
+    var yay = $("#yay_turu_ara option:selected").val();
+    var yas_grubu = $("#yas_grubu_ara option:selected").val();
+    var text = $("#text_ara").val();
+    var veri = {
+        "yay": yay,
+        "yas_grubu": yas_grubu,
+        "text": text,
+    };
+
+    var json_string = JSON.stringify(veri);
+
+    $.ajax({
+        url: 'services/sporcu_arama_servis.php',
+        type: 'POST',
+        data: json_string,
+        contentType: 'application/json',
+        success: function(cevap) {
+            $("#sporcu_listesi").empty();
+
+            if (!cevap) {
+                $("#hata_mesaji").empty();
+                $("#hata_mesaji").append(
+                    "<div class='card-panel amber lighten-4'><center>Sporcu Bulunamadı.</center></div>"
+                );
+                // Swal.fire('Sporcu Bulunamadı');
+                M.toast({
+                    html: 'Sporcu Bulunamadı!'
+                })
+            } else {
+                $("#hata_mesaji").empty();
+                for (var i = 0; i < cevap.length; i++) {
+                    var satir = `
                                                         <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=${cevap[i].sporcu_no}';">
                                                             <td><img src="files/images/logo.jpg" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
                                                             <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
@@ -206,26 +231,26 @@
                                                         </tr>
                                                     
                                                     `;
-                            $("#sporcu_listesi").append(satir);
+                    $("#sporcu_listesi").append(satir);
 
-                        }
-                    }
+                }
+            }
 
-                    console.log(cevap);
-                },
-                error: function(error) {
-                    console.log(error);
-                },
-
-
-
-            });
+            console.log(cevap);
+        },
+        error: function(error) {
+            console.log(error);
+        },
 
 
-        }
 
-        $(document).ready(function() {
-     
-        });
-        
+    });
+
+
+}
+
+
+$(document).ready(function() {
+    sporculari_getir();
+});
 </script>
