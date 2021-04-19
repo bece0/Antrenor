@@ -121,7 +121,7 @@
                         <!-- <th> </th> -->
                     </tr>
                 </thead>
-                <tbody id="sporcu_listesi">
+                <tbody id="sporcu_listesi" >
                  
                     <?php 
                   

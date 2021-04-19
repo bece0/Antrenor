@@ -98,7 +98,7 @@
             <h5 style="text-align:center"> Yarışma Dereceleri </h5>
             <br>
             <table >
-                <thead class="amber lighten-2">
+                <thead class="amber lighten-3">
                     <tr>
 
                         <th scope="col"> Yarışma Adı </th>
@@ -155,7 +155,7 @@
                 
                                         ?>
                 <li>
-                    <div class="collapsible-header center  amber lighten-2 ">
+                    <div class="collapsible-header center  amber lighten-3 ">
 
                         <div class="col s4"><?php echo $antrenman_no ?></div>
                         <div class="col s4"><?php echo $tarih ?></div>
