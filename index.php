@@ -178,7 +178,7 @@
             var json_string = JSON.stringify(veri);
 
             $.ajax({
-                url: 'sporcu_listele_servis.php',
+                url: 'services/sporcu_listele_servis.php',
                 type: 'POST',
                 data: json_string,
                 contentType: 'application/json',

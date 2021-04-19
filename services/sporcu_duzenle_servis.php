@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include 'database/database.php';
+    include '../database/database.php';
   
 
     $json_alinan_veri = file_get_contents('php://input');  

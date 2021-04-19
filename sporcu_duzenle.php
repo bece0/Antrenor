@@ -98,7 +98,7 @@
         var json_string = JSON.stringify(veri);
 
         $.ajax({
-            url: 'sporcu_bilgi_getir_servis.php',
+            url: 'services/sporcu_bilgi_getir_servis.php',
             type: 'POST',
             data: json_string,
             contentType: 'application/json',
@@ -545,7 +545,7 @@
         var json_string = JSON.stringify(veri);
 
         $.ajax({
-            url: 'sporcu_duzenle_servis.php',
+            url: 'services/sporcu_duzenle_servis.php',
             type: 'POST',
             data: json_string,
             contentType: 'application/json',

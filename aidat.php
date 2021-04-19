@@ -4,24 +4,16 @@
     
     include 'modals/aidat_duzenle_modal.php';
 
-
     if(!$kullanici_giris_yapti_mi){
         header('Location: login.php'); 
    }
 
-    $sporcu_listesi = array();
     $antrenor_id=  $_SESSION["kullanici_id"];
-    $sporcu_listesi= SporculariGetir($antrenor_id);
-
+   
     $gosterilen_yil =  $_GET["sene"]; //var_dump( $simdiki_yil);
     $gecen_yil = (int)$gosterilen_yil-1;  //var_dump( $gecen_yil);
-    
-
-    
-
 
 ?>
-
 
 <div class="container">
     <br>
@@ -30,49 +22,56 @@
         <div class="col s12">
 
             <section class="jumbotron text-center">
-                
-                    <center>
 
-                        <h4 class="jumbotron-heading">
-                            <a class="btn-floating btn-medium  waves-light orange <?php if ($gosterilen_yil <= date("Y")-1){?> disabled <?php }?> "
-                                href="aidat.php?sene=<?php echo $gecen_yil ?>"><i
-                                    class="material-icons">navigate_before</i></a>
-                            <?php echo $_GET["sene"] ?> MALZEME ÜCRET TABLOSU
-                            <a class="btn-floating btn-medium   waves-light orange <?php if ($gosterilen_yil >= date("Y")){?> disabled <?php }?>"
-                                href="aidat.php?sene=<?php echo $yil ?>"><i class="material-icons">navigate_next</i></a>
-                        </h4>
-                    </center>
-                     <input type="hidden" id="antrenor_id" id="antrenor_id" value="<?php echo $antrenor_id ?>" />
-                     <input type="hidden" id="gosterilen_yil" id="gosterilen_yil" value="<?php echo $gosterilen_yil ?>" />
-                    <div class="col s12">
-                        <table class="table table-bordered highlight">  <!-- Aidat Tablosu -->
-                                    <thead>
-                                        <tr>
-                                            <th>Ad Soyad</th>
-                                            <th>Oca</th>
-                                            <th>Şub</th>
-                                            <th>Mar</th>
-                                            <th>Nis</th>
-                                            <th>May</th>
-                                            <th>Haz</th>
-                                            <th>Tem</th>
-                                            <th>Ağu</th>
-                                            <th>Eyl</th>
-                                            <th>Eki</th>
-                                            <th>Kas</th>
-                                            <th>Ara</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody  id="aidat_tablosu"> </tbody>
+                <!-- Başlık -->
+                <center>
+                    <h4 class="jumbotron-heading">
+                        <a class="btn-floating btn-medium  waves-light orange <?php if ($gosterilen_yil <= date("Y")-1){?> disabled <?php }?> "
+                            href="aidat.php?sene=<?php echo $gecen_yil ?>"><i
+                                class="material-icons">navigate_before</i></a>
+                        <?php echo $_GET["sene"] ?> MALZEME ÜCRET TABLOSU
+                        <a class="btn-floating btn-medium   waves-light orange <?php if ($gosterilen_yil >= date("Y")){?> disabled <?php }?>"
+                            href="aidat.php?sene=<?php echo $yil ?>"><i class="material-icons">navigate_next</i></a>
+                    </h4>
+                </center>
 
-                        </table>
-                    </div>
-                
+
+                <input type="hidden" id="antrenor_id" id="antrenor_id" value="<?php echo $antrenor_id ?>" />
+                <input type="hidden" id="gosterilen_yil" id="gosterilen_yil" value="<?php echo $gosterilen_yil ?>" />
+
+
+                <div class="col s12">
+                    <!-- Aidat Tablosu -->
+                    <table class="table table-bordered highlight">
+
+                        <thead>
+                            <tr>
+                 
+                                <th>Ad Soyad</th>
+                                <th>Oca</th>
+                                <th>Şub</th>
+                                <th>Mar</th>
+                                <th>Nis</th>
+                                <th>May</th>
+                                <th>Haz</th>
+                                <th>Tem</th>
+                                <th>Ağu</th>
+                                <th>Eyl</th>
+                                <th>Eki</th>
+                                <th>Kas</th>
+                                <th>Ara</th>
+                            </tr>
+                        </thead>
+                        <tbody id="aidat_tablosu"> </tbody>
+
+                    </table>
+                </div>
+
             </section>
 
             <br>
-            
-      
+
+
             <br>
         </div>
     </div>
@@ -82,96 +81,55 @@
 <?php   //  include 'footer.php';?>
 
 <script>
+$(document).ready(function() {
+    var antrenor_id = $("#antrenor_id").val();
+    var gosterilen_yil = $("#gosterilen_yil").val();
 
-    $(document).ready(function() {
-                var antrenor_id = $("#antrenor_id").val();
-                var gosterilen_yil = $("#gosterilen_yil").val();
+    var veri = {
+        "antrenor_id": antrenor_id,
+        "gosterilen_yil": gosterilen_yil,
+    };
 
-                var veri = {
-                    "antrenor_id": antrenor_id,
-                    "gosterilen_yil": gosterilen_yil,
-                };
+    var json_string = JSON.stringify(veri);
 
-                var json_string = JSON.stringify(veri);
+    $.ajax({
+        url: 'services/aidat_listele_servis.php',
+        type: 'POST',
+        data: json_string,
+        contentType: 'application/json',
+        success: function(cevap) {
 
-                $.ajax({
-                    url: 'aidat_listele_servis.php',
-                    type: 'POST',
-                    data: json_string,
-                    contentType: 'application/json',
-                    success: function(cevap) {
-                        for (var i = 0; i < cevap.length; i++) {
-                            
-                            var aidat_bilgi = `         
-                                 <tr>
-                                    <a class="modal-trigger" id="aidat_duzenle" href="#aidat_duzenle_modal">
-                                                            <td> ${  cevap[i].ad + " " + cevap[i].soyad  }</td>
+            for (var i = 0; i < cevap.length; i++) {
+                var aidat_bilgi = `<tr onclick="sporcu_aidat_getir()" id="aidat_duzenle_satir" class="modal-trigger" href="#aidat_duzenle_modal" >                                                                  
+                                                <td style="display:none" class="sporcu_no" data-sporcuno="${(cevap[i].sporcu_no)}"></td>                                                                     
+                                                <td>${cevap[i].ad + " " + cevap[i].soyad  }</td>
+                                                <td>${(cevap[i].ocak=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                                <td>${(cevap[i].subat=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                                <td>${(cevap[i].mart=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                                <td>${(cevap[i].nisan=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                                <td>${(cevap[i].mayis=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                                <td>${(cevap[i].haziran=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                                <td>${(cevap[i].temmuz=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                                <td>${(cevap[i].agustos=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                                <td>${(cevap[i].eylul=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                                <td>${(cevap[i].ekim=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                                <td>${(cevap[i].kasim=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
+                                                <td>${(cevap[i].aralik=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>                        
+                                        </tr>                  
+                                    `;
 
-                                                            <td>${(cevap[i].ocak)}</td>
-                                                            <td>${(cevap[i].subat)}</td>
-                                                            <td>${(cevap[i].mart)}</td>
-                                                            <td>${(cevap[i].nisan)}</td>
-                                                            <td>${(cevap[i].mayis)}</td>
-                                                            <td>${(cevap[i].haziran)}</td>
-                                                            <td>${(cevap[i].temmuz)}</td>
-                                                            <td>${(cevap[i].agustos)}</td>
-                                                            <td>${(cevap[i].eylul)}</td>
-                                                            <td>${(cevap[i].ekim)}</td>
-                                                            <td>${(cevap[i].kasim)}</td>
-                                                            <td>${(cevap[i].aralik)}</td>
-       
-                                    </a>
-                                </tr>
-                                                                    
-                                
-                            `;
-
-                            $("#aidat_tablosu").append(aidat_bilgi);
-                        }
-                
-        
-                        console.log(cevap);
-                    },
-                    error: function(error) {
-
-                        console.log(error);
-                    }
-
-                });
+                $("#aidat_tablosu").append(aidat_bilgi);
+            }
+            console.log(cevap);
+        },
+        error: function(error) {
+            console.log(error);
+        }
     });
+});
 
-/*
-     $('table tbody tr').on('click',function(){
-       //  ("#aidat_duzenle_modal").open();
-         $('.modal').modal('open');
-     });
-*/
 
-  
+$("#aidat_duzenle_satir").click(function() {
+    sporcu_aidat_getir();
+});
 </script>
-
-<!-- 
-<td> ${ (cevap[i].ocak)}<i class="material-icons">check</i>
-                                                            ${ else }<i class="material-icons">remove</i>  </td>
-                                                            <td> ${ if (cevap[i].subat)=="1" }<i class="material-icons">check</i>
-                                                            ${ else }<i class="material-icons">remove</i>  </td>
-                                                            <td> ${ if (cevap[i].mart)=="1" }<i class="material-icons">check</i>
-                                                            ${ else }<i class="material-icons">remove</i>  </td>
-                                                            <td> ${ if (cevap[i].nisan)=="1" }<i class="material-icons">check</i>
-                                                            ${ else }<i class="material-icons">remove</i>  </td>
-                                                            <td> ${ if (cevap[i].mayis)=="1" }<i class="material-icons">check</i>
-                                                            ${ else }<i class="material-icons">remove</i>  </td>
-                                                            <td> ${ if (cevap[i].haziran)=="1" }<i class="material-icons">check</i>
-                                                            ${ else }<i class="material-icons">remove</i>  </td>
-                                                            <td> ${ if (cevap[i].temmuz)=="1" }<i class="material-icons">check</i>
-                                                            ${ else }<i class="material-icons">remove</i>  </td>
-                                                            <td> ${ if (cevap[i].agustos)=="1" }<i class="material-icons">check</i>
-                                                            ${ else }<i class="material-icons">remove</i>  </td>
-                                                            <td> ${ if (cevap[i].eylul)=="1" }<i class="material-icons">check</i>
-                                                            ${ else }<i class="material-icons">remove</i>  </td>
-                                                            <td> ${ if (cevap[i].ekim)=="1" }<i class="material-icons">check</i>
-                                                            ${ else }<i class="material-icons">remove</i>  </td>
-                                                            <td> ${ if (cevap[i].kasim)=="1" }<i class="material-icons">check</i>
-                                                            ${ else }<i class="material-icons">remove</i>  </td>
-                                                            <td> ${ if (cevap[i].aralik)=="1" }<i class="material-icons">check</i>
-                                                            ${ else }<i class="material-icons">remove</i>  </td> -->

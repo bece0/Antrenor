@@ -1,15 +1,16 @@
 <?php 
     include 'includes/head.php';
     include 'includes/nav.php';
-  //  include 'database/database.php';
-
+ 
+    include 'modals/yarisma_ekle_modal.php';
+   
     if(!$kullanici_giris_yapti_mi){
        header('Location: login.php'); 
       
    }
 
     $sporcu_no =  $_GET["sporcu"]; //var_dump($sporcu_no);
-
+/*
     $sporcu_bilgileri = array(); 
     $sporcu_bilgileri= SporcuBilgileriGetir($sporcu_no); //var_dump($sporcu_bilgileri);
 
@@ -26,7 +27,7 @@
 
     $antrenman_bilgileri = array();
     $antrenman_bilgileri = sporcuAntrenmanlariGetir($sporcu_no); //var_dump($antrenman_bilgileri);
-
+*/
 
 
 ?>
@@ -46,10 +47,12 @@
     </ul>
 </div>
 
+
+<input type="hidden" id="sporcu_no" value="<?php echo $sporcu_no ?>" />
 <div class="container">
         <br> <br>
-
-        <div class="row">
+       
+        <div class="row"> 
             <!-- tabs -->
             <div id="tabs" class="col s12">
                 <ul class="tabs">
@@ -60,13 +63,10 @@
 
                 </ul>
             </div>
-
+      
             <!-- bilgiler -->
             <div id="bilgiler" class="col s12">
                 <br><br>
-
-                <input type="hidden" id="sporcu_no" id="sporcu_no" value="<?php echo $sporcu_no ?>" />
-
                 <h5 style="text-align:center"> Kişisel Bilgiler</h5>
 
                 <div class="row">
@@ -87,9 +87,10 @@
             </div> 
 
             <!-- yarisma -->
-            <div id="yarisma" class="col s12">
+            <div id="yarisma" class="col s12"> 
                 <br><br>
                 <h5 style="text-align:center"> Yarışma Dereceleri </h5>
+
                 <table class="table table-striped table-hover highlight">
                     <thead>
                         <tr>
@@ -97,54 +98,14 @@
                             <th scope="col"> Yarışma Adı </th>
                             <th scope="col"> Tarih </th>
                             <th scope="col"> Sıralama </th>
-                            <th scope="col">Madalya</th>
+                            <th scope="col"> Madalya</th>
 
                         </tr>
                     </thead>
-                    <tbody>
-
-                        <?php 
-                                
-                                //  $yarisma_sayisi=count($yarisma_bilgileri); 
-                                $yarisma_sayisi=count((is_countable($yarisma_bilgileri)?$yarisma_bilgileri:[])); 
-
-                                if($yarisma_sayisi!=0){
-                                    for($i=0 ; $i<$yarisma_sayisi ; $i++){ 
-
-                                        $yarisma = $yarisma_bilgileri[$i]; //var_dump($yarisma);
-                                        $yarisma_adi=  $yarisma['yarisma_adi'];
-                                        $tarih= $yarisma['tarih'];
-                                        $siralama= $yarisma['siralama'];
-                                        $madalya= $yarisma['madalya']; 
-
-                            
-                                                    
-                                            ?>
-                        <tr>
-                            <td><?php echo $yarisma_adi  ?></td>
-                            <td><?php echo $tarih  ?></td>
-                            <td><?php echo $siralama  ?></td>
-                            <td><?php echo $madalya  ?></td>
-
-
-                        </tr>
-                        <?php } }else{ ?>
-                        <tr>
-                            <td><i class="material-icons">remove</i></td>
-                            <td><i class="material-icons">remove</i></td>
-                            <td><i class="material-icons">remove</i></td>
-                            <td><i class="material-icons">remove</i></td>
-                        </tr>
-                        <?php  } ?>
-                    </tbody>
+                    <tbody id="yarisma_bilgi_tablo"> <!-- Yarışmalar -->   </tbody>
                 </table>
+                     
                 <br>
-                <!-- <center>
-                            <div class="col-sm-12 col-md-2 ">
-                                <a class=" waves-light btn green" id="yarisma_ekle_buton"
-                                    href="yarisma_ekle.php?sporcu=<?php //echo $sporcu_no ?>">Ekle</a>
-                            </div>
-                        </center> -->
 
                 <div class="fixed-action-btn">
                     <a class="btn-floating btn-large teal">
@@ -155,15 +116,8 @@
                                 href="#yarisma_ekle_modal"><i class="material-icons">mode_edit</i></a>Yarışma Ekle</li>
 
                     </ul>
-                </div>
-                <?php  
-                        include 'modals/yarisma_ekle_modal.php';
-                        ?>
-
+                </div>       
                 <br>
-
-
-
             </div> 
 
             <!-- puan -->
@@ -332,203 +286,87 @@
 <?php   //  include 'footer.php';?>
 
 <script>
+ 
 
     $(document).ready(function() {
-            var sporcu_no = $("#sporcu_no").val();
+          
+        sporcu_bilgileri_listele();
+        sporcu_yarismalari_listele();
+        
 
-            var veri = {
-                "sporcu_no": sporcu_no,
-            };
+    });
 
-            var json_string = JSON.stringify(veri);
+    var sporcu_bilgileri_listele = function() {
+       // var sporcu_no = $("#sporcu_no").val();
+        var sporcu_no = '<?php echo $sporcu_no ;?>';
+        var sporcu_bilgileri_veri = {
+            "sporcu_no": sporcu_no
+        };
 
-            $.ajax({
-                url: 'sporcu_bilgi_getir_servis.php',
-                type: 'POST',
-                data: json_string,
-                contentType: 'application/json',
-                success: function(cevap) {
+        var json_string_sporcu_bilgileri = JSON.stringify(sporcu_bilgileri_veri);
 
-                    var kisisel_bilgi_tablo = `         
-                    
-                            <table class="striped">                     
-                                <thead>
-                                    <tr>
-                                        <th data-field="1"></th>
-                                        <th data-field="2"></th>
-                                        <th data-field="3"></th>
+        $.ajax({
+            url: 'services/sporcu_bilgi_getir_servis.php',
+            type: 'POST',
+            data: json_string_sporcu_bilgileri,
+            contentType: 'application/json',
+            success: function(cevap) {
 
-                                    </tr>
-                                </thead>
+                var kisisel_bilgi_tablo = `         
+                
+                        <table class="striped">                     
+                            <thead>
+                                <tr>
+                                    <th data-field="1"></th>
+                                    <th data-field="2"></th>
+                                    <th data-field="3"></th>
 
-                                <tbody>
-                                    <tr>
-                                        <td style="text-align:center"><i class="material-icons">account_circle</i></td>
-                                        <td> Ad Soyad :</td>
-                                        <td>${cevap.ad + " " + cevap.soyad }</td>
+                                </tr>
+                            </thead>
 
-                                    </tr>
-                                    <tr>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align:center"><i class="material-icons">account_circle</i></td>
+                                    <td> Ad Soyad :</td>
+                                    <td>${cevap.ad + " " + cevap.soyad }</td>
 
-                                        <td style="text-align:center"><i class="material-icons">assignment_ind</i></td>
-                                        <td> TC No :</td>
-                                        <td>${cevap.tc_no}</td>
-                                
-                                    </tr>
-                                    <tr>
+                                </tr>
+                                <tr>
 
-                                        <td style="text-align:center"><i class="material-icons">wc</i></td>
-                                        <td> Cinsiyet :</td>
-                                        <td>${cevap.cinsiyet }</td>
+                                    <td style="text-align:center"><i class="material-icons">assignment_ind</i></td>
+                                    <td> TC No :</td>
+                                    <td>${cevap.tc_no}</td>
                             
-                                    </tr>
-                                    <tr>
+                                </tr>
+                                <tr>
 
-                                        <td style="text-align:center"><i class="material-icons">cake</i></td>
-                                        <td> Doğum Tarihi :</td>
-                                        <td>${cevap.dogun_tarihi }</td>
+                                    <td style="text-align:center"><i class="material-icons">wc</i></td>
+                                    <td> Cinsiyet :</td>
+                                    <td>${cevap.cinsiyet }</td>
+                        
+                                </tr>
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons">cake</i></td>
+                                    <td> Doğum Tarihi :</td>
+                                    <td>${cevap.dogun_tarihi }</td>
+                            
+                                </tr>
+
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons">phone</i></td>
+                                    <td> Tel No :</td>
+                                    <td>${cevap.tel_no  }</td>
                                 
-                                    </tr>
+                                </tr>
 
-                                    <tr>
+                            </tbody>
+                        </table> 
+                `;
 
-                                        <td style="text-align:center"><i class="material-icons">phone</i></td>
-                                        <td> Tel No :</td>
-                                        <td>${cevap.tel_no  }</td>
-                                    
-                                    </tr>
-
-                                </tbody>
-                            </table> 
-                    `;
-
-                    var yay_bilgi_tablo = `      
-                        <table class="striped" > 
-                                
-                                <thead>
-
-                                    <tr>
-                                        <th data-field="1"></th>
-                                        <th data-field="2"></th>
-                                        <th data-field="3"></th>
-
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                        <td> Yay Kategori:</td>
-                                        <td>${cevap.kategori}</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                        <td> Ebat:</td>
-                                        <td>${cevap.ebat}</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                        <td> Çekiş Ağırlığı:</td>
-                                        <td>${cevap.cekis_agirligi}</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                        <td> Yay Sertliği:</td>
-                                        <td>${cevap.yay_sertligi}</td>
-
-                                    </tr>
-
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                        <td> Handle:</td>
-                                        <td>${cevap.handle}</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                        <td> Limp:</td>
-                                        <td>${cevap.limp}</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                        <td> Kiriş Yüksekliği:</td>
-                                        <td>${cevap.kiris_yuksekligi}</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                        <td> Berger:</td>
-                                        <td>${cevap.berger}</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                        <td> Kliker:</td>
-                                        <td>${cevap.kliker}</td>
-
-                                    </tr>
-
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                        <td> Stabilizör:</td>
-                                        <td>${cevap.stabilizer}</td>
-
-                                    </tr>
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                        <td> Tiller:</td>
-                                        <td>${cevap.tiller}</td>
-
-                                    </tr>
-
-
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                        <td> Nişangah:</td>
-                                        <td>${cevap.nisangah}</td>
-
-                                    </tr>
-
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> track_changes </i></td>
-                                        <td> Atış Mesafesi:</td>
-                                        <td>${cevap.atis_mesafesi}</td>
-
-                                    </tr>
-
-                                    <tr>
-
-                                        <td style="text-align:center"><i class="material-icons"> comment </i>
-                                        </td>
-                                        <td>Notlar:</td>
-                                        <td>${cevap.yay_notlar}</td>
-
-                                    </tr>
-
-
-
-                                </tbody>
-                            </table>
-                    `;
-
-                    var ok_bilgi_tablo = `
-                        <table class="striped " >    
+                var yay_bilgi_tablo = `      
+                    <table class="striped" > 
                             
                             <thead>
 
@@ -541,82 +379,99 @@
                             </thead>
 
                             <tbody>
-
                                 <tr>
-
-                                    <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                    <td> Ok Sayısı:</td>
-                                    <td>${cevap.ok_sayisi}</td>
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Yay Kategori:</td>
+                                    <td>${cevap.kategori}</td>
 
                                 </tr>
                                 <tr>
 
-                                    <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                    <td> Ok Numarası:</td>
-                                    <td>${cevap.ok_numarasi}</td>
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Ebat:</td>
+                                    <td>${cevap.ebat}</td>
 
                                 </tr>
                                 <tr>
 
-                                    <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                    <td> Uzunluk:</td>
-                                    <td>${cevap.uzunluk}</td>
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Çekiş Ağırlığı:</td>
+                                    <td>${cevap.cekis_agirligi}</td>
 
                                 </tr>
                                 <tr>
 
-                                    <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                    <td> Malzeme:</td>
-                                    <td>${cevap.malzeme}</td>
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Yay Sertliği:</td>
+                                    <td>${cevap.yay_sertligi}</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Handle:</td>
+                                    <td>${cevap.handle}</td>
 
                                 </tr>
                                 <tr>
 
-                                    <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                    <td> Sapma:</td>
-                                    <td>${cevap.sapma}</td>
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Limp:</td>
+                                    <td>${cevap.limp}</td>
 
                                 </tr>
                                 <tr>
 
-                                    <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                    <td> Çap:</td>
-                                    <td>${cevap.cap}</td>
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Kiriş Yüksekliği:</td>
+                                    <td>${cevap.kiris_yuksekligi}</td>
 
                                 </tr>
                                 <tr>
 
-                                    <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                    <td> Ağırlık:</td>
-                                    <td>${cevap.agirlik}</td>
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Berger:</td>
+                                    <td>${cevap.berger}</td>
 
                                 </tr>
                                 <tr>
 
-                                    <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                    <td> Uç Ağırlığı:</td>
-                                    <td>${cevap.uc_agirligi}</td>
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Kliker:</td>
+                                    <td>${cevap.kliker}</td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Stabilizör:</td>
+                                    <td>${cevap.stabilizer}</td>
 
                                 </tr>
                                 <tr>
 
-                                    <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                    <td> Tüy:</td>
-                                    <td>${cevap.tuy}</td>
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Tiller:</td>
+                                    <td>${cevap.tiller}</td>
 
                                 </tr>
+
+
                                 <tr>
 
-                                    <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                    <td> Arkalık:</td>
-                                    <td>${cevap.arkalik}</td>
+                                    <td style="text-align:center"><i class="material-icons"> looks </i></td>
+                                    <td> Nişangah:</td>
+                                    <td>${cevap.nisangah}</td>
 
                                 </tr>
+
                                 <tr>
 
-                                    <td style="text-align:center"><i class="material-icons"> straighten </i></td>
-                                    <td> Kol Boyu:</td>
-                                    <td>${cevap.kol_boyu}</td>
+                                    <td style="text-align:center"><i class="material-icons"> track_changes </i></td>
+                                    <td> Atış Mesafesi:</td>
+                                    <td>${cevap.atis_mesafesi}</td>
 
                                 </tr>
 
@@ -624,30 +479,176 @@
 
                                     <td style="text-align:center"><i class="material-icons"> comment </i>
                                     </td>
-                                    <td> Notlar:</td>
-                                    <td>${cevap.ok_notlar}</td>
+                                    <td>Notlar:</td>
+                                    <td>${cevap.yay_notlar}</td>
 
                                 </tr>
 
+
+
                             </tbody>
                         </table>
-                    
-                    `;
+                `;
 
-                    $("#kisisel_bilgi_tablo").append(kisisel_bilgi_tablo);
-                    $("#yay_bilgi_tablo").append(yay_bilgi_tablo);
-                    $("#ok_bilgi_tablo").append(ok_bilgi_tablo);
+                var ok_bilgi_tablo = `
+                    <table class="striped " >    
+                        
+                        <thead>
+
+                            <tr>
+                                <th data-field="1"></th>
+                                <th data-field="2"></th>
+                                <th data-field="3"></th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
+                                <td> Ok Sayısı:</td>
+                                <td>${cevap.ok_sayisi}</td>
+
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
+                                <td> Ok Numarası:</td>
+                                <td>${cevap.ok_numarasi}</td>
+
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
+                                <td> Uzunluk:</td>
+                                <td>${cevap.uzunluk}</td>
+
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
+                                <td> Malzeme:</td>
+                                <td>${cevap.malzeme}</td>
+
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
+                                <td> Sapma:</td>
+                                <td>${cevap.sapma}</td>
+
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
+                                <td> Çap:</td>
+                                <td>${cevap.cap}</td>
+
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
+                                <td> Ağırlık:</td>
+                                <td>${cevap.agirlik}</td>
+
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
+                                <td> Uç Ağırlığı:</td>
+                                <td>${cevap.uc_agirligi}</td>
+
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
+                                <td> Tüy:</td>
+                                <td>${cevap.tuy}</td>
+
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
+                                <td> Arkalık:</td>
+                                <td>${cevap.arkalik}</td>
+
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> straighten </i></td>
+                                <td> Kol Boyu:</td>
+                                <td>${cevap.kol_boyu}</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td style="text-align:center"><i class="material-icons"> comment </i>
+                                </td>
+                                <td> Notlar:</td>
+                                <td>${cevap.ok_notlar}</td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                
+                `;
+
+                $("#kisisel_bilgi_tablo").append(kisisel_bilgi_tablo);
+                $("#yay_bilgi_tablo").append(yay_bilgi_tablo);
+                $("#ok_bilgi_tablo").append(ok_bilgi_tablo);
+
+                console.log(cevap);
+            },
+            error: function(error) {
+
+                console.log(error);
+            }
+
+        });
 
 
-                    console.log(cevap);
-                },
-                error: function(error) {
+    }
 
-                    console.log(error);
-                }
+    var sporcu_yarismalari_listele = function() {
+        var sporcu_no = '<?php echo $sporcu_no ;?>';
+        var sporcu_yarismalari_veri = {
+            "sporcu_no": sporcu_no
+        };
 
-            });
-    });
+        var json_string_yarisma_bilgileri = JSON.stringify(sporcu_yarismalari_veri);
+
+        $.ajax({
+            url: 'services/yarisma_listele_servis.php',
+            type: 'POST',
+            data: json_string_yarisma_bilgileri,
+            contentType: 'application/json',
+            success: function(cevap) {
+
+                for (var i = 0; i < cevap.length; i++) {
+                 var yarisma_bilgi = `
+                        <tr>
+                            <td>${ cevap[i].yarisma_adi}</td>
+                            <td>${ cevap[i].tarih}</td>
+                            <td>${ cevap[i].siralama}</td>
+                            <td>${ cevap[i].madalya}</td>
+                        </tr>
+                 `;
+
+                  $("#yarisma_bilgi_tablo").append(yarisma_bilgi);
+            }
+                console.log(cevap);
+            },
+            error: function(error) {
+
+                console.log(error);
+            }
+
+        });     
+    }
 
     var sporcu_sil = function() {
             var sporcu_no = $("#sporcu_no").val();
@@ -659,7 +660,7 @@
             var json_string = JSON.stringify(veri);
 
             $.ajax({
-                url: 'sporcu_sil_servis.php',
+                url: 'services/sporcu_sil_servis.php',
                 type: 'POST',
                 data: json_string,
                 contentType: 'application/json',
