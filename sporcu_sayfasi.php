@@ -24,10 +24,10 @@
 
     $yarisma_bilgileri = array();
     $yarisma_bilgileri = SporcuYarismalariGetir($sporcu_no); //var_dump($yarisma_bilgileri);
-
+*/
     $antrenman_bilgileri = array();
     $antrenman_bilgileri = sporcuAntrenmanlariGetir($sporcu_no); //var_dump($antrenman_bilgileri);
-*/
+
 
 
 ?>
@@ -48,7 +48,7 @@
 </div>
 
 
-<input type="hidden" id="sporcu_no" value="<?php echo $sporcu_no ?>" />
+<input type="hidden" id="sporcu_no_hidden" value="<?php echo $sporcu_no ?>" />
 <div class="container">
         <br> <br>
        
@@ -58,7 +58,7 @@
                 <ul class="tabs">
                     <li class="tab col s3"><a class="active" href="#bilgiler">Bilgiler</a></li>
                     <li class="tab col s3  "><a href="#yarisma">Yarışma Dereceleri</a></li>
-                    <li class="tab col s3"><a href="#puan">Puan Durumu</a></li>
+                    <li class="tab col s3"><a href="#puan">Antrenman Puanları</a></li>
                     <li class="tab col s3 disabled"><a href="#antrenman">Antrenman Programı</a></li>
 
                 </ul>
@@ -125,47 +125,6 @@
                 <br><br>
                 <h5 style="text-align:center">Antrenmanlar</h5>
                 <br>
-
-                <!--   <table class=" table table-striped  table-hover highlight ">
-                            <thead>
-                                <tr>
-                                    <th scope="col"> Antrenman No </th>
-                                    <th scope="col"> Tarih </th>
-                                    <th scope="col"> Toplam Puan </th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-
-
-                                <tr >
-                                    <td>1</td>
-                                    <td>19.03.2021</td>
-                                    <td>250</td>
-
-                                </tr>
-                                <tr >
-                                    <td>2</td>
-                                    <td>20.03.2021</td>
-                                    <td>260</td>
-
-                                </tr>
-
-                            </tbody>
-                        </table>    -->
-
-                <!-- <table class=" table centered  ">
-
-                            <tr>
-                                <th scope="col "> Antrenman No </th>
-                                <th scope="col "> Tarih </th>
-                                <th scope="col "> Toplam Puan </th>
-
-                            </tr>
-
-                        </table> -->
-
-
 
                 <ul class="collapsible popout" data-collapsible="accordion">
 
@@ -289,16 +248,16 @@
  
 
     $(document).ready(function() {
-          
+       
         sporcu_bilgileri_listele();
         sporcu_yarismalari_listele();
-        
+        sporcu_antrenmanlari_listele();
 
     });
 
     var sporcu_bilgileri_listele = function() {
        // var sporcu_no = $("#sporcu_no").val();
-        var sporcu_no = '<?php echo $sporcu_no ;?>';
+        var sporcu_no = $("#sporcu_no_hidden").val(); 
         var sporcu_bilgileri_veri = {
             "sporcu_no": sporcu_no
         };
@@ -614,7 +573,7 @@
     }
 
     var sporcu_yarismalari_listele = function() {
-        var sporcu_no = '<?php echo $sporcu_no ;?>';
+        var sporcu_no = $("#sporcu_no_hidden").val(); 
         var sporcu_yarismalari_veri = {
             "sporcu_no": sporcu_no
         };
@@ -650,8 +609,12 @@
         });     
     }
 
+    var sporcu_antrenmanlari_listele = function(){
+        
+    }
+
     var sporcu_sil = function() {
-            var sporcu_no = $("#sporcu_no").val();
+           var sporcu_no = $("#sporcu_no_hidden").val(); 
 
             var veri = {
                 "sporcu_no": sporcu_no,
@@ -691,6 +654,6 @@
 
 
     }
-
+  
 
 </script>
