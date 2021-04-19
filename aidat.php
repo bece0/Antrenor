@@ -34,7 +34,7 @@
                             href="aidat.php?sene=<?php echo $yil ?>"><i class="material-icons">navigate_next</i></a>
                     </h4>
                 </center>
-
+                <br>
 
                 <input type="hidden" id="antrenor_id" id="antrenor_id" value="<?php echo $antrenor_id ?>" />
                 <input type="hidden" id="gosterilen_yil" id="gosterilen_yil" value="<?php echo $gosterilen_yil ?>" />
@@ -81,6 +81,7 @@
 <?php   //  include 'footer.php';?>
 
 <script>
+
 $(document).ready(function() {
     var antrenor_id = $("#antrenor_id").val();
     var gosterilen_yil = $("#gosterilen_yil").val();
@@ -100,8 +101,8 @@ $(document).ready(function() {
         success: function(cevap) {
 
             for (var i = 0; i < cevap.length; i++) {
-                var aidat_bilgi = `<tr onclick="sporcu_aidat_getir()" id="aidat_duzenle_satir" class="modal-trigger" href="#aidat_duzenle_modal" >                                                                  
-                                                <td style="display:none" class="sporcu_no" data-sporcuno="${(cevap[i].sporcu_no)}"></td>                                                                     
+                var aidat_bilgi = `<tr onclick="sporcu_aidat_getir()" id="aidat_duzenle_satir" data-sporcuno="${(cevap[i].sporcu_no)}" class="modal-trigger" href="#aidat_duzenle_modal" >                                                                  
+                                                                                                         
                                                 <td>${cevap[i].ad + " " + cevap[i].soyad  }</td>
                                                 <td>${(cevap[i].ocak=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
                                                 <td>${(cevap[i].subat=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
@@ -129,7 +130,9 @@ $(document).ready(function() {
 });
 
 
-$("#aidat_duzenle_satir").click(function() {
-    sporcu_aidat_getir();
+$("#aidat_duzenle_satir").click(function() {  
+
+  //  sporcu_aidat_getir();
+
 });
 </script>

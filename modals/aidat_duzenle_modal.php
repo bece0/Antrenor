@@ -32,7 +32,7 @@
                    
                     <br> <br>
                     <center>
-                        <button type="button" class="waves-light btn green" id="aidat_duzenle_buton"
+                        <button type="button" class="waves-light btn green modal-close" id="aidat_duzenle_buton"
                             onclick="aidat_duzenle()">TAMAMLA</a>
                     </center>
 
@@ -50,13 +50,14 @@
 
 <script>
      var sporcu_aidat_getir = function() {
-        var sporcu_no = $('.sporcu_no').attr('data-sporcuno'); 
+
+        //var sporcu_no = $('#sporcu_no').attr('data-sporcuno');      
+        var sporcu_no = $('#aidat_duzenle_satir').data('sporcuno');   console.log(sporcu_no);       
         var sene = $("#gosterilen_yil").val();
 
         var veri = {
             "sporcu_no": sporcu_no,
             "sene": sene,
- 
         };
 
         var json_string = JSON.stringify(veri);
@@ -72,30 +73,30 @@
                
                             <tr>                                                                                                                      
                                 <td>${cevap.ad + " " +  cevap.soyad  }</td>
-                                <td><label><input type="checkbox" name="aylar[]" value="ocak"
-                                    ${(cevap.ocak=="1") ? "checked='checked'" : " "}<span></span></label></td>
                                 <td><label><input type="checkbox" name="aylar[]" value="subat"
-                                    ${( cevap.subat=="1") ? "checked='checked'" : " "} <span></span></label></td>
+                                    ${( cevap.ocak=="1") ? "checked='checked'" : " "}> <span></span></label></td>
+                                <td><label><input type="checkbox" name="aylar[]" value="subat"
+                                    ${( cevap.subat=="1") ? "checked='checked'" : " "}> <span></span></label></td>
                                 <td><label><input type="checkbox" name="aylar[]" value="mart"
-                                    ${( cevap.mart=="1") ? "checked='checked'" : " "} <span></span></label></td>
+                                    ${( cevap.mart=="1") ? "checked='checked'" : " "}> <span></span></label></td>
                                 <td><label><input type="checkbox" name="aylar[]" value="nisan"
-                                    ${( cevap.nisan=="1") ? "checked='checked'" : " " } <span></span></label></td>
+                                    ${( cevap.nisan=="1") ? "checked='checked'" : " " }> <span></span></label></td>
                                 <td><label><input type="checkbox" name="aylar[]" value="mayis"
-                                    ${( cevap.mayis=="1") ? "checked='checked'" : " " } <span></span></label></td>
+                                    ${( cevap.mayis=="1") ? "checked='checked'" : " " } ><span></span></label></td>
                                 <td><label><input type="checkbox" name="aylar[]" value="haziran"
-                                    ${( cevap.haziran=="1") ? "checked='checked'" : " "} <span></span></label></td>
+                                    ${( cevap.haziran=="1") ? "checked='checked'" : " "} ><span></span></label></td>
                                 <td><label><input type="checkbox" name="aylar[]" value="temmuz"
-                                    ${( cevap.temmuz=="1") ? "checked='checked'" : " " } <span></span></label></td>
+                                    ${( cevap.temmuz=="1") ? "checked='checked'" : " " } ><span></span></label></td>
                                 <td><label><input type="checkbox" name="aylar[]" value="agustos"
-                                    ${( cevap.agustos=="1") ? "checked='checked'" : " "} <span></span></label></td>
+                                    ${( cevap.agustos=="1") ? "checked='checked'" : " "} ><span></span></label></td>
                                 <td><label><input type="checkbox" name="aylar[]" value="eylul"
-                                    ${( cevap.eylul=="1") ? "checked='checked'" : " " } <span></span></label></td>
+                                    ${( cevap.eylul=="1") ? "checked='checked'" : " " } ><span></span></label></td>
                                 <td><label><input type="checkbox" name="aylar[]" value="ekim"
-                                    ${( cevap.ekim=="1") ? "checked='checked'" : " " } <span></span></label></td>
+                                    ${( cevap.ekim=="1") ? "checked='checked'" : " " } ><span></span></label></td>
                                 <td><label><input type="checkbox" name="aylar[]" value="kasim"
-                                    ${( cevap.kasim=="1") ? "checked='checked'" : " " } <span></span></label></td>
+                                    ${( cevap.kasim=="1") ? "checked='checked'" : " " } ><span></span></label></td>
                                 <td><label><input type="checkbox" name="aylar[]" value="aralik"
-                                    ${( cevap.aralik=="1") ? "checked='checked'" : " " } <span></span></label></td>
+                                    ${( cevap.aralik=="1") ? "checked='checked'" : " " } ><span></span></label></td>                       
 
                         </tr>
                                 
@@ -114,8 +115,8 @@
     }  
 
     var aidat_duzenle = function() {
-        var sporcu_no = $("#sporcu_no").val();
-
+        var sporcu_no = $('.sporcu_no').attr('data-sporcuno');
+      
         var veri = {
             "sporcu_no": sporcu_no,
             "sene": sene,
