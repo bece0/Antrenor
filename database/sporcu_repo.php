@@ -30,18 +30,15 @@
        return SQLDeleteCalistir($sql);
     }
 
-    
     function SporcuSilYay($sporcu_no){
         $sql="DELETE FROM yay_bilgi WHERE sporcu_no= '$sporcu_no'" ;
-    return SQLDeleteCalistir($sql);
+        return SQLDeleteCalistir($sql);
     }
 
     function SporcuSilOk($sporcu_no){
         $sql="DELETE FROM ok_bilgi WHERE sporcu_no= '$sporcu_no'" ;
-    return SQLDeleteCalistir($sql);
+        return SQLDeleteCalistir($sql);
     }
-
-
 
     function SonKayitIdGetir(){
         $sql = "SELECT sporcu_no FROM sporcu ORDER BY sporcu_no DESC LIMIT 1";
@@ -92,7 +89,6 @@
         
         return SQLUpdateCalistir($sql);
     }
-    
             
     function SporcuYarismalariGetir($sporcu_no){
         $sql = "SELECT  * FROM yarisma WHERE sporcu_no= '$sporcu_no'" ; 

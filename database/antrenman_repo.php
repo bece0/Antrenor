@@ -2,9 +2,9 @@
 
     function sporcuAntrenmanlariGetir($sporcu_no){
 
-    $sql = "SELECT  * FROM puan WHERE sporcu_no= '$sporcu_no'" ; 
-            
-        return SQLCalistir($sql);
+        $sql = "SELECT  * FROM puan WHERE sporcu_no= '$sporcu_no'" ; 
+                
+            return SQLCalistir($sql);
 
     }
 
@@ -14,7 +14,7 @@
                 
             return SQLCalistir($sql);
         
-        }
+    }
 
 
 

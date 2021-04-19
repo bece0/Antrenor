@@ -45,5 +45,4 @@ function AidatSporcuSil($sporcu_no){
 
 
 
-
 ?>
