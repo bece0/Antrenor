@@ -31,21 +31,17 @@
                     </table>
 
                 </div> <!-- bilgiler -->
-
             </div>
-
         </div>
         <center>
             <button type="button" class="waves-light btn green modal-close" id="aidat_duzenle_buton"
                 onclick="aidat_guncelle()">TAMAMLA</a>
         </center>
-
     </div>
 
     <!-- <div class="modal-footer"></div> -->
 
 </div>
-
 
 <script>
 var sporcu_aidat_getir = function(sporcu_no) {

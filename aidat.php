@@ -39,14 +39,11 @@
                 <input type="hidden" id="antrenor_id" id="antrenor_id" value="<?php echo $antrenor_id ?>" />
                 <input type="hidden" id="gosterilen_yil" id="gosterilen_yil" value="<?php echo $gosterilen_yil ?>" />
 
-
                 <div class="col s12">
                     <!-- Aidat Tablosu -->
                     <table class="table table-bordered highlight">
-
                         <thead>
-                            <tr>
-                 
+                            <tr>               
                                 <th>Ad Soyad</th>
                                 <th>Oca</th>
                                 <th>Şub</th>
@@ -69,10 +66,7 @@
 
             </section>
 
-            <br>
-
-
-            <br>
+            <br><br>
         </div>
     </div>
 </div>
