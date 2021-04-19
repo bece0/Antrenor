@@ -101,7 +101,7 @@
  
                 for (var i = 0; i < cevap.length; i++) {             
                     var aidat_bilgi = `<tr onclick="sporcu_aidat_getir(${(cevap[i].sporcu_no)})" id="aidat_duzenle_satir" data-sporcuno="${(cevap[i].sporcu_no)}" class="modal-trigger" href="#aidat_duzenle_modal" >                                                                  
-                                                                                                            
+                                            <input type="hidden" id="sporcu_no" value="${(cevap[i].sporcu_no)}" />                                                                
                                             <td>${cevap[i].ad + " " + cevap[i].soyad  }</td>
                                             <td>${(cevap[i].ocak=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>
                                             <td>${(cevap[i].subat=="1") ? "<i class='material-icons'>check</i>" : "<i class='material-icons'>remove</i>"}</td>

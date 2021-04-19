@@ -33,15 +33,17 @@
                 </div> <!-- bilgiler -->
 
             </div>
+
         </div>
+        <center>
+            <button type="button" class="waves-light btn green modal-close" id="aidat_duzenle_buton"
+                onclick="aidat_guncelle()">TAMAMLA</a>
+        </center>
 
     </div>
 
-    <div class="modal-footer"></div>
-    <center>
-        <button type="button" class="waves-light btn green modal-close" id="aidat_duzenle_buton"
-            onclick="aidat_guncelle()">TAMAMLA</a>
-    </center>
+    <!-- <div class="modal-footer"></div> -->
+
 </div>
 
 
@@ -68,7 +70,7 @@ var sporcu_aidat_getir = function(sporcu_no) {
                
                             <tr>                                                                                                                      
                                 <td>${cevap.ad + " " +  cevap.soyad  }</td>
-                                <td><label><input type="checkbox" name="aylar[]" value="subat"
+                                <td><label><input type="checkbox" name="aylar[]" value="ocak"
                                     ${( cevap.ocak=="1") ? "checked='checked'" : " "}> <span></span></label></td>
                                 <td><label><input type="checkbox" name="aylar[]" value="subat"
                                     ${( cevap.subat=="1") ? "checked='checked'" : " "}> <span></span></label></td>
@@ -109,9 +111,11 @@ var sporcu_aidat_getir = function(sporcu_no) {
     });
 }
 
-var aidat_guncelle = function() {
-    var sporcu_no = $('.sporcu_no').attr('data-sporcuno');
-
+var aidat_guncelle = function(sporcu_no) {
+    var sporcu_no = $('#sporcu_no').val();
+    var sene = $("#gosterilen_yil").val();
+    var aylar = $("input[name='aylar[]']").map(function(){return $(this).val();}).get();
+    
     var veri = {
         "sporcu_no": sporcu_no,
         "sene": sene,
@@ -121,16 +125,30 @@ var aidat_guncelle = function() {
     var json_string = JSON.stringify(veri);
 
     $.ajax({
-        url: 'aidat_duzenle_servis.php',
+        url: 'services/aidat_duzenle_servis.php',
         type: 'POST',
         data: json_string,
         contentType: 'application/json',
         success: function(cevap) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Güncellendi.',
+                showConfirmButton: false,
+                timer: 1500,
+            }).then((result) => {
+                location.reload(true);
+            });
+
 
             console.log(cevap);
         },
         error: function(error) {
-
+            Swal.fire({
+                icon: 'error',
+                title: 'Hata.',
+                text: 'Güncelleme işlemi yapılamadı !',
+            })
             console.log(error);
         }
 
