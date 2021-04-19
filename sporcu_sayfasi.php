@@ -32,103 +32,111 @@
 
 ?>
 
-<div class="fixed-action-btn">
-    <a class="btn-floating btn-large teal">
-        <i class="large material-icons">menu</i>
-    </a>
-    <ul>
-        <li><a class="btn-floating deep-purple lighten-2" id="bilgi_duzenle_buton"
-                href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>"><i
-                    class="material-icons">mode_edit</i></a>Düzenle</li>
-        <li><a class="btn-floating red darken-1" id="sporcu_sil_buton" onclick="sporcu_sil()"><i
-                    class="material-icons">delete</i></a>Sporcu Sil</li>
-        <!-- href="action/sporcu_sil_action.php?sporcu=<?php echo $sporcu_no ?>"> -->
-
-    </ul>
-</div>
 
 
 <input type="hidden" id="sporcu_no_hidden" value="<?php echo $sporcu_no ?>" />
 <div class="container">
-        <br> <br>
-       
-        <div class="row"> 
-            <!-- tabs -->
-            <div id="tabs" class="col s12">
-                <ul class="tabs">
-                    <li class="tab col s3"><a class="active" href="#bilgiler">Bilgiler</a></li>
-                    <li class="tab col s3  "><a href="#yarisma">Yarışma Dereceleri</a></li>
-                    <li class="tab col s3"><a href="#puan">Antrenman Puanları</a></li>
-                    <li class="tab col s3 disabled"><a href="#antrenman">Antrenman Programı</a></li>
+    <br> <br>
+
+    <div class="row">
+        <!-- tabs -->
+        <div id="tabs" class="col s12">
+            <ul class="tabs">
+                <li class="tab col s3"><a class="active" href="#bilgiler">Bilgiler</a></li>
+                <li class="tab col s3  "><a href="#yarisma">Yarışma Dereceleri</a></li>
+                <li class="tab col s3"><a href="#puan">Antrenman Puanları</a></li>
+                <li class="tab col s3 disabled"><a href="#antrenman">Antrenman Programı</a></li>
+
+            </ul>
+        </div>
+
+        <!-- bilgiler -->
+        <div id="bilgiler" class="col s12">
+            <br><br>
+            <h5 style="text-align:center"> Kişisel Bilgiler</h5>
+
+            <div class="row">
+                <div class="col s12" id="kisisel_bilgi_tablo">
+                    <!-- kisisel -->
+                </div>
+            </div>
+
+            <br>
+
+            <h5 style="text-align:center"> Teknik Bilgiler </h5>
+
+            <div class="row">
+                <div class="col s6" id="yay_bilgi_tablo">
+                    <!-- yay -->
+                </div>
+                <div class="col s6" id="ok_bilgi_tablo">
+                    <!-- ok -->
+                </div>
+            </div>
+            <br>
+
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large teal">
+                    <i class="large material-icons">menu</i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating amber" id="bilgi_duzenle_buton"
+                            href="sporcu_duzenle.php?sporcu=<?php echo $sporcu_no ?>"><i
+                                class="material-icons">mode_edit</i></a>Düzenle</li>
+                    <li><a class="btn-floating red darken-1" id="sporcu_sil_buton" onclick="sporcu_sil()"><i
+                                class="material-icons">delete</i></a>Sporcu Sil</li>
+                    <!-- href="action/sporcu_sil_action.php?sporcu=<?php echo $sporcu_no ?>"> -->
 
                 </ul>
             </div>
-      
-            <!-- bilgiler -->
-            <div id="bilgiler" class="col s12">
-                <br><br>
-                <h5 style="text-align:center"> Kişisel Bilgiler</h5>
 
-                <div class="row">
-                    <div class="col s12"  id="kisisel_bilgi_tablo">  <!-- kisisel -->   </div>
-                </div>
+        </div>
 
-                <br>
+        <!-- yarisma -->
+        <div id="yarisma" class="col s12">
+            <br><br>
+            <h5 style="text-align:center"> Yarışma Dereceleri </h5>
+            <br>
+            <table >
+                <thead class="amber lighten-2">
+                    <tr>
 
-                <h5 style="text-align:center"> Teknik Bilgiler </h5>
+                        <th scope="col"> Yarışma Adı </th>
+                        <th scope="col"> Tarih </th>
+                        <th scope="col"> Sıralama </th>
+                        <th scope="col"> Madalya</th>
 
-                <div class="row">
-                    <div class="col s6" id="yay_bilgi_tablo">  <!-- yay -->  </div>
-                    <div class="col s6" id="ok_bilgi_tablo">  <!-- ok -->    </div>
-                </div>
-                <br>
+                    </tr>
+                </thead>
+                <tbody id="yarisma_bilgi_tablo" class="striped amber lighten-4 table-hover highlight ">
+                    <!-- Yarışmalar -->
+                </tbody>
+            </table>
 
+            <br>
 
-            </div> 
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large teal">
+                    <i class="large material-icons">menu</i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating orange modal-trigger" id="yarisma_ekle_buton"
+                            href="#yarisma_ekle_modal"><i class="material-icons">mode_edit</i></a>Yarışma Ekle</li>
 
-            <!-- yarisma -->
-            <div id="yarisma" class="col s12"> 
-                <br><br>
-                <h5 style="text-align:center"> Yarışma Dereceleri </h5>
+                </ul>
+            </div>
+            <br>
+        </div>
 
-                <table class="table table-striped table-hover highlight">
-                    <thead>
-                        <tr>
+        <!-- puan -->
+        <div id="puan" class="col s12">
+            <br><br>
+            <h5 style="text-align:center">Antrenmanlar</h5>
+            <br>
 
-                            <th scope="col"> Yarışma Adı </th>
-                            <th scope="col"> Tarih </th>
-                            <th scope="col"> Sıralama </th>
-                            <th scope="col"> Madalya</th>
+            <ul class="collapsible popout" data-collapsible="accordion">
 
-                        </tr>
-                    </thead>
-                    <tbody id="yarisma_bilgi_tablo"> <!-- Yarışmalar -->   </tbody>
-                </table>
-                     
-                <br>
-
-                <div class="fixed-action-btn">
-                    <a class="btn-floating btn-large teal">
-                        <i class="large material-icons">menu</i>
-                    </a>
-                    <ul>
-                        <li><a class="btn-floating orange modal-trigger" id="yarisma_ekle_buton"
-                                href="#yarisma_ekle_modal"><i class="material-icons">mode_edit</i></a>Yarışma Ekle</li>
-
-                    </ul>
-                </div>       
-                <br>
-            </div> 
-
-            <!-- puan -->
-            <div id="puan" class="col s12">
-                <br><br>
-                <h5 style="text-align:center">Antrenmanlar</h5>
-                <br>
-
-                <ul class="collapsible popout" data-collapsible="accordion">
-
-                    <?php 
+                <?php 
                                 
                                 $antrenman_sayisi=count((is_countable($antrenman_bilgileri)?$antrenman_bilgileri:[])); 
 
@@ -146,30 +154,30 @@
                                 
                 
                                         ?>
-                    <li>
-                        <div class="collapsible-header center">
+                <li>
+                    <div class="collapsible-header center  amber lighten-2 ">
 
-                            <div class="col s4"><?php echo $antrenman_no ?></div>
-                            <div class="col s4"><?php echo $tarih ?></div>
-                            <div class="col s4"><?php echo $toplam_puan ?></div>
+                        <div class="col s4"><?php echo $antrenman_no ?></div>
+                        <div class="col s4"><?php echo $tarih ?></div>
+                        <div class="col s4"><?php echo $toplam_puan ?></div>
 
-                        </div>
+                    </div>
 
-                        <div class="collapsible-body center" style="background-color:#e0f2f1  ">
-                            <table>
-                                <!-- PUAN DETAY-->
-                                <thead>
-                                    <tr>
-                                        <th data-field="seri">Seri</th>
-                                        <th data-field="1">1. Ok</th>
-                                        <th data-field="2">2. Ok</th>
-                                        <th data-field="3">3. Ok</th>
-                                        <!-- <th data-field="3">S.T</th> -->
+                    <div class="collapsible-body center amber lighten-4 ">
+                        <table>
+                            <!-- PUAN DETAY-->
+                            <thead>
+                                <tr>
+                                    <th data-field="seri">Seri</th>
+                                    <th data-field="1">1. Ok</th>
+                                    <th data-field="2">2. Ok</th>
+                                    <th data-field="3">3. Ok</th>
+                                    <!-- <th data-field="3">S.T</th> -->
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
 
                                                             if($seri_sayisi!=0){
                                                                 for($j=0 ; $j<$seri_sayisi ; $j++){ 
@@ -182,107 +190,93 @@
                                                                     $seri_toplam= $seri['seri_toplam'];
 
                                                         ?>
-                                    <tr>
-                                        <td data-field="1"><?php echo $seri_no ?></td>
-                                        <td data-field="2"><?php echo $ok_1 ?></td>
-                                        <td data-field="3"><?php echo $ok_2 ?></td>
-                                        <td data-field="3"><?php echo $ok_3 ?></td>
-                                        <!-- <td data-field="4"><?php echo $seri_toplam ?></td> -->
+                                <tr>
+                                    <td data-field="1"><?php echo $seri_no ?></td>
+                                    <td data-field="2"><?php echo $ok_1 ?></td>
+                                    <td data-field="3"><?php echo $ok_2 ?></td>
+                                    <td data-field="3"><?php echo $ok_3 ?></td>
+                                    <!-- <td data-field="4"><?php echo $seri_toplam ?></td> -->
 
-                                    </tr>
+                                </tr>
 
-                                    <?php } } ?>
-
-
-                                </tbody>
+                                <?php } } ?>
 
 
-                            </table>
+                            </tbody>
 
-                        </div>
-                    </li>
 
-                    <?php } }?>
+                        </table>
 
+                    </div>
+                </li>
+
+                <?php } }?>
+
+            </ul>
+            <br>
+
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large teal">
+                    <i class="large material-icons">menu</i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating orange modal-trigger" id="puan_duzenle_buton" href="#">
+                            <i class="material-icons">edit</i></a>Puan Düzenle</li>
                 </ul>
-
-
-
-                <br>
-
-                <div class="fixed-action-btn">
-                    <a class="btn-floating btn-large teal">
-                        <i class="large material-icons">menu</i>
-                    </a>
-                    <ul>
-                        <li><a class="btn-floating orange modal-trigger" id="puan_duzenle_buton" href="#">
-                                <i class="material-icons">edit</i></a>Puan Düzenle</li>
-                    </ul>
-                </div>
-                <!-- <center>
+            </div>
+            <!-- <center>
                             <div class="col-sm-12 col-md-2 ">
                                 <a class=" waves-light btn green" id="puan_duzenle_buton" href="#">Düzenle</a>
                             </div>
                         </center> -->
-                <br>
+            <br>
 
-                <br>
-
-            </div> 
-
-            <!-- antrenman -->
-            <div id="antrenman" class="col s12">
-                <br><br>
-                <h5 style="text-align:center"> Antrenman Programı </h5>
-                <br>
-
-            </div> 
+            <br>
 
         </div>
+
+        <!-- antrenman -->
+        <div id="antrenman" class="col s12">
+            <br><br>
+            <h5 style="text-align:center"> Antrenman Programı </h5>
+            <br>
+
+        </div>
+
+    </div>
 
 </div>
 
 <?php   //  include 'footer.php';?>
 
 <script>
- 
+$(document).ready(function() {
 
-    $(document).ready(function() {
-       
-        sporcu_bilgileri_listele();
-        sporcu_yarismalari_listele();
-        sporcu_antrenmanlari_listele();
+    sporcu_bilgileri_listele();
+    sporcu_yarismalari_listele();
+    sporcu_antrenmanlari_listele();
 
-    });
+});
 
-    var sporcu_bilgileri_listele = function() {
-       // var sporcu_no = $("#sporcu_no").val();
-        var sporcu_no = $("#sporcu_no_hidden").val(); 
-        var sporcu_bilgileri_veri = {
-            "sporcu_no": sporcu_no
-        };
+var sporcu_bilgileri_listele = function() {
+    // var sporcu_no = $("#sporcu_no").val();
+    var sporcu_no = $("#sporcu_no_hidden").val();
+    var sporcu_bilgileri_veri = {
+        "sporcu_no": sporcu_no
+    };
 
-        var json_string_sporcu_bilgileri = JSON.stringify(sporcu_bilgileri_veri);
+    var json_string_sporcu_bilgileri = JSON.stringify(sporcu_bilgileri_veri);
 
-        $.ajax({
-            url: 'services/sporcu_bilgi_getir_servis.php',
-            type: 'POST',
-            data: json_string_sporcu_bilgileri,
-            contentType: 'application/json',
-            success: function(cevap) {
+    $.ajax({
+        url: 'services/sporcu_bilgi_getir_servis.php',
+        type: 'POST',
+        data: json_string_sporcu_bilgileri,
+        contentType: 'application/json',
+        success: function(cevap) {
 
-                var kisisel_bilgi_tablo = `         
+            var kisisel_bilgi_tablo = `         
                 
-                        <table class="striped">                     
-                            <thead>
-                                <tr>
-                                    <th data-field="1"></th>
-                                    <th data-field="2"></th>
-                                    <th data-field="3"></th>
-
-                                </tr>
-                            </thead>
-
+                        <table class="striped amber lighten-4">                     
                             <tbody>
                                 <tr>
                                     <td style="text-align:center"><i class="material-icons">account_circle</i></td>
@@ -324,19 +318,8 @@
                         </table> 
                 `;
 
-                var yay_bilgi_tablo = `      
-                    <table class="striped" > 
-                            
-                            <thead>
-
-                                <tr>
-                                    <th data-field="1"></th>
-                                    <th data-field="2"></th>
-                                    <th data-field="3"></th>
-
-                                </tr>
-                            </thead>
-
+            var yay_bilgi_tablo = `      
+                    <table class="striped  amber lighten-4" > 
                             <tbody>
                                 <tr>
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
@@ -449,19 +432,8 @@
                         </table>
                 `;
 
-                var ok_bilgi_tablo = `
-                    <table class="striped " >    
-                        
-                        <thead>
-
-                            <tr>
-                                <th data-field="1"></th>
-                                <th data-field="2"></th>
-                                <th data-field="3"></th>
-
-                            </tr>
-                        </thead>
-
+            var ok_bilgi_tablo = `
+                    <table class="striped  amber lighten-4" >    
                         <tbody>
 
                             <tr>
@@ -556,39 +528,39 @@
                 
                 `;
 
-                $("#kisisel_bilgi_tablo").append(kisisel_bilgi_tablo);
-                $("#yay_bilgi_tablo").append(yay_bilgi_tablo);
-                $("#ok_bilgi_tablo").append(ok_bilgi_tablo);
+            $("#kisisel_bilgi_tablo").append(kisisel_bilgi_tablo);
+            $("#yay_bilgi_tablo").append(yay_bilgi_tablo);
+            $("#ok_bilgi_tablo").append(ok_bilgi_tablo);
 
-                console.log(cevap);
-            },
-            error: function(error) {
+            console.log(cevap);
+        },
+        error: function(error) {
 
-                console.log(error);
-            }
+            console.log(error);
+        }
 
-        });
+    });
 
 
-    }
+}
 
-    var sporcu_yarismalari_listele = function() {
-        var sporcu_no = $("#sporcu_no_hidden").val(); 
-        var sporcu_yarismalari_veri = {
-            "sporcu_no": sporcu_no
-        };
+var sporcu_yarismalari_listele = function() {
+    var sporcu_no = $("#sporcu_no_hidden").val();
+    var sporcu_yarismalari_veri = {
+        "sporcu_no": sporcu_no
+    };
 
-        var json_string_yarisma_bilgileri = JSON.stringify(sporcu_yarismalari_veri);
+    var json_string_yarisma_bilgileri = JSON.stringify(sporcu_yarismalari_veri);
 
-        $.ajax({
-            url: 'services/yarisma_listele_servis.php',
-            type: 'POST',
-            data: json_string_yarisma_bilgileri,
-            contentType: 'application/json',
-            success: function(cevap) {
+    $.ajax({
+        url: 'services/yarisma_listele_servis.php',
+        type: 'POST',
+        data: json_string_yarisma_bilgileri,
+        contentType: 'application/json',
+        success: function(cevap) {
 
-                for (var i = 0; i < cevap.length; i++) {
-                 var yarisma_bilgi = `
+            for (var i = 0; i < cevap.length; i++) {
+                var yarisma_bilgi = `
                         <tr>
                             <td>${ cevap[i].yarisma_adi}</td>
                             <td>${ cevap[i].tarih}</td>
@@ -597,63 +569,61 @@
                         </tr>
                  `;
 
-                  $("#yarisma_bilgi_tablo").append(yarisma_bilgi);
+                $("#yarisma_bilgi_tablo").append(yarisma_bilgi);
             }
-                console.log(cevap);
-            },
-            error: function(error) {
+            console.log(cevap);
+        },
+        error: function(error) {
 
-                console.log(error);
-            }
+            console.log(error);
+        }
 
-        });     
-    }
+    });
+}
 
-    var sporcu_antrenmanlari_listele = function(){
-        
-    }
+var sporcu_antrenmanlari_listele = function() {
 
-    var sporcu_sil = function() {
-           var sporcu_no = $("#sporcu_no_hidden").val(); 
+}
 
-            var veri = {
-                "sporcu_no": sporcu_no,
-            };
+var sporcu_sil = function() {
+    var sporcu_no = $("#sporcu_no_hidden").val();
 
-            var json_string = JSON.stringify(veri);
+    var veri = {
+        "sporcu_no": sporcu_no,
+    };
 
-            $.ajax({
-                url: 'services/sporcu_sil_servis.php',
-                type: 'POST',
-                data: json_string,
-                contentType: 'application/json',
-                success: function(cevap) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Sporcu Silindi.',
-                        showConfirmButton: false,
-                        timer: 1500,
-                    }).then((result) => {
-                        window.location.href = "index.php";
-                    });
+    var json_string = JSON.stringify(veri);
 
-                    console.log(cevap);
-                },
-                error: function(error) {
-
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Hata.',
-                        text: 'Silme işlemi yapılamadı !',
-                    })
-                    console.log(error);
-                }
-
+    $.ajax({
+        url: 'services/sporcu_sil_servis.php',
+        type: 'POST',
+        data: json_string,
+        contentType: 'application/json',
+        success: function(cevap) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Sporcu Silindi.',
+                showConfirmButton: false,
+                timer: 1500,
+            }).then((result) => {
+                window.location.href = "index.php";
             });
 
+            console.log(cevap);
+        },
+        error: function(error) {
 
-    }
-  
+            Swal.fire({
+                icon: 'error',
+                title: 'Hata.',
+                text: 'Silme işlemi yapılamadı !',
+            })
+            console.log(error);
+        }
 
+    });
+
+
+}
 </script>
