@@ -50,7 +50,7 @@
 
             </tr>
         </thead>
-        <tbody>
+        <tbody class="amber lighten-5 striped">
             <tr>
                 <td>1</td>
                 <td>Begüm Çelebi</td>

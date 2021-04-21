@@ -97,8 +97,8 @@
             <br><br>
             <h5 style="text-align:center"> Yarışma Dereceleri </h5>
             <br>
-            <table >
-                <thead class="amber lighten-3">
+            <table>
+                <thead class="amber lighten-4">
                     <tr>
 
                         <th scope="col"> Yarışma Adı </th>
@@ -108,7 +108,7 @@
 
                     </tr>
                 </thead>
-                <tbody id="yarisma_bilgi_tablo" class="striped amber lighten-4 table-hover highlight ">
+                <tbody id="yarisma_bilgi_tablo" class="striped amber lighten-5 table-hover highlight ">
                     <!-- Yarışmalar -->
                 </tbody>
             </table>
@@ -155,7 +155,7 @@
                 
                                         ?>
                 <li>
-                    <div class="collapsible-header center  amber lighten-3 ">
+                    <div class="collapsible-header center  amber lighten-4 ">
 
                         <div class="col s4"><?php echo $antrenman_no ?></div>
                         <div class="col s4"><?php echo $tarih ?></div>
@@ -163,7 +163,7 @@
 
                     </div>
 
-                    <div class="collapsible-body center amber lighten-4 ">
+                    <div class="collapsible-body center amber lighten-5 ">
                         <table>
                             <!-- PUAN DETAY-->
                             <thead>
@@ -581,8 +581,7 @@ var sporcu_yarismalari_listele = function() {
     });
 }
 
-var sporcu_antrenmanlari_listele = function() {
-}
+var sporcu_antrenmanlari_listele = function() {}
 
 var sporcu_sil = function() {
     var sporcu_no = $("#sporcu_no_hidden").val();
@@ -599,15 +598,15 @@ var sporcu_sil = function() {
         data: json_string,
         contentType: 'application/json',
         success: function(cevap) {
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Sporcu Silindi.',
-                showConfirmButton: false,
-                timer: 1500,
-            }).then((result) => {
-                window.location.href = "index.php";
-            });
+             Swal.fire({
+                 position: 'center',
+                 icon: 'success',
+                 title: 'Sporcu Silindi.',
+                 showConfirmButton: false,
+                 timer: 1500,
+             }).then((result) => {
+                 window.location.href = "index.php";
+             });
 
             console.log(cevap);
         },
