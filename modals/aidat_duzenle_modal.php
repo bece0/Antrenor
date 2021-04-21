@@ -64,7 +64,8 @@ var sporcu_aidat_getir = function(sporcu_no) {
             $("#sporcu_aidat_bilgi").empty();
             var sporcu_aidat_bilgisi = `         
                
-                            <tr>                                                                                                                      
+                            <tr>    
+                                <input type="hidden" id="sporcu_no" value="${cevap.sporcu_no}" />                                                                                                                  
                                 <td>${cevap.ad + " " +  cevap.soyad  }</td>
                                 <td><label><input type="checkbox" name="aylar[]" value="ocak"
                                     ${( cevap.ocak=="1") ? "checked='checked'" : " "}> <span></span></label></td>
@@ -110,7 +111,7 @@ var sporcu_aidat_getir = function(sporcu_no) {
 var aidat_guncelle = function(sporcu_no) {
     var sporcu_no = $('#sporcu_no').val();
     var sene = $("#gosterilen_yil").val();
-    var aylar = $("input[name='aylar[]']").map(function(){return $(this).val();}).get();
+    var aylar = $("input[name='aylar[]']:checked").map(function(){return $(this).val();}).get();
     
     var veri = {
         "sporcu_no": sporcu_no,
@@ -126,6 +127,7 @@ var aidat_guncelle = function(sporcu_no) {
         data: json_string,
         contentType: 'application/json',
         success: function(cevap) {
+          
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -135,16 +137,17 @@ var aidat_guncelle = function(sporcu_no) {
             }).then((result) => {
                 location.reload(true);
             });
-
-
             console.log(cevap);
         },
         error: function(error) {
+         
             Swal.fire({
                 icon: 'error',
                 title: 'Hata.',
                 text: 'Güncelleme işlemi yapılamadı !',
-            })
+            }).then((result) => {
+                location.reload(true);
+            });
             console.log(error);
         }
 

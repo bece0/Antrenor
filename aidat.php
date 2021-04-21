@@ -75,6 +75,7 @@
 <?php   //  include 'footer.php';?>
 
 <script>
+
     var aidatlari_getir = function(){
         var antrenor_id = $("#antrenor_id").val();
         var gosterilen_yil = $("#gosterilen_yil").val();
