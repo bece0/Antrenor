@@ -165,7 +165,7 @@ var sporculari_getir = function() {
                 $("#hata_mesaji").empty();
                 for (var i = 0; i < cevap.length; i++) {
                     var sporcu_listesi = `  <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=${cevap[i].sporcu_no}';">
-                                            <td><img src="files/images/logo.jpg" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
+                                            <td><img src="files/images/profile3.png" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
                                             <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
                                             <td>${  cevap[i].kategori  }</td>
                                             <td>${ cevap[i].yas_grubu}</td>     

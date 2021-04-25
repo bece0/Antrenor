@@ -32,7 +32,7 @@
     <div class="sidenav">
         <div class="login-main-text">
 
-            <img src="files/images/logo.png" style="margin-bottom:30px;border-radius:1000px;width:50%">
+            <img src="files/images/logoo.png" style="margin-bottom:30px;border-radius:1000px;width:50%">
             <h2>Antrenör Yönetim Sistemi</h2>
         </div>
     </div>
