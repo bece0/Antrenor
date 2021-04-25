@@ -280,28 +280,28 @@ var sporcu_bilgileri_listele = function() {
                             <tbody>
                                 <tr>
                                     <td style="text-align:center"><i class="material-icons">account_circle</i></td>
-                                    <td> Ad Soyad :</td>
+                                    <td><b> Ad Soyad :</b></td>
                                     <td>${cevap.ad + " " + cevap.soyad }</td>
 
                                 </tr>
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons">assignment_ind</i></td>
-                                    <td> TC No :</td>
+                                    <td><b> TC No :</b></td>
                                     <td>${cevap.tc_no}</td>
                             
                                 </tr>
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons">wc</i></td>
-                                    <td> Cinsiyet :</td>
+                                    <td><b> Cinsiyet :</b></td>
                                     <td>${cevap.cinsiyet }</td>
                         
                                 </tr>
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons">cake</i></td>
-                                    <td> Doğum Tarihi :</td>
+                                    <td><b> Doğum Tarihi :</b></td>
                                     <td>${cevap.dogun_tarihi }</td>
                             
                                 </tr>
@@ -309,7 +309,7 @@ var sporcu_bilgileri_listele = function() {
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons">phone</i></td>
-                                    <td> Tel No :</td>
+                                    <td><b> Tel No :</b></td>
                                     <td>${cevap.tel_no  }</td>
                                 
                                 </tr>
@@ -323,28 +323,28 @@ var sporcu_bilgileri_listele = function() {
                             <tbody>
                                 <tr>
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Yay Kategori:</td>
+                                    <td><b>Yay Kategori:</b></td>
                                     <td>${cevap.kategori}</td>
 
                                 </tr>
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Ebat:</td>
+                                    <td><b> Ebat:</b></td>
                                     <td>${cevap.ebat}</td>
 
                                 </tr>
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Çekiş Ağırlığı:</td>
+                                    <td><b> Çekiş Ağırlığı:</b></td>
                                     <td>${cevap.cekis_agirligi}</td>
 
                                 </tr>
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Yay Sertliği:</td>
+                                    <td> <b>Yay Sertliği:</b></td>
                                     <td>${cevap.yay_sertligi}</td>
 
                                 </tr>
@@ -352,35 +352,35 @@ var sporcu_bilgileri_listele = function() {
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Handle:</td>
+                                    <td><b> Handle:</b></td>
                                     <td>${cevap.handle}</td>
 
                                 </tr>
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Limp:</td>
+                                    <td><b> Limp:</b></td>
                                     <td>${cevap.limp}</td>
 
                                 </tr>
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Kiriş Yüksekliği:</td>
+                                    <td><b> Kiriş Yüksekliği:</b></td>
                                     <td>${cevap.kiris_yuksekligi}</td>
 
                                 </tr>
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Berger:</td>
+                                    <td><b> Berger:</b></td>
                                     <td>${cevap.berger}</td>
 
                                 </tr>
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Kliker:</td>
+                                    <td><b> Kliker:</b></td>
                                     <td>${cevap.kliker}</td>
 
                                 </tr>
@@ -388,14 +388,14 @@ var sporcu_bilgileri_listele = function() {
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Stabilizör:</td>
+                                    <td><b> Stabilizör:</b></td>
                                     <td>${cevap.stabilizer}</td>
 
                                 </tr>
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Tiller:</td>
+                                    <td><b> Tiller:</b></td>
                                     <td>${cevap.tiller}</td>
 
                                 </tr>
@@ -404,7 +404,7 @@ var sporcu_bilgileri_listele = function() {
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
-                                    <td> Nişangah:</td>
+                                    <td><b> Nişangah:</b></td>
                                     <td>${cevap.nisangah}</td>
 
                                 </tr>
@@ -412,7 +412,7 @@ var sporcu_bilgileri_listele = function() {
                                 <tr>
 
                                     <td style="text-align:center"><i class="material-icons"> track_changes </i></td>
-                                    <td> Atış Mesafesi:</td>
+                                    <td><b> Atış Mesafesi:</b></td>
                                     <td>${cevap.atis_mesafesi}</td>
 
                                 </tr>
@@ -421,7 +421,7 @@ var sporcu_bilgileri_listele = function() {
 
                                     <td style="text-align:center"><i class="material-icons"> comment </i>
                                     </td>
-                                    <td>Notlar:</td>
+                                    <td><b>Notlar:</b></td>
                                     <td>${cevap.yay_notlar}</td>
 
                                 </tr>
@@ -439,77 +439,77 @@ var sporcu_bilgileri_listele = function() {
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                <td> Ok Sayısı:</td>
+                                <td><b> Ok Sayısı:</b></td>
                                 <td>${cevap.ok_sayisi}</td>
 
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                <td> Ok Numarası:</td>
+                                <td><b> Ok Numarası:</b></td>
                                 <td>${cevap.ok_numarasi}</td>
 
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                <td> Uzunluk:</td>
+                                <td><b> Uzunluk:</b></td>
                                 <td>${cevap.uzunluk}</td>
 
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                <td> Malzeme:</td>
+                                <td><b> Malzeme:</b></td>
                                 <td>${cevap.malzeme}</td>
 
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                <td> Sapma:</td>
+                                <td><b> Sapma:</b></td>
                                 <td>${cevap.sapma}</td>
 
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                <td> Çap:</td>
+                                <td><b> Çap:</b></td>
                                 <td>${cevap.cap}</td>
 
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                <td> Ağırlık:</td>
+                                <td><b> Ağırlık:</b></td>
                                 <td>${cevap.agirlik}</td>
 
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                <td> Uç Ağırlığı:</td>
+                                <td><b> Uç Ağırlığı:</b></td>
                                 <td>${cevap.uc_agirligi}</td>
 
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                <td> Tüy:</td>
+                                <td><b> Tüy:</b></td>
                                 <td>${cevap.tuy}</td>
 
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> trending_flat </i></td>
-                                <td> Arkalık:</td>
+                                <td><b> Arkalık:</b></td>
                                 <td>${cevap.arkalik}</td>
 
                             </tr>
                             <tr>
 
                                 <td style="text-align:center"><i class="material-icons"> straighten </i></td>
-                                <td> Kol Boyu:</td>
+                                <td><b> Kol Boyu:</b></td>
                                 <td>${cevap.kol_boyu}</td>
 
                             </tr>
@@ -518,7 +518,7 @@ var sporcu_bilgileri_listele = function() {
 
                                 <td style="text-align:center"><i class="material-icons"> comment </i>
                                 </td>
-                                <td> Notlar:</td>
+                                <td><b> Notlar:</b></td>
                                 <td>${cevap.ok_notlar}</td>
 
                             </tr>
