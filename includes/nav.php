@@ -14,7 +14,7 @@
 <div class="navbar-fixed">
 <nav>
     <div class="nav-wrapper teal darken-1 ">
-        <a href="index.php" class="brand-logo ">  <img src="files/images/logo.png"  style="margin-left:10px;border-radius:1000px;width:60px"> </a>  
+        <a href="index.php" class="brand-logo ">  <img src="files/images/logo.png"  style="margin-left:10px;border-radius:1000px;width:64px"> </a>  
         <?php // echo $antrenor["ad"]." ".$antrenor["soyad"] ?>  
        
         <ul id="nav-mobile" class="right hide-on-med-and-down">

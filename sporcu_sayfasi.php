@@ -137,25 +137,26 @@
             <ul class="collapsible popout" data-collapsible="accordion">
 
                 <?php 
-                                
-                                $antrenman_sayisi=count((is_countable($antrenman_bilgileri)?$antrenman_bilgileri:[])); 
+                    
+                    $antrenman_sayisi=count((is_countable($antrenman_bilgileri)?$antrenman_bilgileri:[])); 
 
-                                if($antrenman_sayisi!=0){
-                                for($i=0 ; $i<$antrenman_sayisi ; $i++){ 
+                    if($antrenman_sayisi!=0){
+                    for($i=0 ; $i<$antrenman_sayisi ; $i++){ 
 
-                                    $antrenman = $antrenman_bilgileri[$i]; //var_dump($antrenman);
-                                    $antrenman_no=  $antrenman['antrenman_no'];
-                                    $tarih= $antrenman['tarih'];
-                                    $toplam_puan= $antrenman['toplam_puan'];
+                        $antrenman = $antrenman_bilgileri[$i]; //var_dump($antrenman);
+                        $antrenman_no=  $antrenman['id'];
+                        $tarih= $antrenman['tarih'];
+                        $toplam_puan= $antrenman['toplam_puan'];
 
-                                    $seri_bilgileri= array();
-                                    $seri_bilgileri = AntrenmanDetayiGetir($sporcu_no , $antrenman_no);
-                                    $seri_sayisi=count((is_countable($seri_bilgileri)?$seri_bilgileri:[]));  
-                                
-                
-                                        ?>
+                        $seri_bilgileri= array();
+                        $seri_bilgileri = AntrenmanDetayiGetir($sporcu_no , $antrenman_no);
+                        $seri_sayisi=count((is_countable($seri_bilgileri)?$seri_bilgileri:[]));  
+                    
+    
+                ?>
+
                 <li>
-                    <div class="collapsible-header center  amber lighten-4 ">
+                    <div class="collapsible-header center  amber lighten-4 ">    
 
                         <div class="col s4"><?php echo $antrenman_no ?></div>
                         <div class="col s4"><?php echo $tarih ?></div>
@@ -179,17 +180,17 @@
                             <tbody>
                                 <?php 
 
-                                                            if($seri_sayisi!=0){
-                                                                for($j=0 ; $j<$seri_sayisi ; $j++){ 
+                                    if($seri_sayisi!=0){
+                                        for($j=0 ; $j<$seri_sayisi ; $j++){ 
 
-                                                                    $seri = $seri_bilgileri[$j]; 
-                                                                    $seri_no=  $seri['seri_no'];
-                                                                    $ok_1= $seri['ok_1'];
-                                                                    $ok_2= $seri['ok_2'];
-                                                                    $ok_3= $seri['ok_3'];
-                                                                    $seri_toplam= $seri['seri_toplam'];
+                                            $seri = $seri_bilgileri[$j]; 
+                                            $seri_no=  $seri['seri_no'];
+                                            $ok_1= $seri['ok_1'];
+                                            $ok_2= $seri['ok_2'];
+                                            $ok_3= $seri['ok_3'];
+                                            $seri_toplam= $seri['seri_toplam'];
 
-                                                        ?>
+                                ?>
                                 <tr>
                                     <td data-field="1"><?php echo $seri_no ?></td>
                                     <td data-field="2"><?php echo $ok_1 ?></td>
@@ -213,6 +214,7 @@
                 <?php } }?>
 
             </ul>
+
             <br>
 
             <div class="fixed-action-btn">
@@ -224,11 +226,7 @@
                             <i class="material-icons">edit</i></a>Puan Düzenle</li>
                 </ul>
             </div>
-            <!-- <center>
-                            <div class="col-sm-12 col-md-2 ">
-                                <a class=" waves-light btn green" id="puan_duzenle_buton" href="#">Düzenle</a>
-                            </div>
-                        </center> -->
+   
             <br>
 
             <br>
@@ -276,7 +274,7 @@ var sporcu_bilgileri_listele = function() {
 
             var kisisel_bilgi_tablo = `         
                 
-                        <table class="striped amber lighten-4">                     
+                        <table class="striped amber lighten-5">                     
                             <tbody>
                                 <tr>
                                     <td style="text-align:center"><i class="material-icons">account_circle</i></td>
@@ -319,7 +317,7 @@ var sporcu_bilgileri_listele = function() {
                 `;
 
             var yay_bilgi_tablo = `      
-                    <table class="striped  amber lighten-4" > 
+                    <table class="striped  amber lighten-5" > 
                             <tbody>
                                 <tr>
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
@@ -433,7 +431,7 @@ var sporcu_bilgileri_listele = function() {
                 `;
 
             var ok_bilgi_tablo = `
-                    <table class="striped  amber lighten-4" >    
+                    <table class="striped  amber lighten-5" >    
                         <tbody>
 
                             <tr>
