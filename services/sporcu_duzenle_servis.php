@@ -54,6 +54,7 @@
         $kol_boyu = $json_decode_edilmis->kol_boyu;
         $ok_notlar = $json_decode_edilmis->ok_notlar;
     
+        
        /*
     
         $ad = $_POST["ad"]; 

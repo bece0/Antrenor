@@ -60,7 +60,8 @@ var sporcu_aidat_getir = function(sporcu_no) {
         type: 'POST',
         data: json_string,
         contentType: 'application/json',
-        success: function(cevap) {
+        success: function(response) {
+            var cevap = response.data;
             $("#sporcu_aidat_bilgi").empty();
             var sporcu_aidat_bilgisi = `         
                

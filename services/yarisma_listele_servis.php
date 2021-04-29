@@ -1,13 +1,4 @@
 <?php 
- 
-
-
-
-
-
-?>
-
-<?php 
 
         $sonucObjesi = new stdClass();
         $sonucObjesi->sonuc = true;

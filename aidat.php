@@ -92,8 +92,8 @@
             type: 'POST',
             data: json_string,
             contentType: 'application/json',
-            success: function(cevap) {
- 
+            success: function(response) {
+                var cevap = response.data; 
                 for (var i = 0; i < cevap.length; i++) {             
                     var aidat_bilgi = `<tr onclick="sporcu_aidat_getir(${(cevap[i].sporcu_no)})" id="aidat_duzenle_satir" data-sporcuno="${(cevap[i].sporcu_no)}" class="modal-trigger" href="#aidat_duzenle_modal" >                                                                  
                                             <input type="hidden" id="sporcu_no" value="${(cevap[i].sporcu_no)}" />                                                                
