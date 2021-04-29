@@ -300,7 +300,7 @@ var sporcu_bilgileri_listele = function() {
 
                                     <td style="text-align:center"><i class="material-icons">cake</i></td>
                                     <td><b> Doğum Tarihi :</b></td>
-                                    <td>${cevap.dogun_tarihi }</td>
+                                    <td>${cevap.dogum_tarihi }</td>
                             
                                 </tr>
 
@@ -314,7 +314,7 @@ var sporcu_bilgileri_listele = function() {
 
                             </tbody>
                         </table> 
-                `;
+            `;
 
             var yay_bilgi_tablo = `      
                     <table class="striped  amber lighten-5" > 
@@ -428,7 +428,7 @@ var sporcu_bilgileri_listele = function() {
 
                             </tbody>
                         </table>
-                `;
+            `;
 
             var ok_bilgi_tablo = `
                     <table class="striped  amber lighten-5" >    
@@ -524,7 +524,7 @@ var sporcu_bilgileri_listele = function() {
                         </tbody>
                     </table>
                 
-                `;
+            `;
 
             $("#kisisel_bilgi_tablo").append(kisisel_bilgi_tablo);
             $("#yay_bilgi_tablo").append(yay_bilgi_tablo);
