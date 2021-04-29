@@ -151,17 +151,24 @@ var sporculari_getir = function() {
         type: 'POST',
         data: json_string,
         contentType: 'application/json',
-        success: function(cevap) {
+        success: function(response) {
 
             $("#sporcu_listesi").empty();
 
-            if (!cevap) {
+            if (!response.sonuc) {
+                $("#hata_mesaji").empty();
+                $("#hata_mesaji").append(
+                    "<div class='card-panel red lighten-4'><center>Bir hata oluştu </center></div>"
+                );
+
+            } else if (!response.data || response.data.length == 0) {
                 $("#hata_mesaji").empty();
                 $("#hata_mesaji").append(
                     "<div class='card-panel amber lighten-4'><center>Sporcu Yok.</center></div>"
                 );
 
             } else {
+                var cevap = response.data;
                 $("#hata_mesaji").empty();
                 for (var i = 0; i < cevap.length; i++) {
                     var sporcu_listesi = `  <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=${cevap[i].sporcu_no}';">
@@ -205,10 +212,10 @@ var arama_yap = function() {
         type: 'POST',
         data: json_string,
         contentType: 'application/json',
-        success: function(cevap) {
+        success: function(response) {
             $("#sporcu_listesi").empty();
 
-            if (!cevap) {
+            if (!response.sonuc) {
                 $("#hata_mesaji").empty();
                 $("#hata_mesaji").append(
                     "<div class='card-panel amber lighten-4'><center>Sporcu Bulunamadı.</center></div>"
@@ -217,12 +224,19 @@ var arama_yap = function() {
                 M.toast({
                     html: 'Sporcu Bulunamadı!'
                 })
+            } else if (!response.data || response.data.length == 0) {
+                $("#hata_mesaji").empty();
+                $("#hata_mesaji").append(
+                    "<div class='card-panel amber lighten-4'><center>Sporcu Yok.</center></div>"
+                );
+
             } else {
+                var cevap = response.data;
                 $("#hata_mesaji").empty();
                 for (var i = 0; i < cevap.length; i++) {
                     var satir = `
                                                         <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=${cevap[i].sporcu_no}';">
-                                                            <td><img src="files/images/logo.jpg" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
+                                                            <td><img src="files/images/profile3.png" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
                                                             <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
                                                             <td>${  cevap[i].kategori  }</td>
                                                             <td>${ cevap[i].yas_grubu}</td>
