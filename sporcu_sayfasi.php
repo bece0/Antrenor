@@ -555,8 +555,8 @@ var sporcu_yarismalari_listele = function() {
         type: 'POST',
         data: json_string_yarisma_bilgileri,
         contentType: 'application/json',
-        success: function(cevap) {
-
+        success: function(response) {
+         var cevap = response.data;   
             for (var i = 0; i < cevap.length; i++) {
                 var yarisma_bilgi = `
                         <tr>
