@@ -118,6 +118,7 @@
                         <th scope="col"> Ad - Soyad</th>
                         <th scope="col">Kategori</th>
                         <th scope="col">Yaş grubu</th>
+                        <th scope="col"></th>
 
                     </tr>
                 </thead>
@@ -176,6 +177,7 @@ var sporculari_getir = function() {
                                             <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
                                             <td>${  cevap[i].kategori  }</td>
                                             <td>${ cevap[i].yas_grubu}</td>     
+                                            <td><div class="chip orange">Performans</div></td>     
                                         </tr>
                  `;
 
