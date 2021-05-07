@@ -561,10 +561,10 @@ var sporcu_antrenmanlari_listele = function() {
                                                 </tr>
                                             </thead>
                                             
-                                            <tbody id="detay_tablo_sol"></tbody>
+                                            <tbody id="detay_tablo_sol${cevap[i].id}"></tbody>
                                     
                                         </table>
-                                        <div id="tur_toplam_sol"></div>
+                                        <div id="tur_toplam_sol${cevap[i].id}"></div>
                                     </div>  
                                     <div class="col s2"></div> 
                                     <div class="col s5">
@@ -581,9 +581,9 @@ var sporcu_antrenmanlari_listele = function() {
                                                 </tr>
                                             </thead>
                                             
-                                            <tbody id="detay_tablo_sag"></tbody>                                      
+                                            <tbody id="detay_tablo_sag${cevap[i].id}"></tbody>                                      
                                         </table>
-                                        <div id="tur_toplam_sag"></div>
+                                        <div id="tur_toplam_sag${cevap[i].id}"></div>
                                     </div>
                                 </div>    
                             </div>
@@ -627,8 +627,8 @@ var antrenman_detay_listele = function(antrenman_no) {
         contentType: 'application/json',
         success: function(response) {
             var cevap = response.data;
-            $("#detay_tablo_sol").empty();
-            $("#detay_tablo_sag").empty();
+            $("#detay_tablo_sol"+antrenman_no).empty();
+            $("#detay_tablo_sag"+antrenman_no).empty();
             for (var i = 0; i < (cevap.length) / 2; i++) {
                 var puanlar = `
                     <tr>
@@ -641,10 +641,10 @@ var antrenman_detay_listele = function(antrenman_no) {
                     </tr>
                 `;
 
-                $("#detay_tablo_sol").append(puanlar);
+                $("#detay_tablo_sol"+antrenman_no).append(puanlar);
             };
-            $("#tur_toplam_sol").empty();
-            $("#tur_toplam_sol").append("<div class='card-panel teal lighten-4'><center>Toplam Puan: <b>160</b> </center></div>");
+            $("#tur_toplam_sol"+antrenman_no).empty();
+            $("#tur_toplam_sol"+antrenman_no).append("<div class='card-panel teal lighten-4'><center>Toplam Puan: <b>160</b> </center></div>");
 
             for (var i = (cevap.length) / 2; i < cevap.length; i++) {
                 var puanlar = `
@@ -657,10 +657,10 @@ var antrenman_detay_listele = function(antrenman_no) {
                     </tr>
                 `;
 
-                $("#detay_tablo_sag").append(puanlar);
+                $("#detay_tablo_sag"+antrenman_no).append(puanlar);
             };
-            $("#tur_toplam_sag").empty();
-            $("#tur_toplam_sag").append("<div class='card-panel teal lighten-4'><center>Toplam Puan: <b>133</b> </center></div>");
+            $("#tur_toplam_sag"+antrenman_no).empty();
+            $("#tur_toplam_sag"+antrenman_no).append("<div class='card-panel teal lighten-4'><center>Toplam Puan: <b>133</b> </center></div>");
 
             console.log(cevap);
         },
