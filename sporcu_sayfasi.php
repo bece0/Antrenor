@@ -24,10 +24,10 @@
 
     $yarisma_bilgileri = array();
     $yarisma_bilgileri = SporcuYarismalariGetir($sporcu_no); //var_dump($yarisma_bilgileri);
-*/
+
     $antrenman_bilgileri = array();
     $antrenman_bilgileri = sporcuAntrenmanlariGetir($sporcu_no); //var_dump($antrenman_bilgileri);
-
+*/
 
 
 ?>
@@ -98,7 +98,7 @@
             <h5 style="text-align:center"> Yarışma Dereceleri </h5>
             <br>
             <table>
-                <thead class="amber lighten-4">
+                <thead class="amber lighten-5">
                     <tr>
 
                         <th scope="col"> Yarışma Adı </th>
@@ -108,10 +108,14 @@
 
                     </tr>
                 </thead>
-                <tbody id="yarisma_bilgi_tablo" class="striped amber lighten-5 table-hover highlight ">
+                <tbody id="yarisma_bilgi_tablo" class="striped table-hover highlight ">
                     <!-- Yarışmalar -->
+
                 </tbody>
+
             </table>
+            <br><br>
+            <div id="hata_mesaji_yarisma"></div>
 
             <br>
 
@@ -131,91 +135,12 @@
         <!-- puan -->
         <div id="puan" class="col s12">
             <br><br>
+           
             <h5 style="text-align:center">Antrenmanlar</h5>
             <br>
-
-            <ul class="collapsible popout" data-collapsible="accordion">
-
-                <?php 
-                    
-                    $antrenman_sayisi=count((is_countable($antrenman_bilgileri)?$antrenman_bilgileri:[])); 
-
-                    if($antrenman_sayisi!=0){
-                    for($i=0 ; $i<$antrenman_sayisi ; $i++){ 
-
-                        $antrenman = $antrenman_bilgileri[$i]; //var_dump($antrenman);
-                        $antrenman_no=  $antrenman['id'];
-                        $tarih= $antrenman['tarih'];
-                        $toplam_puan= $antrenman['toplam_puan'];
-
-                        $seri_bilgileri= array();
-                        $seri_bilgileri = AntrenmanDetayiGetir($sporcu_no , $antrenman_no);
-                        $seri_sayisi=count((is_countable($seri_bilgileri)?$seri_bilgileri:[]));  
-                    
-    
-                ?>
-
-                <li>
-                    <div class="collapsible-header center  amber lighten-4 ">    
-
-                        <div class="col s4"><?php echo $antrenman_no ?></div>
-                        <div class="col s4"><?php echo $tarih ?></div>
-                        <div class="col s4"><?php echo $toplam_puan ?></div>
-
-                    </div>
-
-                    <div class="collapsible-body center amber lighten-5 ">
-                        <table>
-                            <!-- PUAN DETAY-->
-                            <thead>
-                                <tr>
-                                    <th data-field="seri">Seri</th>
-                                    <th data-field="1">1. Ok</th>
-                                    <th data-field="2">2. Ok</th>
-                                    <th data-field="3">3. Ok</th>
-                                    <!-- <th data-field="3">S.T</th> -->
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php 
-
-                                    if($seri_sayisi!=0){
-                                        for($j=0 ; $j<$seri_sayisi ; $j++){ 
-
-                                            $seri = $seri_bilgileri[$j]; 
-                                            $seri_no=  $seri['seri_no'];
-                                            $ok_1= $seri['ok_1'];
-                                            $ok_2= $seri['ok_2'];
-                                            $ok_3= $seri['ok_3'];
-                                            $seri_toplam= $seri['seri_toplam'];
-
-                                ?>
-                                <tr>
-                                    <td data-field="1"><?php echo $seri_no ?></td>
-                                    <td data-field="2"><?php echo $ok_1 ?></td>
-                                    <td data-field="3"><?php echo $ok_2 ?></td>
-                                    <td data-field="3"><?php echo $ok_3 ?></td>
-                                    <!-- <td data-field="4"><?php echo $seri_toplam ?></td> -->
-
-                                </tr>
-
-                                <?php } } ?>
-
-
-                            </tbody>
-
-
-                        </table>
-
-                    </div>
-                </li>
-
-                <?php } }?>
-
-            </ul>
-
-            <br>
+            <div id="hata_mesaji_antrenman"></div>
+            <ul class="collapsible popout" data-collapsible="accordion" id="antrenman_tablo"> </ul>
+          
 
             <div class="fixed-action-btn">
                 <a class="btn-floating btn-large teal">
@@ -226,8 +151,6 @@
                             <i class="material-icons">edit</i></a>Puan Düzenle</li>
                 </ul>
             </div>
-   
-            <br>
 
             <br>
 
@@ -274,7 +197,7 @@ var sporcu_bilgileri_listele = function() {
             var cevap = response.data;
             var kisisel_bilgi_tablo = `         
                 
-                        <table class="striped amber lighten-5">                     
+                        <table class="striped amber lighten-4">                     
                             <tbody>
                                 <tr>
                                     <td style="text-align:center"><i class="material-icons">account_circle</i></td>
@@ -317,7 +240,7 @@ var sporcu_bilgileri_listele = function() {
             `;
 
             var yay_bilgi_tablo = `      
-                    <table class="striped  amber lighten-5" > 
+                    <table class="striped  amber lighten-4" > 
                             <tbody>
                                 <tr>
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
@@ -431,7 +354,7 @@ var sporcu_bilgileri_listele = function() {
             `;
 
             var ok_bilgi_tablo = `
-                    <table class="striped  amber lighten-5" >    
+                    <table class="striped  amber lighten-4" >    
                         <tbody>
 
                             <tr>
@@ -556,18 +479,25 @@ var sporcu_yarismalari_listele = function() {
         data: json_string_yarisma_bilgileri,
         contentType: 'application/json',
         success: function(response) {
-         var cevap = response.data;   
-            for (var i = 0; i < cevap.length; i++) {
-                var yarisma_bilgi = `
-                        <tr>
-                            <td>${ cevap[i].yarisma_adi}</td>
-                            <td>${ cevap[i].tarih}</td>
-                            <td>${ cevap[i].siralama}</td>
-                            <td>${ cevap[i].madalya}</td>
-                        </tr>
-                 `;
+            if (!response.data) {
+                $("#hata_mesaji_yarisma").empty();
+                $("#hata_mesaji_yarisma").append(
+                    "<div class='card-panel red lighten-4'><center>Yarışma Bulunamadı.</center></div>"
+                );
+            } else {
+                var cevap = response.data;
+                for (var i = 0; i < cevap.length; i++) {
+                    var yarisma_bilgi = `
+                            <tr>
+                                <td>${ cevap[i].yarisma_adi}</td>
+                                <td>${ cevap[i].tarih}</td>
+                                <td>${ cevap[i].siralama}</td>
+                                <td>${ cevap[i].madalya}</td>
+                            </tr>
+                    `;
 
-                $("#yarisma_bilgi_tablo").append(yarisma_bilgi);
+                    $("#yarisma_bilgi_tablo").append(yarisma_bilgi);
+                }
             }
             console.log(cevap);
         },
@@ -579,7 +509,170 @@ var sporcu_yarismalari_listele = function() {
     });
 }
 
-var sporcu_antrenmanlari_listele = function() {}
+var sporcu_antrenmanlari_listele = function() {
+    var sporcu_no = $("#sporcu_no_hidden").val();
+    var sporcu_antrenmanlari_veri = {
+        "sporcu_no": sporcu_no
+    };
+
+    var json_string_antrenman_bilgileri = JSON.stringify(sporcu_antrenmanlari_veri);
+
+    $.ajax({
+        url: 'services/sporcu_antrenman_getir_servis.php',
+        type: 'POST',
+        data: json_string_antrenman_bilgileri,
+        contentType: 'application/json',
+        success: function(response) {
+
+             if (!response.sonuc) {
+                $("#hata_mesaji_antrenman").empty();
+                $("#hata_mesaji_antrenman").append(
+                    "<div class='card-panel red lighten-4'><center>Bir hata oluştu. </center></div>"
+                );
+
+            }  else if (!response.data || response.data.length == 0) {
+                $("#hata_mesaji_antrenman").empty();
+                $("#hata_mesaji_antrenman").append(
+                    "<div class='card-panel red lighten-4'><center>Antrenman Bulunamadı.</center></div>"
+                );
+
+            } else {
+                var cevap = response.data;
+                for (var i = 0; i < cevap.length; i++) {
+                    var antrenman_bilgi = ` 
+                        <li>                  
+                            <div class="collapsible-header center teal lighten-5" onclick="antrenman_detay_listele(${(cevap[i].id)})">                                     
+                            
+                                <div class="col s6"><b>${ cevap[i].tarih}</b></div>
+                                <div class="col s6"><b>${ cevap[i].toplam_puan}</b></div>
+                            </div> 
+                            <div class="collapsible-body center  ">
+                                <div class="row">
+                                    <div class="col s5">
+                                        <table class="centered">
+                                            <!-- PUAN DETAY-->
+                                            <thead>
+                                                <tr>
+                                                    <th data-field="seri">Seri</th>
+                                                    <th data-field="1">1. Ok</th>
+                                                    <th data-field="2">2. Ok</th>
+                                                    <th data-field="3">3. Ok</th>
+                                                    <th data-field="seri_toplam">S.T.</th>
+                                                </tr>
+                                            </thead>
+                                            
+                                            <tbody id="detay_tablo_sol"></tbody>
+                                    
+                                        </table>
+                                        <div id="tur_toplam_sol"></div>
+                                    </div>  
+                                    <div class="col s2"></div> 
+                                    <div class="col s5">
+                                        <table class="centered">
+                                            <!-- PUAN DETAY-->
+                                            <thead>
+                                                <tr>
+                                                    <th data-field="seri">Seri</th>
+                                                    <th data-field="1">1. Ok</th>
+                                                    <th data-field="2">2. Ok</th>
+                                                    <th data-field="3">3. Ok</th>
+                                                    <th data-field="seri_toplam">S.T.</th>
+
+                                                </tr>
+                                            </thead>
+                                            
+                                            <tbody id="detay_tablo_sag"></tbody>                                      
+                                        </table>
+                                        <div id="tur_toplam_sag"></div>
+                                    </div>
+                                </div>    
+                            </div>
+
+                        </li>
+                    `;
+
+                    $("#antrenman_tablo").append(antrenman_bilgi);
+
+                }
+
+            }
+            console.log(cevap);
+
+        },
+        error: function(error) {
+
+            console.log(error);
+        }
+
+    });
+
+
+}
+
+var antrenman_detay_listele = function(antrenman_no) {
+    var sporcu_no = $("#sporcu_no_hidden").val();
+    //  var antrenman_no = "1";
+
+    var antrenman_puanlari_veri = {
+        "sporcu_no": sporcu_no,
+        "antrenman_no": antrenman_no
+    };
+
+    var json_string_puan_bilgileri = JSON.stringify(antrenman_puanlari_veri);
+
+    $.ajax({
+        url: 'services/antrenman_detayi_getir_servis.php',
+        type: 'POST',
+        data: json_string_puan_bilgileri,
+        contentType: 'application/json',
+        success: function(response) {
+            var cevap = response.data;
+            $("#detay_tablo_sol").empty();
+            $("#detay_tablo_sag").empty();
+            for (var i = 0; i < (cevap.length) / 2; i++) {
+                var puanlar = `
+                    <tr>
+                        <td data-field="seri"><b>${ cevap[i].seri_no}</b></td>
+                        <td data-field="1">${ cevap[i].ok_1}</td>
+                        <td data-field="2">${ cevap[i].ok_2}</td>
+                        <td data-field="3">${ cevap[i].ok_3}</td>
+                        <td class="amber lighten-5" data-field="seri_toplam">${ cevap[i].seri_toplam}</td>
+                       
+                    </tr>
+                `;
+
+                $("#detay_tablo_sol").append(puanlar);
+            };
+            $("#tur_toplam_sol").empty();
+            $("#tur_toplam_sol").append("<div class='card-panel teal lighten-4'><center>Toplam Puan: <b>160</b> </center></div>");
+
+            for (var i = (cevap.length) / 2; i < cevap.length; i++) {
+                var puanlar = `
+                    <tr>
+                        <td data-field="seri"><b>${ cevap[i].seri_no}</b></td>
+                        <td data-field="1">${ cevap[i].ok_1}</td>
+                        <td data-field="2">${ cevap[i].ok_2}</td>
+                        <td data-field="3">${ cevap[i].ok_3}</td>
+                        <td class="amber lighten-5" data-field="seri_toplam">${ cevap[i].seri_toplam}</td>
+                    </tr>
+                `;
+
+                $("#detay_tablo_sag").append(puanlar);
+            };
+            $("#tur_toplam_sag").empty();
+            $("#tur_toplam_sag").append("<div class='card-panel teal lighten-4'><center>Toplam Puan: <b>133</b> </center></div>");
+
+            console.log(cevap);
+        },
+        error: function(error) {
+
+            console.log(error);
+        }
+
+    });
+
+
+}
 
 var sporcu_sil = function() {
     var sporcu_no = $("#sporcu_no_hidden").val();
@@ -596,15 +689,15 @@ var sporcu_sil = function() {
         data: json_string,
         contentType: 'application/json',
         success: function(cevap) {
-             Swal.fire({
-                 position: 'center',
-                 icon: 'success',
-                 title: 'Sporcu Silindi.',
-                 showConfirmButton: false,
-                 timer: 1500,
-             }).then((result) => {
-                 window.location.href = "index.php";
-             });
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Sporcu Silindi.',
+                showConfirmButton: false,
+                timer: 1500,
+            }).then((result) => {
+                window.location.href = "index.php";
+            });
 
             console.log(cevap);
         },
@@ -622,4 +715,8 @@ var sporcu_sil = function() {
 
 
 }
+
+$("antrenman_tablo").click(function() {
+    antrenman_detay_listele();
+});
 </script>

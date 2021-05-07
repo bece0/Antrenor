@@ -102,8 +102,8 @@
             type: 'POST',
             data: json_string,
             contentType: 'application/json',
-            success: function(cevap) {
-
+            success: function(response) {
+                    var cevap = response.data;
                     var kisisel_bilgi_tablo = `         
                             <table class="striped amber lighten-5">
                                                 <thead>

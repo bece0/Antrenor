@@ -17,13 +17,12 @@
         $json_decode_edilmis = json_decode($json_alinan_veri); 
         
         $sporcu_no = $json_decode_edilmis->sporcu_no;
+        $antrenman_no = $json_decode_edilmis->antrenman_no;
     
+        $antrenman_detay_bilgileri = array();
+        $antrenman_detay_bilgileri = AntrenmanDetayiGetir($sporcu_no , $antrenman_no);
     
-        $sporcu_bilgiler= array();
-    
-        $sporcu_bilgiler= SporcuBilgileriGetir($sporcu_no);
-
-        $sonucObjesi->data = $sporcu_bilgiler;
+        $sonucObjesi->data =  $antrenman_detay_bilgileri;
 
         $statusCode=200;
         

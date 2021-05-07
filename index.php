@@ -159,13 +159,13 @@ var sporculari_getir = function() {
             if (!response.sonuc) {
                 $("#hata_mesaji").empty();
                 $("#hata_mesaji").append(
-                    "<div class='card-panel red lighten-4'><center>Bir hata oluştu </center></div>"
+                    "<div class='card-panel red lighten-4'><center>Bir hata oluştu. </center></div>"
                 );
 
             } else if (!response.data || response.data.length == 0) {
                 $("#hata_mesaji").empty();
                 $("#hata_mesaji").append(
-                    "<div class='card-panel amber lighten-4'><center>Sporcu Yok.</center></div>"
+                    "<div class='card-panel amber lighten-4'><center>Antrenöre Kayıtlı Sporcu Bulunamadı.</center></div>"
                 );
 
             } else {
@@ -177,7 +177,7 @@ var sporculari_getir = function() {
                                             <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
                                             <td>${  cevap[i].kategori  }</td>
                                             <td>${ cevap[i].yas_grubu}</td>     
-                                            <td><div class="chip orange">Performans</div></td>     
+                                            <td><div class="chip ${(cevap[i].detay=="Performans") ? " amber darken-1" : "pink lighten-2"}">${cevap[i].detay}</div></td>     
                                         </tr>
                  `;
 
@@ -220,7 +220,7 @@ var arama_yap = function() {
             if (!response.sonuc) {
                 $("#hata_mesaji").empty();
                 $("#hata_mesaji").append(
-                    "<div class='card-panel amber lighten-4'><center>Sporcu Bulunamadı.</center></div>"
+                    "<div class='card-panel amber lighten-4'><center>Bir hata oluştu.</center></div>"
                 );
                 // Swal.fire('Sporcu Bulunamadı');
                 M.toast({
@@ -229,7 +229,7 @@ var arama_yap = function() {
             } else if (!response.data || response.data.length == 0) {
                 $("#hata_mesaji").empty();
                 $("#hata_mesaji").append(
-                    "<div class='card-panel amber lighten-4'><center>Sporcu Yok.</center></div>"
+                    "<div class='card-panel amber lighten-4'><center>Aradığınız kriterlere uygun sporcu bulunamadı.</center></div>"
                 );
 
             } else {
@@ -242,7 +242,7 @@ var arama_yap = function() {
                                                             <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
                                                             <td>${  cevap[i].kategori  }</td>
                                                             <td>${ cevap[i].yas_grubu}</td>
-                                                        
+                                                            <td><div class="chip ${(cevap[i].detay=="Performans") ? " amber darken-1" : "pink lighten-2"}">${cevap[i].detay}</div></td>     
                                                         
                                                         </tr>
                                                     
