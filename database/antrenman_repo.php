@@ -17,8 +17,10 @@
     }
 
     function sporcuHaftalikPuanHesapla($sporcu_no){
-        $sql = "SELECT * FROM antrenman WHERE sporcu_no= '$sporcu_no' AND tarih >= NOW() - INTERVAL 1 week"; 
+        $sql = "SELECT * FROM antrenman a WHERE sporcu_no= '$sporcu_no' AND WEEK(a.tarih,1) >= WEEK(NOW(),1) "; 
+        
     } 
 
 
 ?>
+
