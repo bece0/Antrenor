@@ -628,8 +628,11 @@ var antrenman_detay_listele = function(antrenman_no) {
         success: function(response) {
             var cevap = response.data;
             $("#detay_tablo_sol"+antrenman_no).empty();
-            $("#detay_tablo_sag"+antrenman_no).empty();
+            $("#detay_tablo_sag"+antrenman_no).empty()
+
+            var tur_toplam = 0;
             for (var i = 0; i < (cevap.length) / 2; i++) {
+                tur_toplam = Number(tur_toplam) + Number(cevap[i].seri_toplam);
                 var puanlar = `
                     <tr>
                         <td data-field="seri"><b>${ cevap[i].seri_no}</b></td>
@@ -640,13 +643,16 @@ var antrenman_detay_listele = function(antrenman_no) {
                        
                     </tr>
                 `;
-
+              
                 $("#detay_tablo_sol"+antrenman_no).append(puanlar);
             };
-            $("#tur_toplam_sol"+antrenman_no).empty();
-            $("#tur_toplam_sol"+antrenman_no).append("<div class='card-panel teal lighten-4'><center>Toplam Puan: <b>160</b> </center></div>");
 
+            var tur_toplam_sol=`<div class='card-panel teal lighten-4'><center>Toplam Puan:<b> ${tur_toplam} </b> </center></div>`;
+            $("#tur_toplam_sol"+antrenman_no).empty();
+            $("#tur_toplam_sol"+antrenman_no).append(tur_toplam_sol);
+            var tur_toplam = 0;
             for (var i = (cevap.length) / 2; i < cevap.length; i++) {
+                tur_toplam = Number(tur_toplam) + Number(cevap[i].seri_toplam);
                 var puanlar = `
                     <tr>
                         <td data-field="seri"><b>${ cevap[i].seri_no}</b></td>
@@ -659,8 +665,9 @@ var antrenman_detay_listele = function(antrenman_no) {
 
                 $("#detay_tablo_sag"+antrenman_no).append(puanlar);
             };
+            var tur_toplam_sag=`<div class='card-panel teal lighten-4'><center>Toplam Puan: <b> ${tur_toplam}</b> </center></div>`;
             $("#tur_toplam_sag"+antrenman_no).empty();
-            $("#tur_toplam_sag"+antrenman_no).append("<div class='card-panel teal lighten-4'><center>Toplam Puan: <b>133</b> </center></div>");
+            $("#tur_toplam_sag"+antrenman_no).append(tur_toplam_sag);
 
             console.log(cevap);
         },
