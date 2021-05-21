@@ -22,7 +22,7 @@
     } 
 
     function puanFiltrele($yay_turu,$atis_mesafesi){
-        $sql = "SELECT  * FROM antrenman " ;
+   /*     $sql = "SELECT  * FROM antrenman " ;
         $where_exist=TRUE;
 
         if($yay_turu ==NULL && $atis_mesafesi ==NULL ){
@@ -37,7 +37,15 @@
             }else if($atis_mesafesi == NULL){
                 $sql = "SELECT  * FROM antrenman a INNER JOIN sporcu s on a.sporcu_no=s.sporcu_no WHERE a.yay_turu= '$yay_turu' " ;
             }
+        
+        
         }
+*/
+       
+        if($yay_turu !=NULL && $atis_mesafesi !=NULL ){
+            $sql = "SELECT  * FROM antrenman a INNER JOIN sporcu s on a.sporcu_no=s.sporcu_no WHERE a.yay_turu= '$yay_turu' AND a.atis_mesafesi='$atis_mesafesi' " ;
+        }
+        
 
 
         return SQLCalistir($sql);

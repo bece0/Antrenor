@@ -7,7 +7,7 @@
                     <h5 style="text-align:center"> Puan Ara</h5>
 
                     <div class="input-field col s6">
-                        <select class="browser-default" id="yay_turu_ara" >
+                        <select class="browser-default" id="yay_turu_ara" onchange="puan_arama_yap()" >
                             <option value="yay_default" disabled selected>Yay türü seçin</option>
                             <option value="Klasik">Klasik yay</option>
                             <option value="Makarali">Makaralı Yay</option>

@@ -90,7 +90,13 @@
     var yay_turu= $("#yay_turu_ara option:selected").val();
     var atis_mesafesi= $("#atis_mesafe_ara option:selected").val();
 
-    $("#filtre_adi").text(yay_turu + " Yay - " + atis_mesafesi+ " metre" );
+    if(yay_turu == "yay_default" && atis_mesafesi != "mesafe_default") 
+       $("#filtre_adi").text( " - " + atis_mesafesi + " metre" );
+    else if(atis_mesafesi == "mesafe_default" && yay_turu != "yay_default") 
+       $("#filtre_adi").text(yay_turu + " Yay " + " - " );
+    else 
+       $("#filtre_adi").text( yay_turu + " Yay " + " - "  + atis_mesafesi + " metre" );
+       
 
     var veri={
         "yay_turu" : yay_turu,
