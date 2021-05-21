@@ -9,20 +9,24 @@
 
     try {
 
-        
         include '../database/database.php';
         header('Content-type: application/json');
-
+    
         $json_alinan_veri = file_get_contents('php://input');  
         $json_decode_edilmis = json_decode($json_alinan_veri); 
         
-        $antrenor_id = $json_decode_edilmis->antrenor_id;
-        
+        $yay_turu = $json_decode_edilmis->yay_turu;
+        $atis_mesafesi = $json_decode_edilmis->atis_mesafesi;
+    
         $puan_listesi= array();
-
-        $puan_listesi= HaftalikPuanGetir($antrenor_id);
-
-        $sonucObjesi->data =  $sporcu_listesi;
+    
+       if($yay_turu=="yay_default") $yay_turu=NULL;
+       
+       if($atis_mesafesi=="mesafe_default") $atis_mesafesi=NULL;
+    
+        $puan_listesi= puanFiltrele($yay_turu,$atis_mesafesi);
+    
+        $sonucObjesi->data =  $puan_listesi;
 
             $statusCode=200;
         
@@ -48,3 +52,4 @@
 
 
 ?>
+

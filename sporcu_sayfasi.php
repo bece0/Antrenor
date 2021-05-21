@@ -538,6 +538,7 @@ var sporcu_antrenmanlari_listele = function() {
 
             } else {
                 var cevap = response.data;
+           
                 for (var i = 0; i < cevap.length; i++) {
                     var antrenman_bilgi = ` 
                         <li>                  

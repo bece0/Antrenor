@@ -16,11 +16,38 @@
         
     }
 
-    function sporcuHaftalikPuanHesapla($sporcu_no){
-        $sql = "SELECT * FROM antrenman a WHERE sporcu_no= '$sporcu_no' AND WEEK(a.tarih,1) >= WEEK(NOW(),1) "; 
-        
+    function HaftalikPuanHesapla($sporcu_no){
+        $sql = "SELECT haftalik_ortalama FROM antrenman a WHERE a.sporcu_no='$sporcu_no' AND  WEEK(a.tarih,1) >= WEEK(NOW(),1) "; 
+        return SQLCalistir($sql);
     } 
 
+    function puanFiltrele($yay_turu,$atis_mesafesi){
+        $sql = "SELECT  * FROM antrenman" ;
+        $where_exist=TRUE;
 
+        if($yay_turu ==NULL && $atis_mesafesi ==NULL ){
+            $sql = "SELECT  * FROM antrenman" ; 
+            $where_exist=FALSE;
+        }
+        else if($yay_turu !=NULL && $atis_mesafesi !=NULL ){
+            $sql = "SELECT  * FROM antrenman WHERE yay_turu= '$yay_turu' AND atis_mesafesi='$atis_mesafesi' " ;
+        }else{
+            if($yay_turu == NULL){
+                $sql = "SELECT  * FROM antrenman WHERE atis_mesafesi='$atis_mesafesi' " ;
+            }else if($atis_mesafesi == NULL){
+                $sql = "SELECT  * FROM antrenman WHERE yay_turu= '$yay_turu' " ;
+            }
+        }
+
+
+        return SQLCalistir($sql);
+
+    }
+
+
+
+
+
+// Seri Toplam Hesapla UPDATE antrenman_atis a SET a.seri_toplam=a.ok_1+a.ok_2+a.ok_3 WHERE a.id = '1'
 ?>
 

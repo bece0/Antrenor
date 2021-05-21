@@ -2,6 +2,7 @@
     include 'includes/head.php';
     include 'includes/nav.php';
 
+    include 'modals/puan_filtrele_modal.php';
 ?>
 
 <div class="container">
@@ -10,35 +11,46 @@
         <div class="container">
             <center>
                 <h4 class="jumbotron-heading">HAFTALIK PUAN TABLOSU</h4>
+                <h5 class="jumbotron-heading" id="filtre-adi"></h5>
             </center>
         </div>
     </section>
     <br>
 
-    <div class="col s12">
+    <!-- <div class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <select>
-                    <option value="" disabled selected>Yay türü seçin</option>
-                    <option value="1">Klasik yay</option>
-                    <option value="2">Makaralı Yay</option>
+                <select id="yay_turu_ara" >
+                    <option value="yay_default" disabled selected>Yay türü seçin</option>
+                    <option value="klasik">Klasik yay</option>
+                    <option value="makarali">Makaralı Yay</option>
               
                 </select>
               
             </div>
             <div class="input-field col s6">
-                <select>
-                    <option value="" disabled selected>Atış Mesafesi seçin</option>
-                    <option value="1">20</option>
-                    <option value="2">30</option>
-                    <option value="3">60</option>
-                    <option value="4">70</option>
+                <select  id="atis_mesafe_ara" onchange="puan_arama_yap()">
+                    <option value="mesafe_default" disabled selected>Atış Mesafesi seçin</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="50">50</option>
+                    <option value="60">60</option>
+                    <option value="70">70</option>
                 </select>
          
             </div>
         </div>
-    </div>
+    </div>  -->
 
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large teal">
+            <i class="large material-icons">menu</i>
+        </a>
+        <ul>
+            <li><a class="btn-floating orange modal-trigger" id="puan_filtrele_buton"
+                    href="#puan_filtrele_modal"><i class="material-icons">search</i></a>Filtrele</li>
+        </ul>
+    </div> 
 
 
     <table class="table table-bordered highlight  ">
@@ -50,27 +62,9 @@
 
             </tr>
         </thead>
-        <tbody class="amber lighten-5 striped">
-            <tr>
-                <td>1</td>
-                <td>Begüm Çelebi</td>
-                <td>350</td>
-
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Ayşe Yılmaz</td>
-                <td>300</td>
-
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Ali Kaya</td>
-                <td>270</td>
-
-            </tr>
-        </tbody>
+        <tbody id="haftalik_puan" class="amber lighten-5 striped"></tbody>
     </table>
+    <div id="hata_mesaji_puan"></div>
 </div>
 <br>
 
@@ -78,7 +72,74 @@
 <?php  //   include 'footer.php';?>
 
 <script>
-$(document).ready(function() {
-    $('select').formSelect();
-});
+  var puan_listesi_getir = function(){
+       
+    };
+
+  var puan_arama_yap = function(){
+    var yay_turu= $("#yay_turu_ara option:selected").val();
+    var atis_mesafesi= $("#atis_mesafe_ara option:selected").val();
+    $("#filtre-adi").text(yay_turu + " Yay - " + atis_mesafesi+ " metre" );
+    var veri={
+        "yay_turu" : yay_turu,
+        "atis_mesafesi" : atis_mesafesi
+    };
+
+    var json_string= JSON.stringify(veri);
+
+    $.ajax({
+
+        url: 'services/haftalik_puan_filtrele.php' ,
+        type: 'POST',
+        data: json_string,
+        contentType: 'application/json',
+        success: function(response){
+            $("#haftalik_puan").empty();
+            if (!response.sonuc) {
+         
+                $("#hata_mesaji_puan").empty();
+                $("#hata_mesaji_puan").append(
+                    "<div class='card-panel amber lighten-4'><center>Bir hata oluştu.</center></div>"
+                );
+     
+            } else if (!response.data || response.data.length == 0) {
+           
+                $("#hata_mesaji_puan").empty();
+                $("#hata_mesaji_puan").append(
+                    "<div class='card-panel amber lighten-4'><center>Aradığınız kriterlere uygun sonuç bulunamadı.</center></div>"
+                );
+
+            } else {
+
+                var cevap = response.data;
+                $("#hata_mesaji_puan").empty();
+                for (var i = 0; i < cevap.length; i++) {
+                    var satir = `
+                                                        
+                                                         <tr>                                                         
+                                                            <td>${ cevap[i].tarih}</td>
+                                                            <td>${ cevap[i].sporcu_no}</td>
+                                                            <td>${ cevap[i].toplam_puan}</td>                                                        
+                                                        
+                                                        </tr>
+                                                    
+                                                    `;
+                    $("#haftalik_puan").append(satir);
+
+                }
+            }
+
+            console.log(cevap);
+        },
+        error: function(error){
+            console.log(error);
+        },
+    });
+
+  };
+
+    $(document).ready(function() {
+  //  puan_listesi_getir();
+
+    });
 </script>
