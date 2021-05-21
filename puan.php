@@ -76,8 +76,14 @@
 <?php  //   include 'footer.php';?>
 
 <script>
-  var puan_listesi_getir = function(){
-   
+  var puan_listesi_default = function(){
+    $("#haftalik_puan").empty();
+    $("#filtre_adi").empty();
+    $("#hata_mesaji_puan").empty();
+    $("#hata_mesaji_puan").append(
+                    "<div class='card-panel teal lighten-5'><center>Yay türü ve Atış mesafesini seçiniz.</center></div>"
+                );
+ 
     };
 
   var puan_arama_yap = function(){
@@ -145,10 +151,7 @@
   };
 
     $(document).ready(function() {
-        $("#hata_mesaji_puan").append(
-                    "<div class='card-panel teal lighten-5'><center>Yay türü ve Atış mesafesini seçiniz.</center></div>"
-                );
- 
+        puan_listesi_default();
 
     });
 </script>

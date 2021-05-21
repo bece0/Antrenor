@@ -16,7 +16,7 @@
                     <div class="input-field col s6">
 
                         <select class="browser-default" id="yay_turu_ara" onchange="arama_yap()">
-                            <option value="yay_default" selected>Yay türü seçin</option>
+                            <option value="yay_default" disable selected>Yay türü seçin</option>
                             <option value="klasik">Klasik</option>
                             <option value="makarali">Makaralı</option>
 
@@ -25,7 +25,7 @@
                     <div class="input-field col s6">
 
                         <select class="browser-default" id="yas_grubu_ara" onchange="arama_yap()">
-                            <option value="yas_default" selected>Yaş Grubu seçin</option>
+                            <option value="yas_default" disable selected>Yaş Grubu seçin</option>
                             <option value="buyukler">Büyükler</option>
                             <option value="gencler">Gençler</option>
                             <option value="kadetler">Kadetler</option>

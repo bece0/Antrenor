@@ -7,7 +7,7 @@
                     <h5 style="text-align:center"> Puan Ara</h5>
 
                     <div class="input-field col s6">
-                        <select id="yay_turu_ara">
+                        <select class="browser-default" id="yay_turu_ara" >
                             <option value="yay_default" disabled selected>Yay türü seçin</option>
                             <option value="Klasik">Klasik yay</option>
                             <option value="Makarali">Makaralı Yay</option>
@@ -16,7 +16,7 @@
 
                     </div>
                     <div class="input-field col s6">
-                        <select id="atis_mesafe_ara" onchange="puan_arama_yap()">
+                        <select class="browser-default" id="atis_mesafe_ara" onchange="puan_arama_yap()">
                             <option value="mesafe_default" disabled selected>Atış Mesafesi seçin</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
@@ -58,9 +58,9 @@ $(document).ready(function() {
     $("#temizle_buton").click(function() {
    
         $("#yay_turu_ara").val("yay_default");
-        $("#atis_mesafe_ara").val("yas_default");
+        $("#atis_mesafe_ara").val("mesafe_default");
         
-        location.reload();
+        puan_listesi_default();
 
     });
 
