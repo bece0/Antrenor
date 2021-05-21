@@ -124,8 +124,8 @@
                     var satir = `
                                                         
                                                          <tr>                                                         
-                                                            <td>${ cevap[i].tarih}</td>
-                                                            <td>${ cevap[i].sporcu_no}</td>
+                                                            <td>${ i+1 }</td>
+                                                            <td>${ cevap[i].ad + " " + cevap[i].soyad }</td>
                                                             <td>${ cevap[i].toplam_puan}</td>                                                        
                                                         
                                                         </tr>
@@ -142,7 +142,6 @@
             console.log(error);
         },
     });
-
   };
 
     $(document).ready(function() {
