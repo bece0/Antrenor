@@ -11,7 +11,7 @@
         <div class="container">
             <center>
                 <h4 class="jumbotron-heading">HAFTALIK PUAN TABLOSU</h4>
-                <h5 class="jumbotron-heading" id="filtre-adi"></h5>
+                <h5 class="jumbotron-heading" id="filtre_adi"></h5>
             </center>
         </div>
     </section>
@@ -62,9 +62,13 @@
 
             </tr>
         </thead>
-        <tbody id="haftalik_puan" class="amber lighten-5 striped"></tbody>
+        <tbody id="haftalik_puan" class="amber lighten-5 striped">
+       
+        </tbody>
     </table>
-    <div id="hata_mesaji_puan"></div>
+    <br>
+    <div id="hata_mesaji_puan"></div> 
+    
 </div>
 <br>
 
@@ -73,13 +77,15 @@
 
 <script>
   var puan_listesi_getir = function(){
-       
+   
     };
 
   var puan_arama_yap = function(){
     var yay_turu= $("#yay_turu_ara option:selected").val();
     var atis_mesafesi= $("#atis_mesafe_ara option:selected").val();
-    $("#filtre-adi").text(yay_turu + " Yay - " + atis_mesafesi+ " metre" );
+
+    $("#filtre_adi").text(yay_turu + " Yay - " + atis_mesafesi+ " metre" );
+
     var veri={
         "yay_turu" : yay_turu,
         "atis_mesafesi" : atis_mesafesi
@@ -95,6 +101,7 @@
         contentType: 'application/json',
         success: function(response){
             $("#haftalik_puan").empty();
+            $("#haftalik_puan").append("");
             if (!response.sonuc) {
          
                 $("#hata_mesaji_puan").empty();
@@ -110,9 +117,9 @@
                 );
 
             } else {
-
                 var cevap = response.data;
                 $("#hata_mesaji_puan").empty();
+               
                 for (var i = 0; i < cevap.length; i++) {
                     var satir = `
                                                         
@@ -139,7 +146,10 @@
   };
 
     $(document).ready(function() {
-  //  puan_listesi_getir();
+        $("#hata_mesaji_puan").append(
+                    "<div class='card-panel teal lighten-5'><center>Yay türü ve Atış mesafesini seçiniz.</center></div>"
+                );
+ 
 
     });
 </script>

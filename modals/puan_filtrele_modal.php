@@ -56,12 +56,11 @@ $(document).ready(function() {
 
 
     $("#temizle_buton").click(function() {
-
+   
         $("#yay_turu_ara").val("yay_default");
-
         $("#atis_mesafe_ara").val("yas_default");
-
-        puan_arama_yap();
+        
+        location.reload();
 
     });
 
