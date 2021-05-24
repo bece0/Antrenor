@@ -17,11 +17,20 @@
     }
 
     function HaftalikPuanHesapla($sporcu_no){
-        $sql = "SELECT haftalik_ortalama FROM antrenman a WHERE a.sporcu_no='$sporcu_no' AND  WEEK(a.tarih,1) >= WEEK(NOW(),1) "; 
+
+        $sql = "SELECT haftalik_ortalama FROM antrenman a WHERE a.sporcu_no='$sporcu_no' AND  WEEK(a.tarih,1) >= WEEK(NOW(),1) ";
+
         return SQLCalistir($sql);
     } 
 
     function puanFiltrele($yay_turu,$atis_mesafesi){
+
+        if($yay_turu !=NULL && $atis_mesafesi !=NULL ){
+            $sql = "SELECT  * FROM antrenman a INNER JOIN sporcu s on a.sporcu_no=s.sporcu_no WHERE a.yay_turu= '$yay_turu' AND a.atis_mesafesi='$atis_mesafesi' " ;
+        }
+
+        return SQLCalistir($sql);
+        
    /*     $sql = "SELECT  * FROM antrenman " ;
         $where_exist=TRUE;
 
@@ -40,19 +49,8 @@
         
         
         }
-*/
-       
-        if($yay_turu !=NULL && $atis_mesafesi !=NULL ){
-            $sql = "SELECT  * FROM antrenman a INNER JOIN sporcu s on a.sporcu_no=s.sporcu_no WHERE a.yay_turu= '$yay_turu' AND a.atis_mesafesi='$atis_mesafesi' " ;
-        }
-        
-
-
-        return SQLCalistir($sql);
-
+   */
     }
-
-
 
 
 
