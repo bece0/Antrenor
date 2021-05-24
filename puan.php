@@ -81,7 +81,7 @@
     $("#filtre_adi").empty();
     $("#hata_mesaji_puan").empty();
     $("#hata_mesaji_puan").append(
-                    "<div class='card-panel teal lighten-5'><center>Yay türü ve Atış mesafesini seçiniz.</center></div>"
+                    "<div class='card-panel teal lighten-5'><center>Filtreleme bölümünden yay türü ve atış mesafesini seçiniz.</center></div>"
                 );
  
     };
@@ -138,7 +138,7 @@
                                                          <tr>                                                         
                                                             <td>${ i+1 }</td>
                                                             <td>${ cevap[i].ad + " " + cevap[i].soyad }</td>
-                                                            <td>${ cevap[i].toplam_puan}</td>                                                        
+                                                            <td>${ cevap[i].haftalik_ortalama}</td>                                                        
                                                         
                                                         </tr>
                                                     

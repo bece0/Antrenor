@@ -18,7 +18,7 @@
 
     function HaftalikPuanHesapla($sporcu_no){
 
-        $sql = "SELECT haftalik_ortalama FROM antrenman a WHERE a.sporcu_no='$sporcu_no' AND  WEEK(a.tarih,1) >= WEEK(NOW(),1) ";
+        $sql = "SELECT SUM(a.toplam_puan) DIV 6 as haftalik_ortalama FROM antrenman a WHERE a.sporcu_no='$sporcu_no' AND WEEK(a.tarih,1) >= WEEK(NOW(),1)";
 
         return SQLCalistir($sql);
     } 
@@ -52,7 +52,7 @@
    */
     }
 
-
+  
 
 // Seri Toplam Hesapla UPDATE antrenman_atis a SET a.seri_toplam=a.ok_1+a.ok_2+a.ok_3 WHERE a.id = '1'
 ?>
