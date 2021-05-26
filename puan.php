@@ -138,7 +138,7 @@
                                                          <tr>                                                         
                                                             <td>${ i+1 }</td>
                                                             <td>${ cevap[i].ad + " " + cevap[i].soyad }</td>
-                                                            <td>${ cevap[i].haftalik_ortalama}</td>                                                        
+                                                            <td>${ cevap[i].haftalik_puan}</td>                                                        
                                                         
                                                         </tr>
                                                     

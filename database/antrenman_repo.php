@@ -26,7 +26,9 @@
     function puanFiltrele($yay_turu,$atis_mesafesi){
 
         if($yay_turu !=NULL && $atis_mesafesi !=NULL ){
-            $sql = "SELECT  * FROM antrenman a INNER JOIN sporcu s on a.sporcu_no=s.sporcu_no WHERE a.yay_turu= '$yay_turu' AND a.atis_mesafesi='$atis_mesafesi' " ;
+            $sql = "SELECT  * FROM haftalik_puan h 
+            INNER JOIN sporcu s on h.sporcu_no=s.sporcu_no       
+            WHERE h.yay_turu= '$yay_turu' AND h.atis_mesafesi='$atis_mesafesi' ORDER BY h.haftalik_puan DESC" ;
         }
 
         return SQLCalistir($sql);
@@ -52,8 +54,7 @@
    */
     }
 
-  
-
+   
 // Seri Toplam Hesapla UPDATE antrenman_atis a SET a.seri_toplam=a.ok_1+a.ok_2+a.ok_3 WHERE a.id = '1'
 ?>
 
