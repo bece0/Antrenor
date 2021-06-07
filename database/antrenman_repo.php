@@ -23,13 +23,13 @@
         return SQLCalistir($sql);
     } 
 
-    function HaftalikPuanGuncelle($sporcu_no,$haftalik_puan){
+    function HaftalikPuanGuncelle($sporcu_no){
 
         $sql = "UPDATE haftalik_puan h INNER JOIN antrenman a ON h.sporcu_no=a.sporcu_no
-        SET h.sporcu_no = '$sporcu_no', h.yay_turu = a.yay_turu, h.atis_mesafesi=a.atis_mesafesi, h.haftalik_puan= '$haftalik_puan'
+        SET h.sporcu_no = '$sporcu_no', h.yay_turu = a.yay_turu, h.atis_mesafesi=a.atis_mesafesi, h.haftalik_puan= (SELECT SUM(a.toplam_puan) DIV 6 FROM antrenman a WHERE a.sporcu_no='$sporcu_no' AND WEEK(a.tarih,1) >= WEEK(NOW(),1))
         WHERE h.sporcu_no='$sporcu_no' ";
 
-        return SQLCalistir($sql);
+        return SQLUpdateCalistir($sql);
     } 
 
     function puanFiltrele($yay_turu,$atis_mesafesi){

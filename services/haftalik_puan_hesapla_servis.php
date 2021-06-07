@@ -16,15 +16,20 @@
         $json_alinan_veri = file_get_contents('php://input');  
         $json_decode_edilmis = json_decode($json_alinan_veri); 
         
-        $antrenor_id = $json_decode_edilmis->antrenor_id;
+        $antrenor_no = $json_decode_edilmis->antrenor_no;
+        $sporcular= array();
+        $sporcular = SporculariGetir($antrenor_no);
+        $haftalik_puan=0;
+
+        for ($i=0; $i < count($sporcular) ; $i++) { 
+            $sporcu = $sporcular[$i];
+            $sporcu_no = $sporcu["sporcu_no"];
+       //   $haftalik_puan= HaftalikPuanHesapla($sporcu_no); 
+            HaftalikPuanGuncelle($sporcu_no/*,$haftalik_puan*/);
+        }
+
         
-        $puan_listesi= array();
-
-        $puan_listesi= HaftalikPuanGetir($antrenor_id);
-
-        $sonucObjesi->data =  $sporcu_listesi;
-
-            $statusCode=200;
+        $statusCode=200;
         
     } catch (Throwable $exp) {
         if($statusCode == 0){

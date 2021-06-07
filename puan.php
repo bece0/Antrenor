@@ -3,6 +3,8 @@
     include 'includes/nav.php';
 
     include 'modals/puan_filtrele_modal.php';
+
+    $antrenor_no=  $_SESSION["kullanici_id"];
 ?>
 
 <div class="container">
@@ -68,6 +70,7 @@
     </table>
     <br>
     <div id="hata_mesaji_puan"></div> 
+    <input type="hidden" id="antrenor_no" value="<?php echo $antrenor_no ?>" />
     
 </div>
 <br>
@@ -76,85 +79,116 @@
 <?php  //   include 'footer.php';?>
 
 <script>
-  var puan_listesi_default = function(){
-    $("#haftalik_puan").empty();
-    $("#filtre_adi").empty();
-    $("#hata_mesaji_puan").empty();
-    $("#hata_mesaji_puan").append(
-                    "<div class='card-panel teal lighten-5'><center>Filtreleme bölümünden yay türü ve atış mesafesini seçiniz.</center></div>"
-                );
- 
-    };
 
-  var puan_arama_yap = function(){
-    var yay_turu= $("#yay_turu_ara option:selected").val();
-    var atis_mesafesi= $("#atis_mesafe_ara option:selected").val();
+    var puan_listesi_default = function(){
 
-    if(yay_turu == "yay_default" && atis_mesafesi != "mesafe_default") 
-       $("#filtre_adi").text( " - " + atis_mesafesi + " metre" );
-    else if(atis_mesafesi == "mesafe_default" && yay_turu != "yay_default") 
-       $("#filtre_adi").text(yay_turu + " Yay " + " - " );
-    else 
-       $("#filtre_adi").text( yay_turu + " Yay " + " - "  + atis_mesafesi + " metre" );
-       
-
-    var veri={
-        "yay_turu" : yay_turu,
-        "atis_mesafesi" : atis_mesafesi
-    };
-
-    var json_string= JSON.stringify(veri);
-
-    $.ajax({
-
-        url: 'services/haftalik_puan_filtrele.php' ,
-        type: 'POST',
-        data: json_string,
-        contentType: 'application/json',
-        success: function(response){
-            $("#haftalik_puan").empty();
-            $("#haftalik_puan").append("");
-            if (!response.sonuc) {
+        $("#haftalik_puan").empty();
+        $("#filtre_adi").empty();
+        $("#hata_mesaji_puan").empty();
+        $("#hata_mesaji_puan").append(
+                        "<div class='card-panel teal lighten-5'><center>Filtreleme bölümünden yay türü ve atış mesafesini seçiniz.</center></div>"
+                        );  
+        var antrenor_no = $("#antrenor_no").val();
+        var veri={
+            "antrenor_no" : antrenor_no,
          
-                $("#hata_mesaji_puan").empty();
-                $("#hata_mesaji_puan").append(
-                    "<div class='card-panel amber lighten-4'><center>Bir hata oluştu.</center></div>"
-                );
-     
-            } else if (!response.data || response.data.length == 0) {
-           
-                $("#hata_mesaji_puan").empty();
-                $("#hata_mesaji_puan").append(
-                    "<div class='card-panel amber lighten-4'><center>Aradığınız kriterlere uygun sonuç bulunamadı.</center></div>"
-                );
+        };
 
-            } else {
-                var cevap = response.data;
-                $("#hata_mesaji_puan").empty();
-               
-                for (var i = 0; i < cevap.length; i++) {
-                    var satir = `
-                                                        
-                                                         <tr>                                                         
-                                                            <td>${ i+1 }</td>
-                                                            <td>${ cevap[i].ad + " " + cevap[i].soyad }</td>
-                                                            <td>${ cevap[i].haftalik_puan}</td>                                                        
-                                                        
-                                                        </tr>
-                                                    
-                                                    `;
-                    $("#haftalik_puan").append(satir);
+        var json_string= JSON.stringify(veri);
 
+        $.ajax({
+
+            url: 'services/haftalik_puan_hesapla_servis.php' ,
+            type: 'POST',
+            data: json_string,
+            contentType: 'application/json',
+            success: function(response){             
+                if (!response.sonuc) {
+            
+                    $("#hata_mesaji_puan").empty();
+                    $("#hata_mesaji_puan").append(
+                        "<div class='card-panel amber lighten-4'><center>Bir hata oluştu.</center></div>"
+                    );
+        
+                } else {                 
+                    console.log(cevap);
                 }
-            }
+            },
+            error: function(error){
+                console.log(error);
+            },
+        });
 
-            console.log(cevap);
-        },
-        error: function(error){
-            console.log(error);
-        },
-    });
-  };
+    };
+    var puan_arama_yap = function(){
+        var yay_turu= $("#yay_turu_ara option:selected").val();
+        var atis_mesafesi= $("#atis_mesafe_ara option:selected").val();
+
+        if(yay_turu == "yay_default" && atis_mesafesi != "mesafe_default") 
+        $("#filtre_adi").text( " - " + atis_mesafesi + " metre" );
+        else if(atis_mesafesi == "mesafe_default" && yay_turu != "yay_default") 
+        $("#filtre_adi").text(yay_turu + " Yay " + " - " );
+        else 
+        $("#filtre_adi").text( yay_turu + " Yay " + " - "  + atis_mesafesi + " metre" );
+        
+
+        var veri={
+            "yay_turu" : yay_turu,
+            "atis_mesafesi" : atis_mesafesi
+        };
+
+        var json_string= JSON.stringify(veri);
+
+        $.ajax({
+
+            url: 'services/haftalik_puan_filtrele.php' ,
+            type: 'POST',
+            data: json_string,
+            contentType: 'application/json',
+            success: function(response){
+                $("#haftalik_puan").empty();
+                $("#haftalik_puan").append("");
+                if (!response.sonuc) {
+            
+                    $("#hata_mesaji_puan").empty();
+                    $("#hata_mesaji_puan").append(
+                        "<div class='card-panel amber lighten-4'><center>Bir hata oluştu.</center></div>"
+                    );
+        
+                } else if (!response.data || response.data.length == 0) {
+            
+                    $("#hata_mesaji_puan").empty();
+                    $("#hata_mesaji_puan").append(
+                        "<div class='card-panel amber lighten-4'><center>Aradığınız kriterlere uygun sonuç bulunamadı.</center></div>"
+                    );
+
+                } else {
+                    var cevap = response.data;
+                    $("#hata_mesaji_puan").empty();
+                
+                    for (var i = 0; i < cevap.length; i++) {
+                        var satir = `
+                                                            
+                                                            <tr>                                                         
+                                                                <td>${ i+1 }</td>
+                                                                <td>${ cevap[i].ad + " " + cevap[i].soyad }</td>
+                                                                <td>${ cevap[i].haftalik_puan}</td>                                                        
+                                                            
+                                                            </tr>
+                                                        
+                                                        `;
+                        $("#haftalik_puan").append(satir);
+
+                    }
+                }
+
+                console.log(cevap);
+            },
+            error: function(error){
+                console.log(error);
+            },
+        });
+    };
 
     $(document).ready(function() {
         puan_listesi_default();
