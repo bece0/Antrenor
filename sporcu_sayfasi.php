@@ -97,24 +97,8 @@
             <br><br>
             <h5 style="text-align:center"> Yarışma Dereceleri </h5>
             <br>
-            <table>
-                <thead class="amber lighten-5">
-                    <tr>
-
-                        <th scope="col"> Yarışma Adı </th>
-                        <th scope="col"> Tarih </th>
-                        <th scope="col"> Sıralama </th>
-                        <th scope="col"> Madalya</th>
-
-                    </tr>
-                </thead>
-                <tbody id="yarisma_bilgi_tablo" class="striped table-hover highlight ">
-                    <!-- Yarışmalar -->
-
-                </tbody>
-
-            </table>
-            <br><br>
+            <table id="yarisma_bilgi_tablo"></table>
+    
             <div id="hata_mesaji_yarisma"></div>
 
             <br>
@@ -142,12 +126,12 @@
             <ul class="collapsible popout" data-collapsible="accordion" id="antrenman_tablo"> </ul>
           
 
-            <div class="fixed-action-btn">
-                <a class="btn-floating btn-large teal">
+            <div class="fixed-action-btn ">
+                <a class="btn-floating btn-large teal ">
                     <i class="large material-icons">menu</i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating orange modal-trigger" id="puan_duzenle_buton" href="#">
+                    <li><a class="btn-floating orange modal-trigger disabled " id="puan_duzenle_buton" href="#">
                             <i class="material-icons">edit</i></a>Puan Düzenle</li>
                 </ul>
             </div>
@@ -486,6 +470,17 @@ var sporcu_yarismalari_listele = function() {
                 );
             } else {
                 var cevap = response.data;
+                var yarisma_tablosu = `                
+                        <thead class="amber lighten-5">
+                                <tr>
+                                    <th scope="col"> Yarışma Adı </th>
+                                    <th scope="col"> Tarih </th>
+                                    <th scope="col"> Sıralama </th>
+                                    <th scope="col"> Madalya</th>
+                                </tr>
+                        </thead>
+                        <tbody id="yarisma_bilgileri"  class="striped table-hover highlight ">  </tbody>`;
+                $("#yarisma_bilgi_tablo").append(yarisma_tablosu);
                 for (var i = 0; i < cevap.length; i++) {
                     var yarisma_bilgi = `
                             <tr>
@@ -496,7 +491,8 @@ var sporcu_yarismalari_listele = function() {
                             </tr>
                     `;
 
-                    $("#yarisma_bilgi_tablo").append(yarisma_bilgi);
+                   
+                    $("#yarisma_bilgileri").append(yarisma_bilgi);
                 }
             }
             console.log(cevap);

@@ -45,10 +45,7 @@
                                     <td> Cinsiyet :</td>
                                     <td> <input id="cinsiyet" type="text" class="validate" reguired> </td>
 
-                                </tr>                   
-
-            
-
+                                </tr>                    
 
                             </tbody>
 
@@ -92,11 +89,10 @@
                             </tbody>
 
                         </table>
-                    </div>
-                    <br>
-
+                    </div>              
+                    
                 </div> <!-- bilgiler -->
-
+        
             </div>     
 
     </div>
