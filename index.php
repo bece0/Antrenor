@@ -43,6 +43,8 @@
                     <li><a class="btn-floating green darken-1 modal-trigger" id="sporcu_kayit_buton"
                             href="#sporcu_kayit_modal"><i class="material-icons">add</i></a>Sporcu Kayıt</li>
 
+                    <li><a class="btn-floating purple darken-1 modal-trigger" id="duyuru_buton"
+                            href="#duyuru_modal"><i class="material-icons">notifications</i></a>Duyuru yap</li>
 
                 </ul>
             </div>

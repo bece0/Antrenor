@@ -181,7 +181,7 @@ var sporcu_bilgileri_listele = function() {
             var cevap = response.data;
             var kisisel_bilgi_tablo = `         
                 
-                        <table class="striped amber lighten-4">                     
+                        <table class="striped amber lighten-5">                     
                             <tbody>
                                 <tr>
                                     <td style="text-align:center"><i class="material-icons">account_circle</i></td>
@@ -224,7 +224,7 @@ var sporcu_bilgileri_listele = function() {
             `;
 
             var yay_bilgi_tablo = `      
-                    <table class="striped  amber lighten-4" > 
+                    <table class="striped  amber lighten-5" > 
                             <tbody>
                                 <tr>
                                     <td style="text-align:center"><i class="material-icons"> looks </i></td>
@@ -338,7 +338,7 @@ var sporcu_bilgileri_listele = function() {
             `;
 
             var ok_bilgi_tablo = `
-                    <table class="striped  amber lighten-4" >    
+                    <table class="striped  amber lighten-5" >    
                         <tbody>
 
                             <tr>
