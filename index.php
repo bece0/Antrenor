@@ -120,7 +120,6 @@
                         <th scope="col"> Ad - Soyad</th>
                         <th scope="col">Kategori</th>
                         <th scope="col">Yaş grubu</th>
-                        <th scope="col"></th>
 
                     </tr>
                 </thead>
@@ -177,9 +176,8 @@ var sporculari_getir = function() {
                     var sporcu_listesi = `  <tr onclick="document.location = 'sporcu_sayfasi.php?sporcu=${cevap[i].sporcu_no}';">
                                             <td><img src="files/images/profile3.png" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
                                             <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
-                                            <td>${  cevap[i].kategori  }</td>
-                                            <td>${ cevap[i].yas_grubu}</td>     
-                                            <td><div class="chip ${(cevap[i].detay=="Performans") ? " amber darken-1" : "pink lighten-2"}">${cevap[i].detay}</div></td>     
+                                            <td>${  cevap[i].kategori  }</td> 
+                                            <td>${ cevap[i].yas_grubu}</td>                           
                                         </tr>
                  `;
 
@@ -243,8 +241,7 @@ var arama_yap = function() {
                                                             <td><img src="files/images/profile3.png" style="margin-bottom:5px;border-radius:1000px;width:20%"></td>
                                                             <td>${  cevap[i].ad + " " + cevap[i].soyad }</td>
                                                             <td>${  cevap[i].kategori  }</td>
-                                                            <td>${ cevap[i].yas_grubu}</td>
-                                                            <td><div class="chip ${(cevap[i].detay=="Performans") ? " amber darken-1" : "pink lighten-2"}">${cevap[i].detay}</div></td>     
+                                                            <td>${ cevap[i].yas_grubu}</td>           
                                                         
                                                         </tr>
                                                     
